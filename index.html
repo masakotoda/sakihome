@@ -4,6 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <title>sakilingo</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script type="module" src="script.js"></script>
   <style>
     body {
       padding: 10px;
@@ -12,19 +17,20 @@
     button {
       padding: 3px;
       margin-left: 10px;
+      font-size: 20px;
+    }
+    textarea {
+      width: 100%;
+      font-size: 20px;
+      line-height: 1.5;
     }
   </style>
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <script type="module" src="script.js"></script>
 </head>
 
 <body>
 
   <div>
-    <input id="textInput" type="text" style="width: 600px;" />
+    <textarea id="textInput" rows="3"></textarea><br>
     <button id="micBtn">🎤</button>
     <button id="prevBtn">Prev</button>
     <button id="nextBtn">Next</button>
