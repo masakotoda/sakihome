@@ -105,6 +105,7 @@ fetch('sentences.tsv')
         console.error(err);
     });
 
+    /*
 fetch('sentences.tsv')
     .then(response => {
         if (!response.ok) {
@@ -132,6 +133,7 @@ fetch('sentences.tsv')
         console.error(error);
         document.body.insertAdjacentHTML('beforeend', '<p>Error loading data.</p>');
     });
+    */
 
 
 function updateSentence() {

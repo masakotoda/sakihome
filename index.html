@@ -24,6 +24,9 @@
       font-size: 20px;
       line-height: 1.5;
     }
+    label {
+      font-size: 20px;
+    }
   </style>
 </head>
 
@@ -31,13 +34,13 @@
 
   <div>
     <textarea id="textInput" rows="3"></textarea><br>
+    Next sentence: <label id="nextSentenceLabel"></label> (<label id="japaneseLabel"></label>)<br>
     <button id="micBtn">🎤</button>
     <button id="prevBtn">Prev</button>
     <button id="nextBtn">Next</button>
     <label id="countLabel">Counter: 0</label>
   </div>
   <div>
-    Next sentence: <label id="nextSentenceLabel"></label> (<label id="japaneseLabel"></label>)
   </div>
   <form id="readOutForm">
     <label><input type="radio" name="accent" value="US" checked> American</label>
@@ -49,7 +52,6 @@
   <a href="" target="sakilingoGoogleTTS" rel="noopener noreferrer" id="readOutByGoogle">Read by Google with American
     accent</a>
 
-  <h2>TSV Data</h2>
   <table id="tsvTable"></table>
 
 </body>
