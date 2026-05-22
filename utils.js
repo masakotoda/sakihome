@@ -1,3 +1,5 @@
+import wordsToNumbers from 'https://cdn.jsdelivr.net/npm/@insomnia-dev/words-to-numbers/+esm';
+
 function shuffle(array) {
     const arr = [...array]; // copy to avoid mutating original
 
@@ -55,4 +57,11 @@ function getJapanese(item) {
     return jp;
 }
 
-export { shuffle, initSpeechRecognition, readOut, getGoogleTTSUrl, getEnglish, getJapanese  };
+function normalize(text) {
+    let cleaned = text.replace(/[.,'""]/g, '');
+    cleaned = cleaned.replace('percent', '%');
+    cleaned = wordsToNumbers(cleaned);
+    return cleaned.trim().toLowerCase();
+}
+
+export { shuffle, initSpeechRecognition, readOut, getGoogleTTSUrl, getEnglish, getJapanese, normalize };

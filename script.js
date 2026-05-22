@@ -3,6 +3,7 @@ import * as utils from './utils.js';
 const state = {
     counter: 0,
     sentences: [],
+    currentSentence: null,
     recognition: null
 };
 
@@ -37,6 +38,7 @@ elements.micBtn.addEventListener("click", () => {
 state.recognition.onresult = (event) => {
     const transcript = event.results[0][0].transcript;
     elements.input.value = transcript;
+    checkSentence(transcript, state.currentSentence);
 };
 
 state.recognition.onerror = (event) => {
@@ -64,7 +66,7 @@ elements.readOutForm.addEventListener('submit', (e) => {
 
     const selected = elements.readOutForm.elements['accent'].value;
     console.log("Selected accent:", selected);
-    utils.readOut(nextSentenceLabel.textContent, selected);
+    utils.readOut(elements.nextSentenceLabel.textContent, selected);
 });
 
 
@@ -140,13 +142,25 @@ function updateSentence() {
     console.log(state.sentences[state.counter])
 
     state.recognition.stop();
+    state.currentSentence =  utils.getEnglish(state.sentences[state.counter - 1]);
     elements.input.placeholder = "Click mic and speak...";
     elements.input.value = "";
 
     // elements.nextSentenceLabel.textContent = `${state.sentences[state.counter].sen ?? ""}`;
-    elements.nextSentenceLabel.textContent = utils.getEnglish(state.sentences[state.counter - 1]);
+    elements.nextSentenceLabel.textContent = state.currentSentence;
     elements.japaneseLabel.textContent = utils.getJapanese(state.sentences[state.counter - 1]);
     elements.readOutByGoogleLink.href = utils.getGoogleTTSUrl(elements.nextSentenceLabel.textContent);
 
     elements.countLabel.textContent = `Counter: ${state.counter}`;
+}
+
+function checkSentence(transcript, sentence) {
+    const normalizedTranscript = utils.normalize(transcript);
+    const normalizedSentence = utils.normalize(sentence);
+
+    if (normalizedTranscript === normalizedSentence) {
+        alert("Correct!");
+    } else {
+        alert("Incorrect.");
+    }
 }
