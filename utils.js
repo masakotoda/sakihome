@@ -58,7 +58,7 @@ function getJapanese(item) {
 }
 
 function normalize(text) {
-    let cleaned = text.replace(/[.,'""]/g, '');
+    let cleaned = text.replace(/[\?.,'""]/g, '');
     cleaned = cleaned.replace('percent', '%');
     cleaned = wordsToNumbers(cleaned);
     return cleaned.trim().toLowerCase();
