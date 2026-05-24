@@ -13,6 +13,7 @@ const elements = {
     prevBtn: document.getElementById("prevBtn"),
     nextBtn: document.getElementById("nextBtn"),
     countLabel: document.getElementById("countLabel"),
+    resultLabel: document.getElementById("resultLabel"),
     nextSentenceLabel: document.getElementById("nextSentenceLabel"),
     japaneseLabel: document.getElementById("japaneseLabel"),
     readOutByGoogleLink: document.getElementById("readOutByGoogle"),
@@ -152,6 +153,7 @@ function updateSentence() {
     elements.readOutByGoogleLink.href = utils.getGoogleTTSUrl(elements.nextSentenceLabel.textContent);
 
     elements.countLabel.textContent = `Counter: ${state.counter}`;
+    elements.resultLabel.textContent = "";
 }
 
 function checkSentence(transcript, sentence) {
@@ -159,8 +161,8 @@ function checkSentence(transcript, sentence) {
     const normalizedSentence = utils.normalize(sentence);
 
     if (normalizedTranscript === normalizedSentence) {
-        alert("Correct!");
+        elements.resultLabel.textContent = "Correct!";
     } else {
-        alert("Incorrect.");
+        elements.resultLabel.textContent = "Incorrect.";
     }
 }
