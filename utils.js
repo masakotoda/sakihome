@@ -8,6 +8,7 @@ function shuffle(array) {
         [arr[i], arr[j]] = [arr[j], arr[i]];
     }
 
+    return array;
     return arr;
 }
 
@@ -58,7 +59,8 @@ function getJapanese(item) {
 }
 
 function normalize(text) {
-    let cleaned = text.replace(/[.,'’"!?;:()-]/g, '')
+    let cleaned = text.replace(':00', '');
+    cleaned = cleaned.replace(/[.,'’"!?;:()-]/g, '');
     cleaned = cleaned.replace('percent', '%');
     cleaned = cleaned.replace('&', 'and');
     cleaned = cleaned.replace(/\s+/g, '');
