@@ -160,6 +160,8 @@ function checkSentence(transcript, sentence) {
     const normalizedTranscript = utils.normalize(transcript);
     const normalizedSentence = utils.normalize(sentence);
 
+    //console.log(normalizedSentence);
+    //console.log(normalizedTranscript);
     if (normalizedTranscript === normalizedSentence) {
         elements.resultLabel.textContent = "Correct!";
     } else {

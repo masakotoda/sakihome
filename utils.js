@@ -8,7 +8,7 @@ function shuffle(array) {
         [arr[i], arr[j]] = [arr[j], arr[i]];
     }
 
-    return array;
+    //return array;
     return arr;
 }
 
@@ -63,8 +63,8 @@ function normalize(text) {
     cleaned = cleaned.replace(/[.,'’"!?;:()-]/g, '');
     cleaned = cleaned.replace('percent', '%');
     cleaned = cleaned.replace('&', 'and');
-    cleaned = cleaned.replace(/\s+/g, '');
     cleaned = wordsToNumbers(cleaned);
+    cleaned = cleaned.replace(/\s+/g, '');
     return cleaned.trim().toLowerCase();
 }
 
