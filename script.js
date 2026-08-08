@@ -152,7 +152,7 @@ function updateSentence() {
     elements.japaneseLabel.textContent = utils.getJapanese(state.sentences[state.counter - 1]);
     elements.readOutByGoogleLink.href = utils.getGoogleTTSUrl(elements.nextSentenceLabel.textContent);
 
-    elements.countLabel.textContent = `Counter: ${state.counter}`;
+    elements.countLabel.textContent = `#${state.counter}`;
     elements.resultLabel.textContent = "";
 }
 
