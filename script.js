@@ -17,7 +17,8 @@ const elements = {
     nextSentenceLabel: document.getElementById("nextSentenceLabel"),
     japaneseLabel: document.getElementById("japaneseLabel"),
     readOutByGoogleLink: document.getElementById("readOutByGoogle"),
-    readOutForm: document.getElementById('readOutForm')
+    readOutForm: document.getElementById('readOutForm'),
+    translateBtn: document.getElementById("translateBtn"),
 };
 
 if (location.hostname === 'localhost') {
@@ -36,6 +37,10 @@ elements.micBtn.addEventListener("click", () => {
     elements.input.style.borderColor = "blue";
     elements.input.style.backgroundColor = "lightblue";
     state.recognition.start();
+});
+
+elements.translateBtn.addEventListener("click", () => {
+    elements.japaneseLabel.style.visibility = "visible";
 });
 
 state.recognition.onresult = (event) => {
@@ -158,6 +163,8 @@ function updateSentence() {
     elements.resultLabel.textContent = "";
     elements.input.style.borderColor = "gray";
     elements.input.style.backgroundColor = "white";
+
+    elements.japaneseLabel.style.visibility = "hidden";
 }
 
 function checkSentence(transcript, sentence) {
