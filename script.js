@@ -33,6 +33,8 @@ if (!state.recognition) {
 elements.micBtn.addEventListener("click", () => {
     elements.input.value = "";
     elements.input.placeholder = "Listening...";
+    elements.input.style.borderColor = "blue";
+    elements.input.style.backgroundColor = "lightblue";
     state.recognition.start();
 });
 
@@ -154,6 +156,8 @@ function updateSentence() {
 
     elements.countLabel.textContent = `#${state.counter}`;
     elements.resultLabel.textContent = "";
+    elements.input.style.borderColor = "gray";
+    elements.input.style.backgroundColor = "white";
 }
 
 function checkSentence(transcript, sentence) {
@@ -164,7 +168,11 @@ function checkSentence(transcript, sentence) {
     //console.log(normalizedTranscript);
     if (normalizedTranscript === normalizedSentence) {
         elements.resultLabel.textContent = "Correct!";
+        elements.input.style.borderColor = "green";
+        elements.input.style.backgroundColor = "lightgreen";
     } else {
         elements.resultLabel.textContent = "Incorrect.";
+        elements.input.style.borderColor = "red";
+        elements.input.style.backgroundColor = "lightcoral";
     }
 }
