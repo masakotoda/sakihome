@@ -17,7 +17,7 @@
 
     @media (max-width: 768px) {
       :root {
-        --scale: 1.3;
+        --scale: 1.1;
       }
     }
 
@@ -67,7 +67,9 @@
 <body>
 
   <div>
-    <label id="countLabel">#0</label><textarea readonly id="nextSentenceLabel" rows="3" style="background-color: #EAD1DC;">
+    <label id="countLabel">#0</label>
+
+    <textarea readonly id="nextSentenceLabel" rows="3" style="background-color: #EAD1DC;">
     </textarea>
     <label id="resultLabel" style="display: none;"></label>
 
@@ -85,12 +87,12 @@
     <textarea id="textInput" rows="3"></textarea><br>
   </div>
   <div>
-      <button id="translateBtn" class="small" style="background-color: #EAD1DC;">
-        <img src="images/translate.svg" style="width: 48px; height: 20px;"alt="Japanese">
-      </button>
+    <button id="translateBtn" class="small" style="background-color: #EAD1DC;">
+      <img src="images/translate.svg" style="width: 48px; height: 20px;"alt="Japanese">
+    </button>
     <label id="japaneseLabel"></label>
-
   </div>
+
   <hr>
   <form id="readOutForm">
     <label><input type="radio" name="accent" value="US" checked> <img src="images/flag-us.png" class="flag" alt="American"></label>
@@ -102,6 +104,10 @@
   <a href="" target="sakilingoGoogleTTS" rel="noopener noreferrer" id="readOutByGoogle">
     <!-- Read by Google with American accent -->
   </a>
+
+  <button id="abortMicBtn" class="small" style="background-color: #A64D79;">
+    <img src="images/mic-mute.svg" style="width: 48px; height: 20px;"alt="Abort Mic">
+  </button>
 
   <table id="tsvTable"></table>
 

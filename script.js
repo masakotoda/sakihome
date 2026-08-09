@@ -19,6 +19,7 @@ const elements = {
     readOutByGoogleLink: document.getElementById("readOutByGoogle"),
     readOutForm: document.getElementById('readOutForm'),
     translateBtn: document.getElementById("translateBtn"),
+    abortMicBtn: document.getElementById("abortMicBtn"),
 };
 
 if (location.hostname === 'localhost') {
@@ -41,6 +42,11 @@ elements.micBtn.addEventListener("click", () => {
 
 elements.translateBtn.addEventListener("click", () => {
     elements.japaneseLabel.style.visibility = "visible";
+    elements.japaneseLabel.style.display = "inline"
+});
+
+elements.abortMicBtn.addEventListener("click", () => {
+    state.recognition.abort();
 });
 
 state.recognition.onresult = (event) => {
@@ -165,6 +171,7 @@ function updateSentence() {
     elements.input.style.backgroundColor = "white";
 
     elements.japaneseLabel.style.visibility = "hidden";
+    elements.japaneseLabel.style.display = "none";
 }
 
 function checkSentence(transcript, sentence) {
