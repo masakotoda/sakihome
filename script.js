@@ -117,6 +117,10 @@ fetch('sentences.tsv')
         // Optional: attach to window for inspection
 
         state.sentences = utils.shuffle(data);
+
+        state.counter = 1;
+        updateSentence();
+
     })
     .catch(err => {
         console.error(err);
