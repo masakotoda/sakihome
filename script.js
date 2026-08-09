@@ -122,42 +122,42 @@ fetch('sentences.tsv')
         console.error(err);
     });
 
-    /*
+/*
 fetch('sentences.tsv')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Failed to load TSV file');
-        }
-        return response.text();
-    })
-    .then(text => {
-        const rows = text.trim().split('\n').map(row => row.split('\t'));
-        const table = document.getElementById('tsvTable');
+.then(response => {
+    if (!response.ok) {
+        throw new Error('Failed to load TSV file');
+    }
+    return response.text();
+})
+.then(text => {
+    const rows = text.trim().split('\n').map(row => row.split('\t'));
+    const table = document.getElementById('tsvTable');
 
-        rows.forEach((row, rowIndex) => {
-            const tr = document.createElement('tr');
+    rows.forEach((row, rowIndex) => {
+        const tr = document.createElement('tr');
 
-            row.forEach(cell => {
-                const cellElement = document.createElement(rowIndex === 0 ? 'th' : 'td');
-                cellElement.textContent = cell;
-                tr.appendChild(cellElement);
-            });
-
-            table.appendChild(tr);
+        row.forEach(cell => {
+            const cellElement = document.createElement(rowIndex === 0 ? 'th' : 'td');
+            cellElement.textContent = cell;
+            tr.appendChild(cellElement);
         });
-    })
-    .catch(error => {
-        console.error(error);
-        document.body.insertAdjacentHTML('beforeend', '<p>Error loading data.</p>');
+
+        table.appendChild(tr);
     });
-    */
+})
+.catch(error => {
+    console.error(error);
+    document.body.insertAdjacentHTML('beforeend', '<p>Error loading data.</p>');
+});
+*/
 
 
 function updateSentence() {
     console.log(state.sentences[state.counter])
 
     state.recognition.stop();
-    state.currentSentence =  utils.getEnglish(state.sentences[state.counter - 1]);
+    state.currentSentence = utils.getEnglish(state.sentences[state.counter - 1]);
     elements.input.placeholder = "Click mic and speak...";
     elements.input.value = "";
 
@@ -185,9 +185,22 @@ function checkSentence(transcript, sentence) {
         elements.resultLabel.textContent = "Correct!";
         elements.input.style.borderColor = "green";
         elements.input.style.backgroundColor = "lightgreen";
+
+        showCorrectBubble();
     } else {
         elements.resultLabel.textContent = "Incorrect.";
         elements.input.style.borderColor = "red";
         elements.input.style.backgroundColor = "lightcoral";
     }
+}
+
+function showCorrectBubble() {
+    const bubble = document.getElementById("correctBubble");
+
+    bubble.classList.remove("show");
+
+    // Force the browser to recognize the removal
+    void bubble.offsetWidth;
+
+    bubble.classList.add("show");
 }
