@@ -46,6 +46,7 @@ elements.translateBtn.addEventListener("click", () => {
 });
 
 elements.abortMicBtn.addEventListener("click", () => {
+    state.recognition.start();
     state.recognition.abort();
 });
 
