@@ -27,16 +27,10 @@ if (location.hostname === 'localhost') {
     window.__state = state;
 }
 
-state.recognition = utils.initSpeechRecognition("en-US");
-
-if (!state.recognition) {
-    console.error("Speech recognition not supported");
-}
-
 elements.langSelect.addEventListener("change", (event) => {
     const selectedLanguage = event.target.value;
     console.log("Selected language:", selectedLanguage);
-    loadSentences(selectedLanguage + ".tsv");
+    languageSelected(selectedLanguage);
 });
 
 elements.micBtn.addEventListener("click", () => {
@@ -56,18 +50,6 @@ elements.abortMicBtn.addEventListener("click", () => {
     state.recognition.start();
     state.recognition.abort();
 });
-
-state.recognition.onresult = (event) => {
-    const transcript = event.results[0][0].transcript;
-    elements.input.value = transcript;
-    checkSentence(transcript, state.currentSentence);
-};
-
-state.recognition.onerror = (event) => {
-    //console.error("Speech recognition error:", event.error);
-    elements.input.placeholder = `Speech recognition error: ${event.error}`;
-};
-
 
 elements.prevBtn.addEventListener("click", () => {
     if (state.counter > 1) {
@@ -91,7 +73,44 @@ elements.readOutForm.addEventListener('submit', (e) => {
     utils.readOut(elements.nextSentenceLabel.textContent, selected);
 });
 
-loadSentences("english.tsv");
+languageSelected();
+
+function languageSelected(selectedLanguage = "en-US") {
+
+    loadSentences(selectedLanguage + ".tsv");
+
+    state.recognition = utils.initSpeechRecognition(selectedLanguage);
+    if (!state.recognition) {
+        console.error("Speech recognition not supported");
+    }
+    state.recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        elements.input.value = transcript;
+        checkSentence(transcript, state.currentSentence);
+    };
+    state.recognition.onerror = (event) => {
+        //console.error("Speech recognition error:", event.error);
+        elements.input.placeholder = `Speech recognition error: ${event.error}`;
+    };
+
+    const inputs = elements.readOutForm.querySelectorAll('label');
+    let selected = false;
+    inputs.forEach(input => {
+        const [language, accent] = input.id.split("_");
+        if (language === selectedLanguage) {
+            input.style.display = "inline";
+            if (!selected) {
+                input.querySelector('input').checked = true;
+                selected = true;
+            } else {
+                input.querySelector('input').checked = false;
+            }
+        } else {
+            input.style.display = "none";
+            input.querySelector('input').checked = false;
+        }
+    });
+}
 
 //
 //  sentences.push({ sen: "The quick brown fox jumps over the lazy dog." });
