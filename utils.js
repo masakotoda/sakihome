@@ -29,7 +29,7 @@ function initSpeechRecognition(language = "en-US") {
 
 function readOut(sentence, accent) {
     let utterance = new SpeechSynthesisUtterance(sentence);
-    utterance.lang = `en-${accent}`;
+    utterance.lang = `${accent}`;
     window.speechSynthesis.speak(utterance);
 }
 
