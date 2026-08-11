@@ -12,7 +12,15 @@ function shuffle(array) {
     return arr;
 }
 
-function initSpeechRecognition(language = "en-US") {
+function initSpeechRecognition(language = "english") {
+
+    const languageMap = {
+        "english": "en-US",
+        "french": "fr-FR",
+        "japanese": "ja-JP"
+    };
+    language = languageMap[language] || language;
+
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
     if (!SpeechRecognition) {

@@ -75,7 +75,7 @@ elements.readOutForm.addEventListener('submit', (e) => {
 
 languageSelected();
 
-function languageSelected(selectedLanguage = "en-US") {
+function languageSelected(selectedLanguage = "english") {
 
     loadSentences(selectedLanguage + ".tsv");
 
