@@ -12,7 +12,7 @@ function shuffle(array) {
     return arr;
 }
 
-function initSpeechRecognition() {
+function initSpeechRecognition(language = "en-US") {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
     if (!SpeechRecognition) {
@@ -20,7 +20,7 @@ function initSpeechRecognition() {
         return null;
     } else {
         const recognition = new SpeechRecognition();
-        recognition.lang = "en-US";
+        recognition.lang = language;
         recognition.continuous = false;
         recognition.interimResults = false;
         return recognition;

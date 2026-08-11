@@ -20,17 +20,24 @@ const elements = {
     readOutForm: document.getElementById('readOutForm'),
     translateBtn: document.getElementById("translateBtn"),
     abortMicBtn: document.getElementById("abortMicBtn"),
+    langSelect: document.getElementById("langSelect"),
 };
 
 if (location.hostname === 'localhost') {
     window.__state = state;
 }
 
-state.recognition = utils.initSpeechRecognition();
+state.recognition = utils.initSpeechRecognition("en-US");
 
 if (!state.recognition) {
     console.error("Speech recognition not supported");
 }
+
+elements.langSelect.addEventListener("change", (event) => {
+    const selectedLanguage = event.target.value;
+    console.log("Selected language:", selectedLanguage);
+    loadSentences(selectedLanguage + ".tsv");
+});
 
 elements.micBtn.addEventListener("click", () => {
     elements.input.value = "";
@@ -84,47 +91,50 @@ elements.readOutForm.addEventListener('submit', (e) => {
     utils.readOut(elements.nextSentenceLabel.textContent, selected);
 });
 
+loadSentences("english.tsv");
 
 //
 //  sentences.push({ sen: "The quick brown fox jumps over the lazy dog." });
-fetch('sentences.tsv')
-    .then(res => {
-        if (!res.ok) throw new Error('Failed to load TSV');
+function loadSentences(filename = 'sentences.tsv') {
+    fetch("sentences/" + filename)
+        .then(res => {
+            if (!res.ok) throw new Error('Failed to load TSV');
 
-        return res.text();
-    })
-    .then(text => {
-        const lines = text.trim().split('\n');
+            return res.text();
+        })
+        .then(text => {
+            const lines = text.trim().split('\n');
 
-        // Extract headers
-        const headers = lines[0].split('\t');
+            // Extract headers
+            const headers = lines[0].split('\t');
 
-        // Map rows to objects
-        const data = lines.slice(1).map(line => {
-            const values = line.split('\t');
-            const obj = {};
+            // Map rows to objects
+            const data = lines.slice(1).map(line => {
+                const values = line.split('\t');
+                const obj = {};
 
-            headers.forEach((header, i) => {
-                obj[header.trim()] = values[i] ?? "";
+                headers.forEach((header, i) => {
+                    obj[header.trim()] = values[i] ?? "";
+                });
+
+                return obj;
             });
 
-            return obj;
+            // Result
+            console.log(data);
+
+            // Optional: attach to window for inspection
+
+            state.sentences = utils.shuffle(data);
+
+            state.counter = 1;
+            updateSentence();
+
+        })
+        .catch(err => {
+            console.error(err);
         });
-
-        // Result
-        console.log(data);
-
-        // Optional: attach to window for inspection
-
-        state.sentences = utils.shuffle(data);
-
-        state.counter = 1;
-        updateSentence();
-
-    })
-    .catch(err => {
-        console.error(err);
-    });
+}
 
 /*
 fetch('sentences.tsv')

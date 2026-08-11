@@ -13,7 +13,7 @@ $ git clone https://github.com/masakotoda/sakilingo.git
 $ cd sakilingo
 $ python3 -m http.server
 ```
-2. sentences.tsv をテキストエディタで編集する。
+2. sentencesフォルダ内の .tsv ファイルをテキストエディタで編集する。
 3. Webブラウザで http://localhost:8000 を開く。
 
 ### Note for myself

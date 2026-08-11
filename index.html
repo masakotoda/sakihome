@@ -7,136 +7,42 @@
   <title>sakilingo</title>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script type="module" src="script.js"></script>
-  <style>
-    :root {
-      --scale: 1;
-    }
 
-    @media (max-width: 768px) {
-      :root {
-        --scale: 1.1;
-      }
-    }
-
-    body {
-      font-size: calc(16px * var(--scale));
-      padding: 10px;
-    }
-
-    button {
-      padding: 3px;
-      margin-left: 10px;
-      font-size: 36px;
-      border: 4px solid gray;
-    }
-
-    button.small {
-      padding: 3px;
-      margin-left: 10px;
-      font-size: 24px;
-      border: 4px solid gray;
-    }
-
-    button:focus {
-      border-color: #000;
-    }
-
-    .flag {
-      width: calc(44px * var(--scale));
-      height: calc(44px * var(--scale));
-    }
-
-    textarea {
-      width: 100%;
-      font-size: 20px;
-      line-height: 1.5;
-      border-width: 3px;
-    }
-
-    label {
-      font-size: 20px;
-    }
-
-    .buttons {
-      display: flex;
-    }
-
-    .separated {
-      margin-left: 30px;
-    }
-
-    .bubble {
-      position: fixed;
-      left: 50%;
-      top: 30%;
-      transform: translate(-50%, -50%);
-
-      padding: 12px 24px;
-      border-radius: 20px;
-      background: lightseagreen;
-      color: white;
-      font-size: 20px;
-      font-weight: bold;
-
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .bubble.show {
-      animation: bubbleFade 2.5s ease-in-out forwards;
-    }
-
-    @keyframes bubbleFade {
-      0% {
-        opacity: 0;
-        transform: translate(-50%, -40%);
-      }
-
-      15% {
-        opacity: 1;
-        transform: translate(-50%, -50%);
-      }
-
-      75% {
-        opacity: 1;
-        transform: translate(-50%, -50%);
-      }
-
-      100% {
-        opacity: 0;
-        transform: translate(-50%, -60%);
-      }
-    }
-  </style>
 </head>
 
 <body>
 
   <div>
     <label id="countLabel">#0</label>
+    <select id="langSelect" style="background-color: var(--color4);">
+      <option value="english">English</option>
+      <option value="french">French</option>
+      <option value="japanese">Japanese</option>
+    </select>
 
-    <textarea readonly id="nextSentenceLabel" rows="3" style="background-color: #EAD1DC;">
+    <textarea readonly id="nextSentenceLabel" rows="3" style="background-color: var(--color4);">
     </textarea>
     <label id="resultLabel" style="display: none;"></label>
 
     <div class="buttons">
-      <button id="micBtn" style="background-color: #A64D79;">
+      <button id="micBtn" style="background-color: var(--color1);">
         <img src="images/mic.svg" style="width: 64px; height: 32px;" alt="Mic">
       </button>
-      <button id="prevBtn" style="background-color: #C27BA0;" class="separated">
+      <button id="prevBtn" style="background-color: var(--color2);" class="separated">
         <img src="images/caret-left.svg" style="width: 64px; height: 32px;" alt="Prev">
       </button>
-      <button id="nextBtn" style="background-color: #D5A6BD;">
+      <button id="nextBtn" style="background-color: var(--color3);">
         <img src="images/caret-right.svg" style="width: 64px; height: 32px;" alt="Next">
       </button>
     </div>
     <textarea id="textInput" rows="3"></textarea><br>
   </div>
   <div>
-    <button id="translateBtn" class="small" style="background-color: #EAD1DC;">
+    <button id="translateBtn" class="small" style="background-color: var(--color4);">
       <img src="images/translate.svg" style="width: 48px; height: 20px;" alt="Japanese">
     </button>
     <label id="japaneseLabel"></label>
@@ -150,7 +56,7 @@
         alt="British"></label>
     <label><input type="radio" name="accent" value="AU"> <img src="images/flag-au.png" class="flag"
         alt="Aussie"></label>
-    <button type="submit" class="small" style="background-color: #EAD1DC;"><img src="images/megaphone.svg"
+    <button type="submit" class="small" style="background-color: var(--color4);"><img src="images/megaphone.svg"
         style="width: 48px; height: 20px;" alt="Read"></button>
   </form>
 
@@ -158,7 +64,7 @@
     <!-- Read by Google with American accent -->
   </a>
 
-  <button id="abortMicBtn" class="small" style="background-color: #A64D79;">
+  <button id="abortMicBtn" class="small" style="background-color: var(--color1);">
     <img src="images/mic-mute.svg" style="width: 48px; height: 20px;" alt="Abort Mic">
   </button>
 
