@@ -55,6 +55,13 @@ function getEnglish(item) {
     return "";
 }
 
+function getYomi(item) {
+    if (item.yomi && item.yomi.trim() !== "") {
+        return item.yomi;
+    }
+    return "";
+}
+
 function getJapanese(item) {
     var jp = item.jp || item.ja || item.japanese;
     if (item.syno1 && item.syno1.trim() !== "") {
@@ -76,4 +83,4 @@ function normalize(text) {
     return cleaned.trim().toLowerCase();
 }
 
-export { shuffle, initSpeechRecognition, readOut, getGoogleTTSUrl, getEnglish, getJapanese, normalize };
+export { shuffle, initSpeechRecognition, readOut, getGoogleTTSUrl, getEnglish, getYomi, getJapanese, normalize };

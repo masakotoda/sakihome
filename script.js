@@ -70,7 +70,7 @@ elements.readOutForm.addEventListener('submit', (e) => {
 
     const selected = elements.readOutForm.elements['accent'].value;
     console.log("Selected accent:", selected);
-    utils.readOut(elements.nextSentenceLabel.textContent, selected);
+    utils.readOut(state.currentSentence, selected);
 });
 
 languageSelected();
@@ -195,9 +195,9 @@ function updateSentence() {
     elements.input.value = "";
 
     // elements.nextSentenceLabel.textContent = `${state.sentences[state.counter].sen ?? ""}`;
-    elements.nextSentenceLabel.textContent = state.currentSentence;
+    elements.nextSentenceLabel.textContent = state.currentSentence + utils.getYomi(state.sentences[state.counter - 1]);
     elements.japaneseLabel.textContent = utils.getJapanese(state.sentences[state.counter - 1]);
-    elements.readOutByGoogleLink.href = utils.getGoogleTTSUrl(elements.nextSentenceLabel.textContent);
+    elements.readOutByGoogleLink.href = utils.getGoogleTTSUrl(state.currentSentence);
 
     elements.countLabel.textContent = `#${state.counter}`;
     elements.resultLabel.textContent = "";
