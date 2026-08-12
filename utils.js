@@ -1,4 +1,5 @@
 import wordsToNumbers from 'https://cdn.jsdelivr.net/npm/@insomnia-dev/words-to-numbers/+esm';
+import { toHiragana } from "https://esm.sh/wanakana";
 
 function shuffle(array) {
     const arr = [...array]; // copy to avoid mutating original
@@ -42,7 +43,7 @@ function readOut(sentence, accent) {
 }
 
 function getGoogleTTSUrl(sentence) {
-  return `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(sentence)}&tl=en&client=tw-ob`;
+    return `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(sentence)}&tl=en&client=tw-ob`;
 }
 
 function getEnglish(item) {
@@ -83,4 +84,24 @@ function normalize(text) {
     return cleaned.trim().toLowerCase();
 }
 
-export { shuffle, initSpeechRecognition, readOut, getGoogleTTSUrl, getEnglish, getYomi, getJapanese, normalize };
+function normalizeJapanese(text, tokenizer) {
+
+    const tokens = tokenizer.tokenize(text);
+    // console.log(tokens);
+
+    const result = tokens
+        .map(token => token.reading
+            ? toHiragana(token.reading)
+            : token.surface_form
+        )
+        .join("");
+
+    // console.log(result);
+
+    let cleaned = result.replace(/[.,'’"!?;:()-]/g, '');
+    cleaned = cleaned.replace(/\s+/g, '');
+    cleaned = cleaned.replace(/[。、]/g, '');
+    return cleaned.trim();
+}
+
+export { shuffle, initSpeechRecognition, readOut, getGoogleTTSUrl, getEnglish, getYomi, getJapanese, normalize, normalizeJapanese };

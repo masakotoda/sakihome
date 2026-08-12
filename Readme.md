@@ -17,4 +17,5 @@ $ python3 -m http.server
 3. Webブラウザで http://localhost:8000 を開く。
 
 ### Note for myself
-In VS code, hit Ctrl + Shift + V to preview this "Readme.md".
+* In VS code, hit Ctrl + Shift + V to preview this "Readme.md".
+* Icons were downloaded from https://emojipedia.org/openmoji/17.0 and https://icons.getbootstrap.com

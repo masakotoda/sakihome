@@ -1,10 +1,13 @@
+import { getTokenizer } from "https://esm.sh/kuromojin";
 import * as utils from './utils.js';
 
 const state = {
     counter: 0,
     sentences: [],
     currentSentence: null,
-    recognition: null
+    recognition: null,
+    japaneseTokenizer: null,
+    currentLanguage: "",
 };
 
 const elements = {
@@ -76,6 +79,8 @@ elements.readOutForm.addEventListener('submit', (e) => {
 languageSelected();
 
 function languageSelected(selectedLanguage = "english") {
+
+    state.selectedLanguage = selectedLanguage;
 
     loadSentences(selectedLanguage + ".tsv");
 
@@ -208,9 +213,21 @@ function updateSentence() {
     elements.japaneseLabel.style.display = "none";
 }
 
-function checkSentence(transcript, sentence) {
-    const normalizedTranscript = utils.normalize(transcript);
-    const normalizedSentence = utils.normalize(sentence);
+async function checkSentence(transcript, sentence) {
+    let normalizedTranscript = "";
+    let normalizedSentence = "";
+    if (state.selectedLanguage === "japanese") {
+        if (!state.japaneseTokenizer) {
+            state.japaneseTokenizer = await getTokenizer({
+                dicPath: "https://cdn.jsdelivr.net/npm/kuromoji@0.1.2/dict/"
+            });
+        }
+        normalizedTranscript = utils.normalizeJapanese(transcript, state.japaneseTokenizer);
+        normalizedSentence = utils.normalizeJapanese(sentence, state.japaneseTokenizer);
+    } else {
+        normalizedTranscript = utils.normalize(transcript);
+        normalizedSentence = utils.normalize(sentence);
+    }
 
     //console.log(normalizedSentence);
     //console.log(normalizedTranscript);
