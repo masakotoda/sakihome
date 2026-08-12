@@ -18,7 +18,7 @@
 
   <div>
     <label id="countLabel">#0</label>
-    <select id="langSelect" style="background-color: var(--color4);">
+    <select id="langSelect" style="background-color: var(--color4);" class="separated1">
       <option value="english">English</option>
       <option value="french">French</option>
       <option value="japanese">Japanese</option>
@@ -30,46 +30,49 @@
 
     <div class="buttons">
       <button id="micBtn" style="background-color: var(--color1);">
-        <img src="images/mic.svg" style="width: 64px; height: 32px;" alt="Mic">
+        <img src="images/mic.svg" class="btn1" alt="Mic">
       </button>
-      <button id="prevBtn" style="background-color: var(--color2);" class="separated">
-        <img src="images/caret-left.svg" style="width: 64px; height: 32px;" alt="Prev">
+      <button id="prevBtn" style="background-color: var(--color2);" class="separated2">
+        <img src="images/caret-left.svg" class="btn1" alt="Prev">
       </button>
       <button id="nextBtn" style="background-color: var(--color3);">
-        <img src="images/caret-right.svg" style="width: 64px; height: 32px;" alt="Next">
+        <img src="images/caret-right.svg" class="btn1" alt="Next">
       </button>
     </div>
     <textarea id="textInput" rows="3"></textarea><br>
   </div>
+
   <div>
     <button id="translateBtn" class="small" style="background-color: var(--color4);">
-      <img src="images/translate.svg" style="width: 48px; height: 20px;" alt="Japanese">
+      <img src="images/translate.svg" class="btn2" alt="Japanese">
     </button>
     <label id="japaneseLabel"></label>
   </div>
 
   <hr>
   <form id="readOutForm">
-    <label id="english_US"><input type="radio" name="accent" value="en-US" checked> <img src="images/flag-us.png" class="flag"
+    <label id="english_US"><input type="radio" name="accent" value="en-US"> <img src="images/flag-us.png" class="flag"
         alt="American"></label>
-    <label id="french_FR"><input type="radio" name="accent" value="fr-FR"> <img src="images/flag-fr.png" class="flag"
-        alt="French"></label>
-    <label id="japanese_JP"><input type="radio" name="accent" value="ja-JP"> <img src="images/flag-jp.png" class="flag"
-        alt="Japanese"></label>
     <label id="english_GB"><input type="radio" name="accent" value="en-GB"> <img src="images/flag-uk.png" class="flag"
         alt="British"></label>
     <label id="english_AU"><input type="radio" name="accent" value="en-AU"> <img src="images/flag-au.png" class="flag"
         alt="Aussie"></label>
-    <button type="submit" class="small" style="background-color: var(--color4);"><img src="images/megaphone.svg"
-        style="width: 48px; height: 20px;" alt="Read"></button>
+    <label id="french_FR"><input type="radio" name="accent" value="fr-FR"> <img src="images/flag-fr.png" class="flag"
+        alt="French"></label>
+    <label id="french_CA"><input type="radio" name="accent" value="fr-CA"> <img src="images/flag-ca.png" class="flag"
+        alt="Canadian French"></label>
+    <label id="japanese_JP"><input type="radio" name="accent" value="ja-JP"> <img src="images/flag-jp.png" class="flag"
+        alt="Japanese"></label>
+    <button type="submit" class="small" style="background-color: var(--color4);">
+      <img src="images/megaphone.svg" class="btn2" alt="Read"></button>
   </form>
 
   <a href="" target="sakilingoGoogleTTS" rel="noopener noreferrer" id="readOutByGoogle">
     <!-- Read by Google with American accent -->
   </a>
 
-  <button id="abortMicBtn" class="tiny" style="background-color: var(--color1);">
-    <img src="images/mic-mute.svg" style="width: 16px; height: 16px;" alt="Turn off Mic"> Turn off Mic
+  <button id="turnOffMicBtn" class="tiny" style="background-color: var(--color1);">
+    <img src="images/mic-mute.svg" class="btn3" alt="Turn off Mic"> Turn off Mic
   </button>
 
   <table id="tsvTable"></table>

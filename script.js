@@ -19,7 +19,7 @@ const elements = {
     readOutByGoogleLink: document.getElementById("readOutByGoogle"),
     readOutForm: document.getElementById('readOutForm'),
     translateBtn: document.getElementById("translateBtn"),
-    abortMicBtn: document.getElementById("abortMicBtn"),
+    turnOffMicBtn: document.getElementById("turnOffMicBtn"),
     langSelect: document.getElementById("langSelect"),
 };
 
@@ -46,7 +46,7 @@ elements.translateBtn.addEventListener("click", () => {
     elements.japaneseLabel.style.display = "inline"
 });
 
-elements.abortMicBtn.addEventListener("click", () => {
+elements.turnOffMicBtn.addEventListener("click", () => {
     state.recognition.start();
     state.recognition.abort();
 });
@@ -195,7 +195,7 @@ function updateSentence() {
     elements.input.value = "";
 
     // elements.nextSentenceLabel.textContent = `${state.sentences[state.counter].sen ?? ""}`;
-    elements.nextSentenceLabel.textContent = state.currentSentence + utils.getYomi(state.sentences[state.counter - 1]);
+    elements.nextSentenceLabel.textContent = state.currentSentence + " " + utils.getYomi(state.sentences[state.counter - 1]);
     elements.japaneseLabel.textContent = utils.getJapanese(state.sentences[state.counter - 1]);
     elements.readOutByGoogleLink.href = utils.getGoogleTTSUrl(state.currentSentence);
 
