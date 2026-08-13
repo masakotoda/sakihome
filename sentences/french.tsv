@@ -1,11 +1,11 @@
-1	level	en	syno1	syno2	jp	yomi	sen
-		Bonjour.			Good morning. Hello.		
-		Au revoir.			Good bye.		
-		Bonne nuit.			Good night.		
-		Bonsoir.			Good evening.		
-		Merci.			Thank you.		
-		Excusez-moi.			Excuse me.		
-		Je suis désolé.			I'm sorry.		
-		Merci beaucoup.			Thank you very much.		
-		J'aime les œufs.			I like eggs.		
-		Je suis Gabriel.			I'm  Gabriel.		
+level	en	syno1	syno2	jp	yomi	sen
+				Good morning. Hello.		Bonjour.
+				Good bye.		Au revoir.
+				Good night.		Bonne nuit.
+				Good evening.		Bonsoir.
+				Thank you.		Merci.
+				Excuse me.		Excusez-moi.
+				I'm sorry.		Je suis désolé.
+				Thank you very much.		Merci beaucoup.
+				I like eggs.		J'aime les œufs.
+				I'm  Gabriel.		Je suis Gabriel.

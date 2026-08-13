@@ -1,638 +1,341 @@
-1	level	en	syno1	syno2	jp	yomi	sen	
-2		contingency	incident		不慮の事故		We have to be prepared to deal with contingencies.	read out
-3		contingent on	dependent on		次第である		Success is contingent on one's own efforts.	read out
-5		delegate	representative	envoy	代表者		Delegates from 187 countries met to begin framing a new global warming treaty.	read out
-6		treaty	agreement		条約			
-7		periodical			定期刊行物	ていきかんこうぶつ	The library subscribes to approximately 200 periodicals.	read out
-8		wheelbarrow			手押し車		The man is pushing a wheelbarrow.	read out
-9		wholesale			卸売り		The wholesale is much cheaper than retail.	read out
-10		diner			食事客		The restaurant is almost full of diners.	read out
-11		surplus			黒字		When revenue is higher than spending, the government budget is in surplus.	read out
-12		excerpt	extract		抜粋		This is an excerpt from Shakespeare's novel.	read out
-13		abridged version			簡約版		I read an abridged version of Pride and Prejudice yesterday.	read out
-14		amphibian			両生類		1/3 of the world's amphibian species are in danger of extinction.	read out
-15		liaison	mediator		連絡係		He serves as a liaison between labor and management.	read out
-16	1	remuneration	compensation		報酬		Each participant received $100 as remuneration for participating in the study.	read out
-17		subsidies			補助金		The government is planning to increase solar panel subsidies.	read out
-18		subsidize			補助金を与える		Private schools are subsidized by the government.	read out
-19	1	subside			おさまる		The doctor said the pain would subside in a few days.	read out
-20		alleviate			緩和する		The medicine will alleviate your pain if you take it every day.	read out
-21	1	compliance	obedience		順守		Compliance with the laws is mandatory for all employees.	read out
-22	1	observance			遵守		Observance of human rights is a precondition of democracy.	read out
-23	1	observe			監視する、規則を守る、祝日を祝う		Many countries observe New Year’s Day as a holiday.	read out
-24		remittance			送金		Remittance should be made by either a personal check, bank draft, or money order.	read out
-25		revelation			意外な新事実		This information was a revelation to me.	read out
-26		mandate			権限		The government has a mandate to govern the country.	read out
-27		trustee			理事		She is a member of the university board of trustees.	read out
-28		quota			ノルマ、割り当て		Bonuses are available for those who meet their quotas.	read out
-29	1	concession	compromise		譲歩		No concessions must be made to terrorists.	read out
-30		curve			抑制する		The government should curve its expenditure.	read out
-31		incur			を負う		The auto manufacturer incurred a $10 million loss in the previous quarter.	read out
-32	1	facilitate			促進する		The economic stimulus package will facilitate economic recovery.	read out
-33		foster			促進する		The program aims to foster better communication among staff.	read out
-34	1	undertake			着手する		The company needs to undertake major restructuring of its operation.	read out
-35	1	embark on			着手する		The government is embarking on a major reform of education.	read out
-36		infer			推測している		I inferred from his tone that he didn't like my proposal.	read out
-37		deteriorate			悪化している		The economic situation has been deteriorating worldwide.	read out
-38	1	entail doing	involve doing		を伴う		Owning a car entails spending a lot of money on gas, insurance, maintenance and so on.	read out
-39		withhold			与えずにおく		Some people think that the US should withhold economic aid to the country.	read out
-40		liquidate			解散する		A unanimous vote was taken to liquidate the firm.	read out
-41		liquidation			破産		The insurance company went into liquidation with debts of $2 billion.	read out
-42		commend			褒める		I would like to commend her for her commitment to the company.	read out
-43		streamline			合理化する		We need to streamline operations and maximize productivity.	read out
-44	1	convene	summon		招集する		The meeting was convened to discuss the current economic crisis.	read out
-45	1	solicit	ask for		求める		It is illegal for legislators to solicit gifts from lobbyists.	
-46		invigorate			活性化させる		The city has been looking for ways to invigorate the local economy.	
-47		constitute			構成する		Muslims constitute about 10 percent of the country's population.	
-48		famines			飢饉		Some scientists speculate that global warming may lead to drought, forest fires, and famines.	
-49		comprehensive			包括的な		The two countries have entered into comprehensive peace talks.	
-50		alternate			交互に		The men and women are sitting in alternate seats.	
-51		municipal			地方自治の		The municipal election will be held on July 17.	
-52		dependable			信頼できる		I doubt that the information is dependable.	
-53		challenging			やりがいのある		The music was complex and difficult, but challenging and fun to play.	
-54	1	impending	imminent		近々の		He has announced his impending retirement from politics.	
-55		lucrative			もうかる		This partnership will be very lucrative for both companies.	
-56	1	inclement			荒れ模様の		The flight was cancelled due to inclement weather.	
-57		profound			重大な、意味深い		The experience of war had a profound effect on him.	
-58		interpersonal			対人関係の		Interpersonal skills are essential for this position.	
-59		fiscal			会計の		Most companies' fiscal year starts in April in Japan.	
-60		nominal			ごくわずかの		We can deliver your order for a nominal fee.	
-61		advisable			望ましい		It is advisable to reserve your seats as early as possible.	
-62	1	integral			不可欠な		Collaboration is integral to the success of the project.	
-63		stringent			厳しい		The government introduced more stringent security measures.	
-64		affluent			豊かな		Switzerland is one of the most affluent countries in the world.	
-65	1	adverse			不都合な		The game was called off due to adverse weather conditions.	
-66		adversary			ライバル		Hilary Clinton was Obama's adversary in the Democratic primaries.	
-67		averse to			きらっている		He is averse to taking advice from others.	
-68	1	avert			防ぐ		Countries should take urgent measures to avert the ongoing financial crisis.	
-69	1	deter			防ぐ		Do you think the death penalty deters crime?	
-70	1	deter A from doing			Aに～するのをやめさせる		The global economic crisis has deterred people from spending money.	
-71	1	forbid A from doing			Aに～するのをやめさせる（過去形注意）		Her parents forbade her to see her boyfriend.	
-72	1	hamper			妨げる		The rescue operation was hampered by bad weather.	
-73	1	impede			妨げる		Unfavourable circumstances impede development.	
-74	1	preclude A from doing			Aがするのを妨げる		Bad weather precluded a welcoming ceremony from taking place.	
-75		binding			拘束力のある	こうそくりょくのある	The agreement is legally binding.	
-76		imperative			絶対必要		It is imperative that everyone attend the next meeting.	
-77		redundant			解雇された		About 200 workers were made redundant.	
-78		dismissal			解雇		The factory employees were notified of their dismissal.	
-79		redundancy			解雇		The automaker announced the redundancies of 3000 staff.	
-80	1	conspicuous			目立つ		She was conspicuous by her absence.	
-81		logistics			物流		Logistics costs account for 13-15 percent of the country's GDP.	
-82		telecommunication			長距離通信		Developments in telecommunications have changed our society.	
-83		tribute			敬意		I would like to pay tribute to his remarkable contribution to the project.	
-84	1	inception			発足		Since its inception in 2002, the company has been engaged in over 100 projects.	
-85		artisan			熟練工	じゅくれんこう	Small manufacturers are faced with an acute shortage of skilled artisans.	
-86		bookkeeping			簿記		At least five years experience in bookkeeping is required.	
-87		deliberation			熟慮		After much deliberation, she decided to quit her job.	
-88		lapse			ちょっとした誤り		Anyone can have a lapse of memory.	
-89		proprietor			経営者		He is the proprietor of a real estate company.	
-90		shortcoming			欠点		Everyone has shortcomings and makes mistakes.	
-91		timepiece			時計		The timepiece is powered by the sun.	
-92		affiliate			系列会社		He was transferred to an affiliate of the company.	
-93		affiliation			提携		The hospital has affiliations with many other hospitals.	
-94	1	integrity			誠実な		He is a man of high integrity.	
-95		petition			請願書	せいがんしょ	Over 60 percent of the residents signed a petition against the closure of the local hospital.	
-96	1	allegation			申し立て		She made allegations of sexual harassment against her supervisor.	
-97		litigation			訴訟		The company agreed to the settlement to avoid litigation.	
-98		insurer			保険会社		If you need to make an insurance claim, please contact your insurer directly.	
-99		merit			功績		Promotion should be based on merit, not seniority.	
-100		ordinance			条例		The ordinance raised the height limitation from 30 to 35 feet in all residential district.	
-101		ordinance			条例		The ordinance prohibits smoking in public areas.	
-102		usher			案内がかり		If you arrive late, an usher will lead you to your seat.	
-103		vocation			天職		He found his vocation as a composer after some years spent as a pianist.	
-104		vocational			職業の		The government should promote vocational training to young people.	
-105		influx			流入		The country is faced with an influx of refugees.	
-106		speculator			投機家		The government should prevent speculators from manipulating stock prices.	
-107		feat			偉業		The space station is a remarkable feat of engineering.	
-108		purveyor			供給業者		We are a purveyor of fine women's clothing.	
-109		ripple			さざ波		There are some ripples on the water surface.	
-110		upside			よい面		Is there any upside in starting a new business when the economy is shrinking?	
-111		morale			士気・やる気		The management is concerned about employee morale.	
-112		aptitude			才能		She has a wonderful aptitude for music.	
-113		conglomerate			複合企業		The company is the largest media conglomerate in the world	
-114		setback			後退		The world is facing a serious economic setback.	
-115		tariff			関税		The United States lowered tariffs on Australian beef.	
-116		testimonial			感謝のしるし		I would like to give you a testimonial for your efforts.	
-117		conductor			車掌		The conductor is checking a passenger's ticket.	
-118		deed			行動		There is a contradiction between his words and deeds.	
-119		canteen			水筒		The boy is drinking from a canteen.	
-120		consortium			共同事業体		A consortium of four construction companies built the bridge.	
-121		plaque			記念額		Several plaques are installed on the wall.	
-122		alteration			変更・手直し		The house needs a lot of alteration.	
-123		scrutiny			綿密な調査		The NASA budget will come under scrutiny on Capitol Hill.	
-124		scrutinize			綿密に調べる		Police scrutinized the crime scene.	
-125		Capitol Hill			米国議会			
-126		subordinate			部下		Subordinates must obey supervisors.	
-127	1	refer the dispute to arbitration			紛争を仲裁してもらう		The two companies have agreed to refer the dispute to arbitration.	
-128		predicament			窮地		Many companies are in financial predicament.	
-129		at stake			危機に瀕して		The company's survival is at stake.	
-130		on the verge of 			の寸前で		The company is on the verge of bankruptcy.	
-131		annuity			年金		Under this form of payment, you will receive an annuity of $5000 each year for the rest of your life.	
-132		hemisphere			半球		About 90 percent of the world's population is concentrated in the northern hemisphere.	
-133		zeal			熱意		The prime minister showed great zeal for addressing global warming.	
-134		outlay			支出		With any business there is an initial outlay to get started.	
-135	1	proponent			支持者		She is one of the leading proponents of early childhood education.	
-136		upheaval			大変動		Many nations experienced political upheaval and revolution in the 19th and 20th centuries.	
-137		crease			しわ		To remove creases from velvet, hang it in a steamy bathroom.	
-138		grandeur			雄大さ		I was overwhelmed by the grandeur of the Rocky Mountains.	
-139		heredity			遺伝		Heredity is the most common factor in hair loss.	
-140	1	prospectus			案内書	あんないしょ	Please read the prospectus carefully before you invest.	
-141		pundit			評論家		He is one of the most influential political pundits.	
-142		regime			政権		Saddam Hussein's regime was overthrawn by US forces.	
-143		rubble			がれき		Rescue workers searched the rubble for survivors.	
-144		saturation			飽和・過剰供給		The mobile phone market has almost reached saturation.	
-145		abolish			廃止される		Slavery was abolished in the US in 1865.	
-146	1	exert			行使する		The US exerted pressure on Japan to open the home market to US products.	
-147		offset			相殺された		The decline in domestic production was offset by increase in overseas production.	
-148		underline			強調する		The economist underlined the seriousness of the global recession.	
-149	1	undermine			徐々に衰えさせる		Bank nationalization would undermine confidence in the financial system.	
-150		dwindle			徐々にに減少する		CD sales have dwindled since downloading music became popular.	
-151		abate			やわらぐ		The rain abated and the sun emerged.	
-152		emerge			現れる			
-153		refute			誤りを証明する		I tried to refute his claims.	
-154	1	deplete			激減させる		The company's assets have been depleted.	
-155		relinquish			放棄する		He was forced to relinquish his position as CEO due to illness.	
-156		depose			免職する		The CEO was deposed due to poor leadership.	
-157		disperse			分散させる		Police dispersed the protesters with tear gas.	
-158	1	concede			正しいとしぶしぶ認める		The president conceded that the war in Iraq is not going as well as he had hoped.	
-159		enact			制定する		The city enacted an ordinance that bans the disposal of recyclable items.	
-160		deem			みなされる		As soon as the area is deemed safe, residents can return home.	
-161		induce			引き起こす		This drug can induce side effects including nausea and dizziness.	
-162	1	procure			手に入れる		I have managed to procure tickets to the concert.	
-163		confer			話し合う	はなしあう	He conferred with his attorney about the case.	
-164	1	curtail			削減する		The government should not curtail spending on health care.	
-165		denounce			非難する	ひなんする	Many religious leaders denounced the movie as blasphemous.	
-166		blasphemous			冒とく的な	ぼうとくてきな		
-167		embezzle			横領する		He was charged with embezzling $20,000 from his employer over a three year period.	
-168		deduce			推定する		Scientists deduce that water once flowed on the surface of Mars.	
-169		disciple			弟子		The Last Supper depicts Christ and his 12 disciples.	
-170	1	disseminate			広める		The Internet is the best medium to gather and disseminate information.	
-171		veto			拒否する		The US vetoed a UN Security Council resolution condemning Israel's attacks in Gaza.	
-172		condemn			非難する			
-173		abound			たくさんある		Restaurants and shops abound in the area.	
-174	1	ameliorate			改善する		The union has requested management to ameliorate working conditions.	
-175	1	dispell			一掃する		The minister dispelled the rumor of his resignation.	
-176		evoke			呼び起こす		The photo evoked memories of my childhood.	
-177		exemplify			よい例となる		The painting exemplifies the characteristics of impressionism.	
-178		flounder			低迷する		The domestic car market is floundering due to lack of demand.	
-179		doldrums			停滞状態		The housing market remains in the doldrums.	
-180	1	stagnant			停滞した		Our sales have been stagnant for the past six months.	
-181		standstill			停止		Heavy snow brought traffic to a standstill.	
-182		hatch			企てる		Three men were arrested for hatching a plot to kidnap the son of a wealthy banker.	
-183		fierce			激しい		There is fierce competition among international companies to increase market share.	
-184	1	stenuous			懸命な		She made a strenuous effort to achieve her goal.	
-185		accommodating			親切な		He is accommodating and easy to work with.	
-186		aspiring			野心のある		Los Angeles is full of aspiring actors.	
-187		definitive	authorative		最も信頼できる		This is the definitive biography of Thomas Jefferson.	
-188		inaugural			最初の		The orchestra's inaugural concert will be held this Friday.	
-189		pivotal			中心的な		He played a pivotal role in the negotiations.	
-190		unrivaled			並ぶもののない		She was unrivaled as a ballet dancer at that time.	
-191		preceding			さきの		The population growth in the region was 3.7 percent in the preceding decade.	
-192		bilateral			二国間の		The US and Singapore signed a bilateral free trade agreement in 2003.	
-193		brisk			活況の		When the economy is brisk, everyone feels confident about his or her prospects for the future.	
-194		preparatory			準備の・予備の		Meaningful progress has been made to narrow differences during preparatory meetings.	
-195		provisional			暫定的な・仮の		We regret that we do not accept provisional bookings.	
-196		rational			合理的な		All important decisions must be made through rational arguments.	
-197		prevail			広くいきわたっている、勝つ		Fashion is a prevailing style of dress, hair, and so on.	
-198		prevail in			広がっている		A pessimistic mood prevails in the stock market.	
-199		rigorous			厳格な		Our products are tested according to rigorous safety standards.	
-200		cite			表彰する		She was cited for her exemplary teaching skill.	
-201		exemplary			模範的な			
-202		impassable			通行不能		The road is impassable due to flooding.	
-203		invaluable			非常に貴重な		I gained a lot of invaluable experience during my internship at the company.	
-204		cacti, cactus			さぼてん		Cacti are easy to grow with minimal care.	
-205		unwavering			ゆるぎない		I appreciate your unwavering support.	
-206	1	impartial	unbiased		公平な		Both impartial and unbiased mean not supporting any of the sides involved in an argument.	
-207		sparingly			ひかえめに		Use salt sparingly when cooking.	
-208		unanimously			満場一致で		The proposal was approved unanimously.	
-209		abruptly			突然に		Her contract was abruptly terminated.	
-210		profoundly			深く		The travel industry was profoundly affected by the terrorist attacks.	
-211	1	thriftly	sparingly	frugally	ひかえめ		Both thriftly and sparingly mean saving money and avoiding wasting it.	
-212		rule out			除外・拒否する		Syria has ruled out the resumption of peace talks with Israel.	
-213		resumption			再開			
-214		turn around			好転させる		The new CEO turned the company around in a year.	
-215		bargain with			交渉する		Unions bargained with employers for regular wage increases.	
-216		go in for			参加する		Are you planning to go in for the competition?	
-217		pull together			協力する		We must all pull together to get through this economic crisis.	
-218		culminate in			ついに～となる		The Watergate scandal culminated in the resignation of President Richard Nixon.	
-219		notify of			知らせる		Employees were notified of the layoffs via e-mail.	
-220		prop up against			もたせかける		The bicycle is propped up against a fence.	
-221		dispense			分配する		The volunteers dispensed food and clothing to the disaster victims.	
-222		derive from			～から～を得る		I derive great satisfaction from my work.	
-223		reprimand for			しかる		Her boss reprimanded her for arriving at work late.	
-224		tacit			暗黙の		I interpreted his silence as tacit approval.	
-225		levy			課す		Personal income tax is levied on income earned between January 1 and December 31.	
-226		adorn with			飾る		The Christmas tree was adorned with many ornaments.	
-227		earmark			とっておく		Approximately 6 percent of GDP will be earmarked for education.	
-228	1	commensurate with			ふさわしい		Salary is commensurate with your experience and qualification.	
-229		reconcile with			仲直りする		He wants to be reconciled with his girlfriend.	
-230		immune from			まぬがれる		The officer will be immune from prosecution.	
-231		adept at			うまい		She is very adept at English.	
-232		around the clock			24時間ぶっとおしで		The store is open around the clock.	
-233		out of print			絶版		The book went out of print very quickly.	
-234	1	at no time			決して～ない		At no time was he told about the danger of asbestos.	
-235	1	in no time			すぐに		He solved the math problem in no time.	
-236		on one's hands and knees			よつんばいになる		The woman is on her hands and knees.	
-237		out of commission			使用不能の		My car is currently out of commission.	
-238		all told			合計で		There were 40 participants, all told.	
-239		at a stretch			たてつづけに		She worked for 14 hours at a stretch.	
-240	1	on end			続けて		It's been raining for days on end.	
-241		successive			連続する		The politician has won three successive elections.	
-242		on offer			売りに出されている		A wide range of famous brands are on offer at reduced prices.	
-242		aggravate			悪化させる		Consumption of a huge amount fossil fuels has aggravated global warming.	
-243		excursion			遠足		There will be a whole school excursion on April 8.	
-244		output			生産高		Most car companies plan to decrease their car output next year.	
-245		remark			発言		The foreign minister apologize for his remarks about race.	
-246		correspondent			特派員		The newspaper has five correspondents.	
-247		correspondance			通信文			
-248		commission			手数料		He gets a 25 percent commission on his sales.	
-249		deficit			赤字		The company went bankrupt with a deficit of approximately $2 million.	
-250	1	undergo			経験する		The world economy is undergoing a serious recession.	
-251	1	mount			実施する		The residents in the area are mounting a protest against the construction of the building.	
-252	1	stage			実施する		The union will stage a trike tomorrow.	
-253	1	prominent			著名な		Mr. Dawson is a prominent business leader.	
-254		diligent			勤勉な		Sarah is very diligent in her work.	
-255		prosperous	thriving		繫栄している	はんえいしている	Sweden is one of the most prosperous countries in the world.	
-256		distinguished			優れた		He was awarded a prize for his distinguished achievements in the field of journalism.	
-257		utmost			最大の		He has the utmost respect for Abraham Lincoln.	
-258		counterpart			相当するもの		This Japanese word has no counterpart in English.	
-259		deregulation			規制緩和		More than 100 carriers have gone bankrupt since deregulation.	
-260		courtesy			好意		Twenty Chinese students were invited to Japan by courtesy of the airline.	
-261		circulation			発行部数		The magazine has a circulation of 200,000.	
-262	1	profile			注目度		We have to increase our company's profile in China.	
-263		endeavor			努力		We have to make our best endeavor to preserve the environment.	
-264	1	proceeding			議事録		He looked through the proceedings of the annual conference	
-265	1	convey			伝える、運ぶ		If you see Paul, please convey my regards to him.	
-266	1	commence			開始する		The factory will commence production early next year.	
-267		boast			誇りにしている		The city boasts beautiful beaches.	
-268		prolong			延長する		He decided to prolong his stay in Tokyo for another week.	
-269		plow			すきで耕す		Some people are plowing the land.	
-270		salute			敬礼する		They're saluting the US flag.	
-271		assert			断言する		She asserts that he stole money from her.	
-272		tap			開発する		The area has the potential to tap solar energy.	
-273		overtake			追い越す		It is said that India will overtake China in population.	
-274		elaborate			精巧な		Elaborate ornamentation is characteristic of the Victorian style.	
-275		abundant			豊富な		There is abundant evidence for the past presence of water on Mars.	
-276		compulsory			義務的な		Attendance at the seminar is compulsory.	
-277		concerned			関与している		The closure of the factory was a shock to all concerned.	
-278		industrious			勤勉な		He is competent and industrious.	
-279	1	prominently			目立つように		Family photographs were prominently displayed in his house.	
-280		refrain from	abstain from		差し控える		Please refrain from using cellphones.	
-281		come down with			かかる		Unfortunately, he has come down with the flu.	
-282		abide by			従う		Every member company must abide by the code of ethics.	
-283		make out			を作成する		To donate money, please make out a check to the Red Cross.	
-284		look to			頼る		The world is looking to America to solve the economic crisis.	
-285		turn to			求める		You can always turn to me for help.	
-286		live up to			応える		The movie lived up to my expectations.	
-287		attend to			処理する		We should attend to the problem immediately.	
-287		by no means	far from		決して～ではない			
-287		no doubt	probably		おそらく、疑いなく			
-288		put A through to B			Aの電話をBにつなぐ		Could you put me through to the sales department?	
-289	1	commit A to B			AをBに委託する		The property was committed to his care.	
-290		appropriate A for B			AをBのために充てる		Approximately $500 billion is appropriated for defense programs annually.	
-291		load A with B			AにBを積む		They are loading the truck with furniture.	
-292		clear A of B			AからBを取り除く		The man is clearing the road of snow.	
-293		relieve A of B			AからBを取り除く		They are seeking ways to relieve the company of its massive debt.	
-294		resolve to do			しようと決心する		She resolved to dedicate the rest of her life to charity work.	
-295		regret to do			残念ながら～する		We regret to tell you that the product you ordered is temporarily out of stock.	
-296		regret doing			したことを後悔する		I regret not telling her I loved her.	
-297		scramble to do			しようと先を争う		Shoppers were scrambling to buy gifts.	
-298		plead with A to do			Aにしてくれと訴える		He pleaded with his wife to come back.	
-299		compel A to do			Aに無理やりさせる		The law compels parents to send their children to schools between the ages of 6 and 12.	
-299		confine A to B			AをBに制限する		The use of controlled drugs is confined to medical and scientific purposes.	
-300		be instrumental in			役立っている		The new traffic laws have been instrumental in reducing the number of traffic accidents.	
-301		be keen on			熱中している		My father is keen on golf.	
-302		be sited on			位置する		The company's head office is sited in Paris.	
-303		be apt to do			しがちである		Children are apt to imitate the attitudes of their parents.	
-304		be liable to do			しがちである、法的責任がある		People are liable to repeat the same mistakes.	
-305	1	be slated to do			する予定である		The amusement park is slated to open this summer.	
-306		be poised to do			する用意ができている		He is poised to take over the family business.	
-307		have yet to do			まだしていない		The city council has yet to make a decision on the issue.	
-308		make one's way			進む		She made her way through the crowd to the store entrance.	
-309	1	be fussy about	be particular about				Fussy about means Particular about.	
-310	1	be comprised of	consist of				Be comprised of means Consist of.	
-311		by far			ずば抜けて		Nancy is by far the most intelligent student in the class.	
-312		for a change			たまには		It's nice to read an optimistic article for a change.	
-313	1	much less	let alone		まして、ではない		She can't make a sandwich, much less cook a meal.	
-314		at any price			どんな犠牲を払ってでも		We must maintain the peace at any price.	
-315		at the expense of			犠牲にして		He pursued his career at the expense of his family.	
-316		by leaps and bounds			飛躍的に		The population of Internet users has grown by leaps and bounds.	
-317		in force			有効で		The patent is in force until 2030.	
-318	1	in light of			考慮して		We need to revise the policy in light of feedback from users.	
-319	1	in keeping with	in accordance with		に従って		In keeping with tradition, players are required to wear all white tennis clothes.	
-320		for want of			不足のために		The building of the mall has been stopped for want of funds.	
-321	1	succinct	concise				Both succinct and concise mean briefly and clearly expressed.	
-322	1	indispensable	essential				Both indispensable and essential mean absolutely necessary.	
-323		windowpane			窓ガラス			
-324		windowsill			窓下枠			
-325		stool			背もたれのない椅子			
-326	1	vase			花瓶（英・豪の発音注意）			
-327		podium			演壇			
-328		instrument			楽器			
-329		doorway			戸口			
-330		hallway	corridor		廊下、通路			
-331		pillar	column		柱			
-332	1	cupboard			食器棚（発音注意）		The cupboard door has been opened.	
-333		produce			農産物			
-334		groceries			食料品			
-335	1	crate			運搬用のケース			
-336		square	plaza		広場			
-337	1	archway			アーチ形の入り口	あーちがたのいりぐち		
-338		courtyard			中庭			
-339		patio			テラス			
-340		canopy			テント、日よけ			
-341		awning			日よけ			
-342		spectator			観客			
-343		sidewalk	pavement		歩道			
-344		curb			縁石			
-345	1	lamppost			街灯柱	がいとうちゅう	He had hit a lamppost when he lost control of the van.	
-346	1	broom			ほうき			
-347	1	scaffolding			工事現場の足場		We'll need to add more scaffolding to make it safe.	
-348		body of water			川、海、湖			
-349		ship	vessel		船			
-350		dock 			船着き場			
-351		pier			桟橋			
-352		attendant / attendee / attendance			案内係、出席者、出席			
-353		occupant / occupation / occupancy			入居者、職業、稼働率			
-354	1	recruiter / recruit / recruitment			採用担当者、新入社員、採用			
-355	1	production facility			生産施設			
-356	1	distribution center			物流センター			
-357	1	opt to do			することを選ぶ			
-358	1	strive to do			しようと努める			
-359	1	anticipate doing			することを予期する			
-360	1	owing to	on account of		～が原因で			
-361	1	notwithstanding	regardless of		にもかかわらず、に関係なく			
-362	1	in contrast to			と対照的に			
-363	1	as opposed to, contrary to			反して			
-364	1	as with			同様に			
-365	1	apart from, aside from			を別にして			
-366	1	other than			のほかには			
-368	1	in regard to, in terms of			に関して			
-369	1	subsequent to, following			の後に続いて			
-370	1	now that			今や～なので			
-371	1	provided that, on condition that			を条件として			
-372	1	contribute			貢献する、寄付する、寄稿する		Ten scientists contributed to the special edition of the journal.	
-373	1	contribute to			～の一因となる		Smoking contributed to his early death.	
-374	1	function			機能、役割、行事、機能する			
-375	1	make it			都合がつく、間に合う、なんとかうまくいく			
-376	1	outstanding			優れた、未払いの			
-377	1	reservation			予約、懸念		I have no reservations about hiring him.	
-378	1	term			条件、期間、用語、他社との間柄			
-379	1	supposition	assumption					
-380	1	immense	enormous		巨大な			
-381	1	shrew			敏腕な		He is a shrewed and resourceful manager.	
-382	1	trade conflict			貿易摩擦			
-383	1	forge			結ぶ		The two companies forged a strategic alliance last year.	
-384	1	lessen			緩和する		Strengthening trade ties will lessen international tensions.	
-385	1	new listing			新規上場		There was a sizable increase in new listings.	
-386	1	conceive			思いつく			
-387	1	get by			やりくりする			
-388	1	makeshift			その場しのぎの			
-389	1	Were there			発音注意			
-390	1	I heard vs. I had			発音注意			
-391	1	plaintiff			原告		The plaintiff claimed damages for the financial losses suffered through breach of copyright.	
-392	1	peace accord			和平合意			
-700		filing cabinet						
-701		desk drawer						
-702		office equipment						
-703		workstation						
-704		bulletin board	notice board					
-705		microscope						
-706		garbage bin						
-707		window shade						
-708		potted plant						
-709		easel						
-710		artwork						
-711		staircase						
-712		microwave oven						
-713		refrigerator						
-714		pots and pans						
-715		lid						
-716		dish	plate					
-717		tableware						
-718		silverware	cutlery					
-719		shopper						
-720		cashier						
-721		diner						
-722		server						
-723		merchandise						
-724		garment						
-725		container						
-726		cardboard box						
-727		fountain						
-728		railing						
-729		structure						
-730		brick wall						
-731		pedestrian						
-732		motorist						
-733		bicyclist						
-734		passenger						
-735		vehicle						
-736		automobile						
-737		intersection						
-738		traffic light						
-739		traffic signal						
-740		stoplight						
-741		walkway						
-742		crosswalk						
-743		path						
-744		driveway						
-745		garage						
-746		parking lot						
-747		ladder						
-748		lawnmower						
-749		wheelbarrow						
-750		heavy machinery						
-751		lighthouse						
-752		applicant / application						
-753		assistant / assistance						
-754		participant / participation						
-755		resident / residence						
-756		respondant / response						
-757		publisher / publication						
-758		subscriber / subscription						
-759		producer / production						
-760		presenter / presentation						
-761		lecturer / lecture						
-762		diner / dining						
-763		trainer / trainee / training						
-764		interviewer / interviewee / interview						
-765		employer / employee / employment						
-766		manager / management						
-767		director / direction / directory						
-768		supervisor / supervision						
-769		instructor / instruction						
-770		inspector / inspection						
-771		distributor / distribution						
-772		representative / representation						
-773		expert / expertise						
-774		professional / profession / professionalism						
-775		art exhibition						
-776		customer satisfaction						
-777		consumer preference						
-778		survey response						
-779		price reduction						
-780		admission fee						
-781		payment option						
-782		lease agreement						
-783		investment plan						
-784		business expansion						
-785		job opening						
-786		application form						
-787		qualification requirement						
-788		employment contract						
-789		hiring policy						
-790		career advancement						
-791		performance evaluation						
-792		photo identification						
-793		insurance coverage						
-794		cost estimate						
-795		construction site						
-796		completion date						
-797		renovation project						
-798		sales representative						
-799		maketing strategy						
-800		product innovation						
-801		safety inspection						
-802		instruction manual						
-803		apartment complex						
-804		parking permit						
-805		wish to do						
-806		hope to do						
-807		desire to do						
-808		aspire to do						
-809		expect to do						
-810		plan to do						
-811		aim to do						
-812		prepare to do						
-813		arrange to do						
-814		promise to do						
-815		offer to do						
-816		decide to do						
-817		choose to do						
-818		agree to do						
-819		attempt to do						
-820		seek to do						
-821		tend to do						
-822		hesitate to do						
-823		refuse to do						
-824		decline to do						
-825		fail to do						
-826		finish doing						
-827		quit doing						
-828		stop doing						
-829		keep on doing						
-830		enjoy doing						
-831		imagine doing						
-832		consider doing						
-833		recommend doing						
-834		suggest doing						
-835		appreciate doing						
-836		delay doing						
-837		postpone doing						
-838		avoid doing						
-839		mind doing						
-840		prohibit doing						
-841		thanks to						
-842		as a result of						
-843		in addition to						
-844		as well as						
-845		along with, together with						
-846		such as						
-847		except for						
-848		rather than						
-849		instead of, in place of						
-850		on behalf of						
-851		in case of, in the event of						
-852		prior to						
-853		as of						
-854		for the purpose of						
-855		so that, in order that						
-856		while, whereas			の一方で			
-857		assuming that			と仮定すれば			
-858		unless			でない限り			
-1000		I'm not sure about that.						
-1001		I'm not certain about that.						
-1002		I haven't heard anything.						
-1003		It hasn't been decided yet.						
-1004		It hasn't been announced yet.						
-1005		I'm still waiting to hear.						
-1006		I've only just arrived.						
-1007		I was at the meeting all day.						
-1008		I just got back from vacation.						
-1009		I just started working here.						
-1010		I don't work here.						
-1011		I'm new in this town.						
-1012		Check with the manager.						
-1013		You'd better ask Mr. Lee.						
-1014		Ms. Patel should know.						
-1015		Brenda is in charge of that.						
-1016		Jeff made all the arrangements.						
-1017		It's posted on the Web site.						
-1018		Let me show you the schedule.						
-1019		There's a map on the wall.						
-1020		Here's the instruction manual.						
-1021		Didn't you read the memo or email?						
-1022		Be sure to do.						
-1023		I'd like to remind you to do.						
-1024		Remember to do.						
-1025		Don't forget to do.						
-1026		Please do.						
-1027		I want you to do.						
-1028		I'd like you to do.						
-1029		Could you do?						
-1030		Would you do?						
-1031		Do you mind doing?						
-1032		Would you mind doing?						
-1033		I was wondering if you could do.						
-1034		I was hoping that you could do.						
-1035		I'd appreciate if you could do.						
-1036		It would be helpful if you could do.						
-1037		I think you should do.						
-1038		It might be a good idea to do.						
-1039		You might want to do.						
-1040		You'd better do						
-1041		I'd suggest doing.						
-1042		I'd recommend doing.						
-1043		I encourage you to do.						
-1044		Why don't you do?						
-1045		How about doing?						
-1046		What about doing?						
-1047		Let's do.						
-1048		We could do.						
-1049		Should we do?						
-1050		Shall we do?						
-1051		Why don't we do?						
-1052		I''do for you.						
-1053		Let me do.						
-1054		I can do.						
-1055		I could do.						
-1056		I'd happy to do.						
-1057		Should I do?						
-1058		Shall I do?						
-1059		Why don't I do?						
-1060		Do you want me to do?						
-1061		Would you like me to do?						
-1062		Could I do?						
-1063		May I do?						
-1064		Is it OK if I do?						
-1065		Is it all right if I do?						
-1066		Do you mind if I do?						
-1067		Would you mind if I did?						
-4	1	contingent	Column 1	Column 2	代表団	Column 3	The contingent consists of managers of the country's major companies.	
-		argurably			おそらく、間違いなく			
-		garner attention			注目を集める			
-		sleuth	detective		探偵		An internet sleuth traced the location using clues from social media.	
-		topiary			トピアリー			
-		tactile			触覚の、触知できる			
-		Touche	Good point	Agreed				
-		antidote			解毒剤		There is no antidote to this poison.	
-		tyranny			専制政治、暴政		My mother divorced my father after enduring twenty years of tyranny.	
-		espionage			スパイ活動		She was arrested for espionage during a covert operation.	
-		covert operation			秘密作戦		Sneaking snacks into the movie felt like a covert operation.	
-		corrosive 			腐食性の		Saltwater has a corrosive effect on unprotected metal surfaces.	
-		corrosive			そのスキャンダルは人々の信頼を損なった		The scandal had a corrosive effect on public trust.	
-		dissent			異議		Political dissent would no longer be tolerated.	
-		viscosity			粘性		Oil has a higher viscosity than water, making it flow slower.	
-		cuckold			妻が夫に不貞を働く		She decided to cuckold her husband with his business partner.	
-		fraternity			男子学生の社交クラブ		He joined a fraternity during his first year at college to make new friends.	
+level	en	syno1	syno2	jp	yomi	sen	type
+				contingency=incident=不慮の事故		We have to be prepared to deal with contingencies.	
+				contingent on=dependent on=次第である		Success is contingent on one's own efforts.	
+				delegate=representative=envoy=代表者		Delegates from 187 countries met to begin framing a new global warming treaty.	
+				agreement=条約		treaty	w
+				periodical=定期刊行物		The library subscribes to approximately 200 periodicals.	
+				wheelbarrow=手押し車		The man is pushing a wheelbarrow.	
+				wholesale=卸売り		The wholesale is much cheaper than retail.	
+				diner=食事客		The restaurant is almost full of diners.	
+				surplus=黒字		When revenue is higher than spending, the government budget is in surplus.	
+				excerpt=extract=抜粋		This is an excerpt from Shakespeare's novel.	
+				abridged version=簡約版		I read an abridged version of Pride and Prejudice yesterday.	
+				amphibian=両生類		1/3 of the world's amphibian species are in danger of extinction.	
+				liaison=mediator=連絡係		He serves as a liaison between labor and management.	
+1				remuneration=compensation=報酬		Each participant received $100 as remuneration for participating in the study.	
+				subsidies=補助金		The government is planning to increase solar panel subsidies.	
+				subsidize=補助金を与える		Private schools are subsidized by the government.	
+1				subside=おさまる		The doctor said the pain would subside in a few days.	
+				alleviate=緩和する		The medicine will alleviate your pain if you take it every day.	
+1				compliance=obedience=順守		Compliance with the laws is mandatory for all employees.	
+1				observance=遵守		Observance of human rights is a precondition of democracy.	
+1				observe=監視する、規則を守る、祝日を祝う		Many countries observe New Year’s Day as a holiday.	
+				remittance=送金		Remittance should be made by either a personal check, bank draft, or money order.	
+				revelation=意外な新事実		This information was a revelation to me.	
+				mandate=権限		The government has a mandate to govern the country.	
+				trustee=理事		She is a member of the university board of trustees.	
+				quota=ノルマ、割り当て		Bonuses are available for those who meet their quotas.	
+1				concession=compromise=譲歩		No concessions must be made to terrorists.	
+				curve=抑制する		The government should curve its expenditure.	
+				incur=を負う		The auto manufacturer incurred a $10 million loss in the previous quarter.	
+1				facilitate=促進する		The economic stimulus package will facilitate economic recovery.	
+				foster=促進する		The program aims to foster better communication among staff.	
+1				undertake=着手する		The company needs to undertake major restructuring of its operation.	
+1				embark on=着手する		The government is embarking on a major reform of education.	
+				infer=推測している		I inferred from his tone that he didn't like my proposal.	
+				deteriorate=悪化している		The economic situation has been deteriorating worldwide.	
+1				entail doing=involve doing=を伴う		Owning a car entails spending a lot of money on gas, insurance, maintenance and so on.	
+				withhold=与えずにおく		Some people think that the US should withhold economic aid to the country.	
+				liquidate=解散する		A unanimous vote was taken to liquidate the firm.	
+				liquidation=破産		The insurance company went into liquidation with debts of $2 billion.	
+				commend=褒める		I would like to commend her for her commitment to the company.	
+				streamline=合理化する		We need to streamline operations and maximize productivity.	
+1				convene=summon=招集する		The meeting was convened to discuss the current economic crisis.	
+1				solicit=ask for=求める		It is illegal for legislators to solicit gifts from lobbyists.	
+				invigorate=活性化させる		The city has been looking for ways to invigorate the local economy.	
+				constitute=構成する		Muslims constitute about 10 percent of the country's population.	
+				famines=飢饉		Some scientists speculate that global warming may lead to drought, forest fires, and famines.	
+				comprehensive=包括的な		The two countries have entered into comprehensive peace talks.	
+				alternate=交互に		The men and women are sitting in alternate seats.	
+				municipal=地方自治の		The municipal election will be held on July 17.	
+				dependable=信頼できる		I doubt that the information is dependable.	
+				challenging=やりがいのある		The music was complex and difficult, but challenging and fun to play.	
+1				impending=imminent=近々の		He has announced his impending retirement from politics.	
+				lucrative=もうかる		This partnership will be very lucrative for both companies.	
+1				inclement=荒れ模様の		The flight was cancelled due to inclement weather.	
+				profound=重大な、意味深い		The experience of war had a profound effect on him.	
+				interpersonal=対人関係の		Interpersonal skills are essential for this position.	
+				fiscal=会計の		Most companies' fiscal year starts in April in Japan.	
+				nominal=ごくわずかの		We can deliver your order for a nominal fee.	
+				advisable=望ましい		It is advisable to reserve your seats as early as possible.	
+1				integral=不可欠な		Collaboration is integral to the success of the project.	
+				stringent=厳しい		The government introduced more stringent security measures.	
+				affluent=豊かな		Switzerland is one of the most affluent countries in the world.	
+1				adverse=不都合な		The game was called off due to adverse weather conditions.	
+				adversary=ライバル		Hilary Clinton was Obama's adversary in the Democratic primaries.	
+				averse to=きらっている		He is averse to taking advice from others.	
+1				avert=防ぐ		Countries should take urgent measures to avert the ongoing financial crisis.	
+1				deter=防ぐ		Do you think the death penalty deters crime?	
+1				deter A from doing=Aに～するのをやめさせる		The global economic crisis has deterred people from spending money.	
+1				forbid A from doing=Aに～するのをやめさせる（過去形注意）		Her parents forbade her to see her boyfriend.	
+1				hamper=妨げる		The rescue operation was hampered by bad weather.	
+1				impede=妨げる		Unfavourable circumstances impede development.	
+1				preclude A from doing=Aがするのを妨げる		Bad weather precluded a welcoming ceremony from taking place.	
+				binding=拘束力のある		The agreement is legally binding.	
+				imperative=絶対必要		It is imperative that everyone attend the next meeting.	
+				redundant=解雇された		About 200 workers were made redundant.	
+				dismissal=解雇		The factory employees were notified of their dismissal.	
+				redundancy=解雇		The automaker announced the redundancies of 3000 staff.	
+1				conspicuous=目立つ		She was conspicuous by her absence.	
+				logistics=物流		Logistics costs account for 13-15 percent of the country's GDP.	
+				telecommunication=長距離通信		Developments in telecommunications have changed our society.	
+				tribute=敬意		I would like to pay tribute to his remarkable contribution to the project.	
+1				inception=発足		Since its inception in 2002, the company has been engaged in over 100 projects.	
+				artisan=熟練工		Small manufacturers are faced with an acute shortage of skilled artisans.	
+				bookkeeping=簿記		At least five years experience in bookkeeping is required.	
+				deliberation=熟慮		After much deliberation, she decided to quit her job.	
+				lapse=ちょっとした誤り		Anyone can have a lapse of memory.	
+				proprietor=経営者		He is the proprietor of a real estate company.	
+				shortcoming=欠点		Everyone has shortcomings and makes mistakes.	
+				timepiece=時計		The timepiece is powered by the sun.	
+				affiliate=系列会社		He was transferred to an affiliate of the company.	
+				affiliation=提携		The hospital has affiliations with many other hospitals.	
+1				integrity=誠実な		He is a man of high integrity.	
+				petition=請願書		Over 60 percent of the residents signed a petition against the closure of the local hospital.	
+1				allegation=申し立て		She made allegations of sexual harassment against her supervisor.	
+				litigation=訴訟		The company agreed to the settlement to avoid litigation.	
+				insurer=保険会社		If you need to make an insurance claim, please contact your insurer directly.	
+				merit=功績		Promotion should be based on merit, not seniority.	
+				ordinance=条例		The ordinance raised the height limitation from 30 to 35 feet in all residential district.	
+				ordinance=条例		The ordinance prohibits smoking in public areas.	
+				usher=案内がかり		If you arrive late, an usher will lead you to your seat.	
+				vocation=天職		He found his vocation as a composer after some years spent as a pianist.	
+				vocational=職業の		The government should promote vocational training to young people.	
+				influx=流入		The country is faced with an influx of refugees.	
+				speculator=投機家		The government should prevent speculators from manipulating stock prices.	
+				feat=偉業		The space station is a remarkable feat of engineering.	
+				purveyor=供給業者		We are a purveyor of fine women's clothing.	
+				ripple=さざ波		There are some ripples on the water surface.	
+				upside=よい面		Is there any upside in starting a new business when the economy is shrinking?	
+				morale=士気・やる気		The management is concerned about employee morale.	
+				aptitude=才能		She has a wonderful aptitude for music.	
+				conglomerate=複合企業		The company is the largest media conglomerate in the world	
+				setback=後退		The world is facing a serious economic setback.	
+				tariff=関税		The United States lowered tariffs on Australian beef.	
+				testimonial=感謝のしるし		I would like to give you a testimonial for your efforts.	
+				conductor=車掌		The conductor is checking a passenger's ticket.	
+				deed=行動		There is a contradiction between his words and deeds.	
+				canteen=水筒		The boy is drinking from a canteen.	
+				consortium=共同事業体		A consortium of four construction companies built the bridge.	
+				plaque=記念額		Several plaques are installed on the wall.	
+				alteration=変更・手直し		The house needs a lot of alteration.	
+				scrutiny=綿密な調査		The NASA budget will come under scrutiny on Capitol Hill.	
+				scrutinize=綿密に調べる		Police scrutinized the crime scene.	
+				米国議会		Capitol Hill	w
+				subordinate=部下		Subordinates must obey supervisors.	
+1				refer the dispute to arbitration=紛争を仲裁してもらう		The two companies have agreed to refer the dispute to arbitration.	
+				predicament=窮地		Many companies are in financial predicament.	
+				at stake=危機に瀕して		The company's survival is at stake.	
+				on the verge of =の寸前で		The company is on the verge of bankruptcy.	
+				annuity=年金		Under this form of payment, you will receive an annuity of $5000 each year for the rest of your life.	
+				hemisphere=半球		About 90 percent of the world's population is concentrated in the northern hemisphere.	
+				zeal=熱意		The prime minister showed great zeal for addressing global warming.	
+				outlay=支出		With any business there is an initial outlay to get started.	
+1				proponent=支持者		She is one of the leading proponents of early childhood education.	
+				upheaval=大変動		Many nations experienced political upheaval and revolution in the 19th and 20th centuries.	
+				crease=しわ		To remove creases from velvet, hang it in a steamy bathroom.	
+				grandeur=雄大さ		I was overwhelmed by the grandeur of the Rocky Mountains.	
+				heredity=遺伝		Heredity is the most common factor in hair loss.	
+1				prospectus=案内書		Please read the prospectus carefully before you invest.	
+				pundit=評論家		He is one of the most influential political pundits.	
+				regime=政権		Saddam Hussein's regime was overthrawn by US forces.	
+				rubble=がれき		Rescue workers searched the rubble for survivors.	
+				saturation=飽和・過剰供給		The mobile phone market has almost reached saturation.	
+				abolish=廃止される		Slavery was abolished in the US in 1865.	
+1				exert=行使する		The US exerted pressure on Japan to open the home market to US products.	
+				offset=相殺された		The decline in domestic production was offset by increase in overseas production.	
+				underline=強調する		The economist underlined the seriousness of the global recession.	
+1				undermine=徐々に衰えさせる		Bank nationalization would undermine confidence in the financial system.	
+				dwindle=徐々にに減少する		CD sales have dwindled since downloading music became popular.	
+				abate=やわらぐ、emerge=現れる		The rain abated and the sun emerged.	
+				refute=誤りを証明する		I tried to refute his claims.	
+1				deplete=激減させる		The company's assets have been depleted.	
+				relinquish=放棄する		He was forced to relinquish his position as CEO due to illness.	
+				depose=免職する		The CEO was deposed due to poor leadership.	
+				disperse=分散させる		Police dispersed the protesters with tear gas.	
+1				concede=正しいとしぶしぶ認める		The president conceded that the war in Iraq is not going as well as he had hoped.	
+				enact=制定する		The city enacted an ordinance that bans the disposal of recyclable items.	
+				deem=みなされる		As soon as the area is deemed safe, residents can return home.	
+				induce=引き起こす		This drug can induce side effects including nausea and dizziness.	
+1				procure=手に入れる		I have managed to procure tickets to the concert.	
+				confer=話し合う		He conferred with his attorney about the case.	
+1				curtail=削減する		The government should not curtail spending on health care.	
+				denounce=非難する、blasphemous=冒とく的な		Many religious leaders denounced the movie as blasphemous.	
+				embezzle=横領する		He was charged with embezzling $20,000 from his employer over a three year period.	
+				deduce=推定する		Scientists deduce that water once flowed on the surface of Mars.	
+				disciple=弟子		The Last Supper depicts Christ and his 12 disciples.	
+1				disseminate=広める		The Internet is the best medium to gather and disseminate information.	
+				veto=拒否する、condemn=非難する		The US vetoed a UN Security Council resolution condemning Israel's attacks in Gaza.	
+				abound=たくさんある		Restaurants and shops abound in the area.	
+1				ameliorate=改善する		The union has requested management to ameliorate working conditions.	
+1				dispell=一掃する		The minister dispelled the rumor of his resignation.	
+				evoke=呼び起こす		The photo evoked memories of my childhood.	
+				exemplify=よい例となる		The painting exemplifies the characteristics of impressionism.	
+				flounder=低迷する		The domestic car market is floundering due to lack of demand.	
+				doldrums=停滞状態		The housing market remains in the doldrums.	
+1				stagnant=停滞した		Our sales have been stagnant for the past six months.	
+				standstill=停止		Heavy snow brought traffic to a standstill.	
+				hatch=企てる		Three men were arrested for hatching a plot to kidnap the son of a wealthy banker.	
+				fierce=激しい		There is fierce competition among international companies to increase market share.	
+1				stenuous=懸命な		She made a strenuous effort to achieve her goal.	
+				accommodating=親切な		He is accommodating and easy to work with.	
+				aspiring=野心のある		Los Angeles is full of aspiring actors.	
+				definitive=authorative=最も信頼できる		This is the definitive biography of Thomas Jefferson.	
+				inaugural=最初の		The orchestra's inaugural concert will be held this Friday.	
+				pivotal=中心的な		He played a pivotal role in the negotiations.	
+				unrivaled=並ぶもののない		She was unrivaled as a ballet dancer at that time.	
+				preceding=さきの		The population growth in the region was 3.7 percent in the preceding decade.	
+				bilateral=二国間の		The US and Singapore signed a bilateral free trade agreement in 2003.	
+				brisk=活況の		When the economy is brisk, everyone feels confident about his or her prospects for the future.	
+				preparatory=準備の・予備の		Meaningful progress has been made to narrow differences during preparatory meetings.	
+				provisional=暫定的な・仮の		We regret that we do not accept provisional bookings.	
+				rational=合理的な		All important decisions must be made through rational arguments.	
+				prevail=広くいきわたっている、勝つ		Fashion is a prevailing style of dress, hair, and so on.	
+				prevail in=広がっている		A pessimistic mood prevails in the stock market.	
+				rigorous=厳格な		Our products are tested according to rigorous safety standards.	
+				cite=表彰する、exemplary=模範的な		She was cited for her exemplary teaching skill.	
+				impassable=通行不能		The road is impassable due to flooding.	
+				invaluable=非常に貴重な		I gained a lot of invaluable experience during my internship at the company.	
+				cacti, cactus=さぼてん		Cacti are easy to grow with minimal care.	
+				unwavering=ゆるぎない		I appreciate your unwavering support.	
+				sparingly=ひかえめに		Use salt sparingly when cooking.	
+				unanimously=満場一致で		The proposal was approved unanimously.	
+				abruptly=突然に		Her contract was abruptly terminated.	
+				profoundly=深く		The travel industry was profoundly affected by the terrorist attacks.	
+				rule out=除外・拒否する、resumption=再開		Syria has ruled out the resumption of peace talks with Israel.	
+				turn around=好転させる		The new CEO turned the company around in a year.	
+				bargain with=交渉する		Unions bargained with employers for regular wage increases.	
+				go in for=参加する		Are you planning to go in for the competition?	
+				pull together=協力する		We must all pull together to get through this economic crisis.	
+				culminate in=ついに～となる		The Watergate scandal culminated in the resignation of President Richard Nixon.	
+				notify of=知らせる		Employees were notified of the layoffs via e-mail.	
+				prop up against=もたせかける		The bicycle is propped up against a fence.	
+				dispense=分配する		The volunteers dispensed food and clothing to the disaster victims.	
+				derive from=～から～を得る		I derive great satisfaction from my work.	
+				reprimand for=しかる		Her boss reprimanded her for arriving at work late.	
+				tacit=暗黙の		I interpreted his silence as tacit approval.	
+				levy=課す		Personal income tax is levied on income earned between January 1 and December 31.	
+				adorn with=飾る		The Christmas tree was adorned with many ornaments.	
+				earmark=とっておく		Approximately 6 percent of GDP will be earmarked for education.	
+1				commensurate with=ふさわしい		Salary is commensurate with your experience and qualification.	
+				reconcile with=仲直りする		He wants to be reconciled with his girlfriend.	
+				immune from=まぬがれる		The officer will be immune from prosecution.	
+				adept at=うまい		She is very adept at English.	
+				around the clock=24時間ぶっとおしで		The store is open around the clock.	
+				out of print=絶版		The book went out of print very quickly.	
+1				at no time=決して～ない		At no time was he told about the danger of asbestos.	
+1				in no time=すぐに		He solved the math problem in no time.	
+				on one's hands and knees=よつんばいになる		The woman is on her hands and knees.	
+				out of commission=使用不能の		My car is currently out of commission.	
+				all told=合計で		There were 40 participants, all told.	
+				at a stretch=たてつづけに		She worked for 14 hours at a stretch.	
+1				on end=続けて		It's been raining for days on end.	
+				successive=連続する		The politician has won three successive elections.	
+				on offer=売りに出されている		A wide range of famous brands are on offer at reduced prices.	
+				aggravate=悪化させる		Consumption of a huge amount fossil fuels has aggravated global warming.	
+				excursion=遠足		There will be a whole school excursion on April 8.	
+				output=生産高		Most car companies plan to decrease their car output next year.	
+				remark=発言		The foreign minister apologize for his remarks about race.	
+				correspondent=特派員		The newspaper has five correspondents.	
+				通信文		correspondance	w
+				commission=手数料		He gets a 25 percent commission on his sales.	
+				deficit=赤字		The company went bankrupt with a deficit of approximately $2 million.	
+1				undergo=経験する		The world economy is undergoing a serious recession.	
+1				mount=実施する		The residents in the area are mounting a protest against the construction of the building.	
+1				stage=実施する		The union will stage a trike tomorrow.	
+1				prominent=著名な		Mr. Dawson is a prominent business leader.	
+				diligent=勤勉な		Sarah is very diligent in her work.	
+				prosperous=thriving=繫栄している		Sweden is one of the most prosperous countries in the world.	
+				distinguished=優れた		He was awarded a prize for his distinguished achievements in the field of journalism.	
+				utmost=最大の		He has the utmost respect for Abraham Lincoln.	
+				counterpart=相当するもの		This Japanese word has no counterpart in English.	
+				deregulation=規制緩和		More than 100 carriers have gone bankrupt since deregulation.	
+				courtesy=好意		Twenty Chinese students were invited to Japan by courtesy of the airline.	
+				circulation=発行部数		The magazine has a circulation of 200,000.	
+1				profile=注目度		We have to increase our company's profile in China.	
+				endeavor=努力		We have to make our best endeavor to preserve the environment.	
+1				proceeding=議事録		He looked through the proceedings of the annual conference	
+1				convey=伝える、運ぶ		If you see Paul, please convey my regards to him.	
+1				commence=開始する		The factory will commence production early next year.	
+				boast=誇りにしている		The city boasts beautiful beaches.	
+				prolong=延長する		He decided to prolong his stay in Tokyo for another week.	
+				plow=すきで耕す		Some people are plowing the land.	
+				salute=敬礼する		They're saluting the US flag.	
+				assert=断言する		She asserts that he stole money from her.	
+				tap=開発する		The area has the potential to tap solar energy.	
+				overtake=追い越す		It is said that India will overtake China in population.	
+				elaborate=精巧な		Elaborate ornamentation is characteristic of the Victorian style.	
+				abundant=豊富な		There is abundant evidence for the past presence of water on Mars.	
+				compulsory=義務的な		Attendance at the seminar is compulsory.	
+				concerned=関与している		The closure of the factory was a shock to all concerned.	
+				industrious=勤勉な		He is competent and industrious.	
+1				prominently=目立つように		Family photographs were prominently displayed in his house.	
+				refrain from=abstain from=差し控える		Please refrain from using cellphones.	
+				come down with=かかる		Unfortunately, he has come down with the flu.	
+				abide by=従う		Every member company must abide by the code of ethics.	
+				make out=を作成する		To donate money, please make out a check to the Red Cross.	
+				look to=頼る		The world is looking to America to solve the economic crisis.	
+				turn to=求める		You can always turn to me for help.	
+				live up to=応える		The movie lived up to my expectations.	
+				attend to=処理する		We should attend to the problem immediately.	
+				far from=決して～ではない		by no means	w
+				probably=おそらく、疑いなく		no doubt	w
+				put A through to B=Aの電話をBにつなぐ		Could you put me through to the sales department?	
+1				commit A to B=AをBに委託する		The property was committed to his care.	
+				appropriate A for B=AをBのために充てる		Approximately $500 billion is appropriated for defense programs annually.	
+				load A with B=AにBを積む		They are loading the truck with furniture.	
+				clear A of B=AからBを取り除く		The man is clearing the road of snow.	
+				relieve A of B=AからBを取り除く		They are seeking ways to relieve the company of its massive debt.	
+				resolve to do=しようと決心する		She resolved to dedicate the rest of her life to charity work.	
+				regret to do=残念ながら～する		We regret to tell you that the product you ordered is temporarily out of stock.	
+				regret doing=したことを後悔する		I regret not telling her I loved her.	
+				scramble to do=しようと先を争う		Shoppers were scrambling to buy gifts.	
+				plead with A to do=Aにしてくれと訴える		He pleaded with his wife to come back.	
+				compel A to do=Aに無理やりさせる		The law compels parents to send their children to schools between the ages of 6 and 12.	
+				confine A to B=AをBに制限する		The use of controlled drugs is confined to medical and scientific purposes.	
+				be instrumental in=役立っている		The new traffic laws have been instrumental in reducing the number of traffic accidents.	
+				be keen on=熱中している		My father is keen on golf.	
+				be sited on=位置する		The company's head office is sited in Paris.	
+				be apt to do=しがちである		Children are apt to imitate the attitudes of their parents.	
+				be liable to do=しがちである、法的責任がある		People are liable to repeat the same mistakes.	
+1				be slated to do=する予定である		The amusement park is slated to open this summer.	
+				be poised to do=する用意ができている		He is poised to take over the family business.	
+				have yet to do=まだしていない		The city council has yet to make a decision on the issue.	
+				make one's way=進む		She made her way through the crowd to the store entrance.	
+1				be fussy about=be particular about=		Fussy about means Particular about.	
+1				be comprised of=consist of=		Be comprised of means Consist of.	
+				by far=ずば抜けて		Nancy is by far the most intelligent student in the class.	
+				for a change=たまには		It's nice to read an optimistic article for a change.	
+1				much less=let alone=まして、ではない		She can't make a sandwich, much less cook a meal.	
+				at any price=どんな犠牲を払ってでも		We must maintain the peace at any price.	
+				at the expense of=犠牲にして		He pursued his career at the expense of his family.	
+				by leaps and bounds=飛躍的に		The population of Internet users has grown by leaps and bounds.	
+				in force=有効で		The patent is in force until 2030.	
+1				in light of=考慮して		We need to revise the policy in light of feedback from users.	
+1				in keeping with=in accordance with=に従って		In keeping with tradition, players are required to wear all white tennis clothes.	
+				for want of=不足のために		The building of the mall has been stopped for want of funds.	
+1				contingent=代表団		The contingent consists of managers of the country's major companies.	
+				おそらく・間違いなく		argurably	w
+				注目を集める		garner attention	w
+				sleuth=detective=探偵		An internet sleuth traced the location using clues from social media.	
+				トピアリー		topiary	w
+				触覚の、触知できる		tactile	w
+				Good point=Agreed		touche	w
+				antidote=解毒剤		There is no antidote to this poison.	
+				tyranny=専制政治、暴政		My mother divorced my father after enduring twenty years of tyranny.	
+				espionage=スパイ活動		She was arrested for espionage during a covert operation.	
+				covert operation=秘密作戦		Sneaking snacks into the movie felt like a covert operation.	
+				corrosive =腐食性の		Saltwater has a corrosive effect on unprotected metal surfaces.	
+				corrosive=そのスキャンダルは人々の信頼を損なった		The scandal had a corrosive effect on public trust.	
+				dissent=異議		Political dissent would no longer be tolerated.	
+				viscosity=粘性		Oil has a higher viscosity than water, making it flow slower.	
+				cuckold=妻が夫に不貞を働く		She decided to cuckold her husband with his business partner.	
+				fraternity=男子学生の社交クラブ		He joined a fraternity during his first year at college to make new friends.	
+1				concise=briefly and clearly expressed		succinct	w
+1				essential=absolutely necessary		indispensable	w
+1				unbiased=not supporting any of the sides involved in an argument		impartial	w
+1				sparingly=frugally=ひかえめ=saving money / avoiding wasting it		thriftly	w
+				窓ガラス		windowpane	w
+				窓下枠		windowsill	w
+				背もたれのない椅子		stool	w
+				
