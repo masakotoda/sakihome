@@ -219,7 +219,8 @@ async function checkSentence(transcript, sentence) {
     if (state.selectedLanguage === "japanese") {
         if (!state.japaneseTokenizer) {
             state.japaneseTokenizer = await getTokenizer({
-                dicPath: "https://cdn.jsdelivr.net/npm/kuromoji@0.1.2/dict/"
+                //dicPath: "https://cdn.jsdelivr.net/npm/kuromoji@0.1.2/dict/"
+                dicPath: "./kuromoji@0.1.2/dict/"
             });
         }
         normalizedTranscript = utils.normalizeJapanese(transcript, state.japaneseTokenizer);
