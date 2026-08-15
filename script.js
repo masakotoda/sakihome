@@ -72,8 +72,44 @@ elements.readOutForm.addEventListener('submit', (e) => {
     e.preventDefault(); // prevent page reload
 
     const selected = elements.readOutForm.elements['accent'].value;
+    const selectedVoice = elements.readOutForm.elements['voiceSelect'].value;
     console.log("Selected accent:", selected);
-    utils.readOut(state.currentSentence, selected);
+    console.log("Selected voice:", selectedVoice);
+    utils.readOut(state.currentSentence, selected, selectedVoice);
+});
+
+elements.readOutForm.addEventListener("change", (event) => {
+    // This is more for iPhone's buggy implementation of SpeechSynthesis.
+    // Even if we specify lang attribute properly, it doesn't honor it.
+    // Heuristically, getVoices() returns a duplicate voice for the best match of the accent,
+    // so we can select that voice explicitly.
+    if (event.target.name === "accent") {
+        if (!event.target.checked) return;
+
+        const accent = event.target.value; // e.g. "en-US", "fr-FR", "ja-JP"
+        console.log("Accent changed to:", accent);
+
+        utils.getVoices().then(voices => {
+            const voicesFiltered = voices.filter(item => { return item.lang.startsWith(accent) });
+
+            // Find the first duplicate by name, which is likely the best match for the accent
+            const duplicate = voicesFiltered.find((item, index) =>
+                voicesFiltered.some((other, otherIndex) =>
+                    index !== otherIndex && item.name === other.name
+                )
+            );
+
+            // Remove duplicates by name, keeping the first occurrence
+            const voicesCleaned = [...new Map(voicesFiltered.map(item => [item.name, item])).values()];
+
+            const par = document.getElementById("voiceSelect");
+            par.replaceChildren();
+            voicesCleaned.forEach(voice => {
+                const option = par.appendChild(new Option(voice.name, voice.name));
+                option.selected = duplicate?.name === voice.name;
+            });
+        });
+    }
 });
 
 languageSelected();
@@ -106,6 +142,7 @@ function languageSelected(selectedLanguage = "english") {
             input.style.display = "inline";
             if (!selected) {
                 input.querySelector('input').checked = true;
+                input.querySelector('input').dispatchEvent(new Event("change", { bubbles: true }));
                 selected = true;
             } else {
                 input.querySelector('input').checked = false;

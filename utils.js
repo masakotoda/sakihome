@@ -36,9 +36,30 @@ function initSpeechRecognition(language = "english") {
     }
 }
 
-function readOut(sentence, accent) {
+function getVoices() {
+    return new Promise(resolve => {
+        const voices = speechSynthesis.getVoices();
+
+        if (voices.length > 0) {
+            resolve(voices);
+            return;
+        }
+
+        speechSynthesis.addEventListener("voiceschanged", () => {
+            resolve(speechSynthesis.getVoices());
+        }, { once: true });
+    });
+}
+
+function readOut(sentence, accent, voiceName) {
     let utterance = new SpeechSynthesisUtterance(sentence);
     utterance.lang = `${accent}`;
+
+    if (voiceName) {
+        const voice = speechSynthesis.getVoices().find(v => v.name === voiceName);
+        utterance.voice = voice;
+    }
+
     window.speechSynthesis.speak(utterance);
 }
 
@@ -104,4 +125,4 @@ function normalizeJapanese(text, tokenizer) {
     return cleaned.trim();
 }
 
-export { shuffle, initSpeechRecognition, readOut, getGoogleTTSUrl, getEnglish, getYomi, getJapanese, normalize, normalizeJapanese };
+export { shuffle, initSpeechRecognition, getVoices, readOut, getGoogleTTSUrl, getEnglish, getYomi, getJapanese, normalize, normalizeJapanese };
