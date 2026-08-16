@@ -62,8 +62,8 @@
     }
 
     img.flag {
-        width: calc(44px * var(--scale));
-        height: calc(44px * var(--scale));
+        width: calc(40px * var(--scale));
+        height: calc(40px * var(--scale));
     }
 
     textarea {
