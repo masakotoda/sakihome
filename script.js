@@ -18,7 +18,7 @@ const elements = {
     countLabel: document.getElementById("countLabel"),
     resultLabel: document.getElementById("resultLabel"),
     nextSentenceLabel: document.getElementById("nextSentenceLabel"),
-    japaneseLabel: document.getElementById("japaneseLabel"),
+    translationLabel: document.getElementById("translationLabel"),
     readOutByGoogleLink: document.getElementById("readOutByGoogle"),
     readOutForm: document.getElementById('readOutForm'),
     translateBtn: document.getElementById("translateBtn"),
@@ -45,8 +45,8 @@ elements.micBtn.addEventListener("click", () => {
 });
 
 elements.translateBtn.addEventListener("click", () => {
-    elements.japaneseLabel.style.visibility = "visible";
-    elements.japaneseLabel.style.display = "inline"
+    elements.translationLabel.style.visibility = "visible";
+    elements.translationLabel.style.display = "inline"
 });
 
 elements.turnOffMicBtn.addEventListener("click", () => {
@@ -238,7 +238,7 @@ function updateSentence() {
 
     // elements.nextSentenceLabel.textContent = `${state.sentences[state.counter].sen ?? ""}`;
     elements.nextSentenceLabel.textContent = state.currentSentence + " " + utils.getYomi(state.sentences[state.counter - 1]);
-    elements.japaneseLabel.textContent = utils.getJapanese(state.sentences[state.counter - 1]);
+    elements.translationLabel.textContent = utils.getTranslation(state.sentences[state.counter - 1]);
     elements.readOutByGoogleLink.href = utils.getGoogleTTSUrl(state.currentSentence);
 
     elements.countLabel.textContent = `#${state.counter}`;
@@ -246,8 +246,8 @@ function updateSentence() {
     elements.input.style.borderColor = "gray";
     elements.input.style.backgroundColor = "white";
 
-    elements.japaneseLabel.style.visibility = "hidden";
-    elements.japaneseLabel.style.display = "none";
+    elements.translationLabel.style.visibility = "hidden";
+    elements.translationLabel.style.display = "none";
 }
 
 async function checkSentence(transcript, sentence) {

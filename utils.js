@@ -79,9 +79,6 @@ function getEnglish(item) {
     if (item.sen && item.sen.trim() !== "") {
         return item.sen;
     }
-    if (item.en && item.en.trim() !== "") {
-        return item.en;
-    }
     return "";
 }
 
@@ -92,15 +89,11 @@ function getYomi(item) {
     return "";
 }
 
-function getJapanese(item) {
-    var jp = item.jp || item.ja || item.japanese;
-    if (item.syno1 && item.syno1.trim() !== "") {
-        jp += ` ${item.syno1}`;
+function getTranslation(item) {
+    if (item.tr && item.tr.trim() !== "") {
+        return item.tr;
     }
-    if (item.syno2 && item.syno2.trim() !== "") {
-        jp += ` ${item.syno2}`;
-    }
-    return jp;
+    return "";
 }
 
 function normalize(text) {
@@ -133,4 +126,4 @@ function normalizeJapanese(text, tokenizer) {
     return cleaned.trim();
 }
 
-export { shuffle, initSpeechRecognition, getVoices, readOut, getGoogleTTSUrl, getEnglish, getYomi, getJapanese, normalize, normalizeJapanese };
+export { shuffle, initSpeechRecognition, getVoices, readOut, getGoogleTTSUrl, getEnglish, getYomi, getTranslation, normalize, normalizeJapanese };
