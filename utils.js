@@ -18,8 +18,16 @@ function initSpeechRecognition(language = "english") {
     const languageMap = {
         "english": "en-US",
         "french": "fr-FR",
-        "japanese": "ja-JP"
+        "japanese": "ja-JP",
+        "italian": "it-IT",
+        "german": "de-DE",
     };
+    if (language in languageMap) {
+        language = languageMap[language];
+    } else {
+        console.error(`Unsupported language: ${language}`);
+        return;
+    }
     language = languageMap[language] || language;
 
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
