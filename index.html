@@ -19,11 +19,6 @@
   <div>
     <label id="countLabel">#0</label>
     <select id="langSelect" style="background-color: var(--color4);" class="separated1">
-      <option value="english">English</option>
-      <option value="german">German</option>
-      <option value="french">French</option>
-      <option value="italian">Italian</option>
-      <option value="japanese">Japanese</option>
     </select>
 
     <textarea readonly id="nextSentenceLabel" rows="3" style="background-color: var(--color4);">
@@ -53,22 +48,7 @@
 
   <hr>
   <form id="readOutForm">
-    <label id="english_US"><input type="radio" name="accent" value="en-US"> <img src="images/flag-us.png" class="flag"
-        alt="American"></label>
-    <label id="english_GB"><input type="radio" name="accent" value="en-GB"> <img src="images/flag-uk.png" class="flag"
-        alt="British"></label>
-    <label id="english_AU"><input type="radio" name="accent" value="en-AU"> <img src="images/flag-au.png" class="flag"
-        alt="Aussie"></label>
-    <label id="german_DE"><input type="radio" name="accent" value="de-DE"> <img src="images/flag-de.png" class="flag"
-        alt="German"></label>
-    <label id="italian_IT"><input type="radio" name="accent" value="it-IT"> <img src="images/flag-it.png" class="flag"
-        alt="Italian"></label>
-    <label id="french_FR"><input type="radio" name="accent" value="fr-FR"> <img src="images/flag-fr.png" class="flag"
-        alt="French"></label>
-    <label id="french_CA"><input type="radio" name="accent" value="fr-CA"> <img src="images/flag-ca.png" class="flag"
-        alt="Canadian French"></label>
-    <label id="japanese_JP"><input type="radio" name="accent" value="ja-JP"> <img src="images/flag-jp.png" class="flag"
-        alt="Japanese"></label>
+    <div id="accentList" style="display:inline;"></div>
     <button type="submit" class="small" style="background-color: var(--color4);">
       <img src="images/megaphone.svg" class="btn2" alt="Read"></button>
 

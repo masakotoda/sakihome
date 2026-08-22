@@ -13,22 +13,15 @@ function shuffle(array) {
     return arr;
 }
 
-function initSpeechRecognition(language = "english") {
+function initSpeechRecognition(supportedLanguages, language) {
 
-    const languageMap = {
-        "english": "en-US",
-        "french": "fr-FR",
-        "japanese": "ja-JP",
-        "italian": "it-IT",
-        "german": "de-DE",
-    };
-    if (language in languageMap) {
-        language = languageMap[language];
+    if (language in supportedLanguages) {
+        language = supportedLanguages[language];
     } else {
         console.error(`Unsupported language: ${language}`);
         return;
     }
-    language = languageMap[language] || language;
+    language = language.speech || language;
 
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 

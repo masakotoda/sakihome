@@ -1,0 +1,40 @@
+{
+    "english": {
+        "name": "English",
+        "speech": "en-US",
+        "accents": {
+            "en-US": "flag-us.png",
+            "en-GB": "flag-uk.png",
+            "en-AU": "flag-au.png"
+        }
+    },
+    "french": {
+        "name": "Français",
+        "speech": "fr-FR",
+        "accents": {
+            "fr-FR": "flag-fr.png",
+            "fr-CA": "flag-ca.png"
+        }
+    },
+    "japanese": {
+        "name": "日本語",
+        "speech": "ja-JP",
+        "accents": {
+            "ja-JP": "flag-jp.png"
+        }
+    },
+    "italian": {
+        "name": "Italiano",
+        "speech": "it-IT",
+        "accents": {
+            "it-IT": "flag-it.png"
+        }
+    },
+    "german": {
+        "name": "Deutsch",
+        "speech": "de-DE",
+        "accents": {
+            "de-DE": "flag-de.png"
+        }
+    }
+}

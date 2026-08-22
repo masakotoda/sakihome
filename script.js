@@ -7,7 +7,8 @@ const state = {
     currentSentence: null,
     recognition: null,
     japaneseTokenizer: null,
-    currentLanguage: "",
+    selectedLanguage: "english",
+    languages: {},
 };
 
 const elements = {
@@ -24,6 +25,7 @@ const elements = {
     translateBtn: document.getElementById("translateBtn"),
     turnOffMicBtn: document.getElementById("turnOffMicBtn"),
     langSelect: document.getElementById("langSelect"),
+    accentList: document.getElementById("accentList")
 };
 
 if (location.hostname === 'localhost') {
@@ -112,15 +114,22 @@ elements.readOutForm.addEventListener("change", (event) => {
     }
 });
 
-languageSelected();
+state.languages = await fetch("languages.json").then(r => r.json());
+elements.langSelect.replaceChildren();
+Object.entries(state.languages).forEach(([key, value]) => {
+    const option = elements.langSelect.appendChild(new Option(value.name, key));
+    option.selected = key === state.selectedLanguage;
+});
 
-function languageSelected(selectedLanguage = "english") {
+languageSelected(state.selectedLanguage);
+
+function languageSelected(selectedLanguage) {
 
     state.selectedLanguage = selectedLanguage;
 
     loadSentences(selectedLanguage + ".tsv");
 
-    state.recognition = utils.initSpeechRecognition(selectedLanguage);
+    state.recognition = utils.initSpeechRecognition(state.languages, selectedLanguage);
     if (!state.recognition) {
         console.error("Speech recognition not supported");
     }
@@ -134,23 +143,24 @@ function languageSelected(selectedLanguage = "english") {
         elements.input.placeholder = `Speech recognition error: ${event.error}`;
     };
 
-    const inputs = elements.readOutForm.querySelectorAll('label');
-    let selected = false;
-    inputs.forEach(input => {
-        const [language, accent] = input.id.split("_");
-        if (language === selectedLanguage) {
-            input.style.display = "inline";
-            if (!selected) {
-                input.querySelector('input').checked = true;
-                input.querySelector('input').dispatchEvent(new Event("change", { bubbles: true }));
-                selected = true;
-            } else {
-                input.querySelector('input').checked = false;
-            }
-        } else {
-            input.style.display = "none";
-            input.querySelector('input').checked = false;
-        }
+    const language = state.languages[selectedLanguage];
+    elements.accentList.replaceChildren();
+    Object.entries(language.accents).forEach(([key, value], index) => {
+
+        const label = document.createElement("label");
+        const radio = document.createElement("input");
+        radio.type = "radio";
+        radio.name = "accent";
+        radio.value = key;
+        radio.checked = index === 0;
+
+        const img = document.createElement("img");
+        img.src = "images/" + value;
+        img.className = "flag";
+        img.alt = key;
+
+        label.append(radio, " ", img);
+        elements.accentList.append(" ", label);
     });
 }
 
