@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="style.css">
     <style>
         button.mycolor {
-            padding: 6px 20px;
+            padding: 6px 15px;
             font-size: 16px;
             margin-left: 0px;
             margin-bottom: 3px;
@@ -18,8 +18,14 @@
             background-color: lightgray;
         }
 
+        button.mycolorvacant {
+            background: linear-gradient(135deg,
+                    var(--color2) 50%,
+                    var(--color1) 50%);
+        }
+
         button.colorgrid {
-            padding: 3px 20px;
+            padding: 3px 15px;
             font-size: 16px;
             margin-left: 0px;
             margin-bottom: 3px;
@@ -49,7 +55,7 @@
 
         const allGridIds = [];
         const myColors = [];
-        const maxMyColors = 5;
+        const maxMyColors = 6;
         const myColorButtons = [];
 
         function generateColorGrid(TL, TR, BL, BR) {
@@ -81,7 +87,7 @@
             return grid;
         }
 
-        function interpolateGrids(gridA, gridB, count = 3) {
+        function interpolateGrids(gridA, gridB, count = 4) {
             const grids = [];
 
             for (let n = 0; n <= count + 1; n++) {
@@ -104,20 +110,25 @@
         }
 
         function registerColor(colorValue) {
-            if (myColors.length === maxMyColors) {
+            const firstVacancy = myColors.findIndex(color => color === "");
+            if (firstVacancy === -1) {
                 alert("パレットがいっぱいです。いらない色をクリックして空きを作ってください。")
                 return;
             }
-            myColorButtons[myColors.length].style.backgroundColor = `#${colorValue}`;
-            myColors.push(colorValue);
+            myColorButtons[firstVacancy].style.backgroundColor = `#${colorValue}`;
+            myColorButtons[firstVacancy].className = "mycolor";
+            myColors[firstVacancy] = colorValue;
         }
 
         function unregisterColor(index) {
-            myColors.splice(index, 1);
-            for (let i = 0; i < myColors.length; i++)
-                myColorButtons[i].style.backgroundColor = `#${myColors[i]}`;
-            for (let i = myColors.length; i < maxMyColors; i++)
-                myColorButtons[i].style.backgroundColor = `lightgray`;
+            myColors[index] = "";
+            setVacantStyle(myColorButtons[index]);
+        }
+
+        function setVacantStyle(button) {
+            button.className = "mycolor mycolorvacant";
+            button.style.setProperty("--color1", "lightgray");
+            button.style.setProperty("--color2", "silver");
         }
 
         function rgbToHex(rgb) {
@@ -130,7 +141,7 @@
         function renderColorGrids(colorGridsId, buttonGroupId, TL1, TR1, BL1, BR1, TL2, TR2, BL2, BR2) {
             const grid1 = generateColorGrid(TL1, TR1, BL1, BR1);
             const grid2 = generateColorGrid(TL2, TR2, BL2, BR2);
-            const grids = interpolateGrids(grid1, grid2, 3);
+            const grids = interpolateGrids(grid1, grid2, 4);
 
             const colorGrids = document.getElementById(colorGridsId);
             for (let i = 0; i < grids.length; i++) {
@@ -151,9 +162,9 @@
                             registerColor(button.value);
                         });
                         buttons.push(button);
-                        if (j == 0 && k == line.length - 1)
+                        if (j === 0 && k === line.length - 1)
                             topRight = line[k];
-                        if (j == g.length - 1 && k == 0)
+                        if (j === g.length - 1 && k === 0)
                             bottomLeft = line[k];
                     }
                     buttons.push(document.createElement("br"));
@@ -234,7 +245,8 @@
         for (let i = 0; i < maxMyColors; i++) {
             const button = document.createElement("button");
             button.innerHTML = "&nbsp;";
-            button.className = "mycolor";
+            setVacantStyle(button);
+
             button.addEventListener("click", () => {
                 unregisterColor(i);
             });
@@ -244,6 +256,7 @@
             buttons.append("\n");
 
             myColorButtons.push(button);
+            myColors.push("");
         }
     </script>
 
