@@ -55,6 +55,7 @@
 
         const allGridIds = [];
         const myColors = [];
+        const lastMyColors = [];
         const maxMyColors = 6;
         const myColorButtons = [];
 
@@ -109,20 +110,31 @@
             return grids;
         }
 
-        function registerColor(colorValue) {
-            const firstVacancy = myColors.findIndex(color => color === "");
-            if (firstVacancy === -1) {
-                alert("パレットがいっぱいです。いらない色をクリックして空きを作ってください。")
-                return;
+        function registerColor(colorValue, index = -1) {
+            if (index === -1) {
+                const firstVacancy = myColors.findIndex(color => color === "");
+                if (firstVacancy === -1) {
+                    alert("パレットがいっぱいです。いらない色をクリックして空きを作ってください。")
+                    return;
+                }
+                index = firstVacancy;
             }
-            myColorButtons[firstVacancy].style.backgroundColor = `#${colorValue}`;
-            myColorButtons[firstVacancy].className = "mycolor";
-            myColors[firstVacancy] = colorValue;
+            myColorButtons[index].style.backgroundColor = `#${colorValue}`;
+            myColorButtons[index].className = "mycolor";
+            myColors[index] = colorValue;
         }
 
         function unregisterColor(index) {
-            myColors[index] = "";
-            setVacantStyle(myColorButtons[index]);
+            if (myColors[index] === "") { // Undo attempt
+                if (lastMyColors[index] !== "") {
+                    registerColor(lastMyColors[index], index);
+                    lastMyColors[index] = "";
+                }
+            } else {
+                lastMyColors[index] = myColors[index];
+                myColors[index] = "";
+                setVacantStyle(myColorButtons[index]);
+            }
         }
 
         function setVacantStyle(button) {
@@ -257,6 +269,7 @@
 
             myColorButtons.push(button);
             myColors.push("");
+            lastMyColors.push("");
         }
     </script>
 
