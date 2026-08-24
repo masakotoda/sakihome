@@ -42,6 +42,13 @@
             border: 2px solid gray;
         }
 
+        button#shareButton {
+            all: unset;
+            color: #06c;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
         button:focus {
             border-color: #000;
         }
@@ -217,71 +224,142 @@
             }
         }
 
-        // Yellow-Red grid adding blue slowly
-        const TL1 = [0x00, 0x00, 0x00];
-        const TR1 = [0xFF, 0xFF, 0x00];
-        const BL1 = [0xFF, 0x00, 0x00];
-        const BR1 = [0xFF, 0xA0, 0x00];
+        function setupShareButton() {
+            document.getElementById("shareButton").addEventListener("click", async () => {
+                const colors = encodeURIComponent(myColors.join(","));
+                const url = `${location.origin}${location.pathname}?colors=${colors}`;
 
-        const TL2 = [0x00, 0x00, 0x80];
-        const TR2 = [0x08, 0xFF, 0xFF];
-        const BL2 = [0xC0, 0x00, 0xFF];
-        const BR2 = [0xFF, 0xFF, 0xFF];
-
-        // Blue-Yellow grid adding red slowly
-        const TL3 = [0x00, 0x00, 0x00];
-        const TR3 = [0x00, 0x00, 0xFF];
-        const BL3 = [0xFF, 0xFF, 0x00];
-        const BR3 = [0x08, 0xFF, 0xFF];
-
-        const TL4 = [0x80, 0x00, 0x00];
-        const TR4 = [0xC0, 0x00, 0xFF];
-        const BL4 = [0xFF, 0xA0, 0x00];
-        const BR4 = [0xFF, 0xFF, 0xFF];
-
-        // Red-Blue grid adding yellow slowly
-        const TL5 = [0x00, 0x00, 0x00];
-        const TR5 = [0xFF, 0x00, 0x00];
-        const BL5 = [0x00, 0x00, 0xFF];
-        const BR5 = [0xC0, 0x00, 0xFF];
-
-        const TL6 = [0x80, 0x80, 0x00];
-        const TR6 = [0xFF, 0xA0, 0x00];
-        const BL6 = [0x08, 0xFF, 0xFF];
-        const BR6 = [0xFF, 0xFF, 0xFF];
-
-        renderColorGrids("colorGrids1", "colorGridButtons1", TL1, TR1, BL1, BR1, TL2, TR2, BL2, BR2);
-        renderColorGrids("colorGrids2", "colorGridButtons2", TL3, TR3, BL3, BR3, TL4, TR4, BL4, BR4);
-        renderColorGrids("colorGrids3", "colorGridButtons3", TL5, TR5, BL5, BR5, TL6, TR6, BL6, BR6);
-
-        for (let i = 0; i < maxMyColors; i++) {
-            const button = document.createElement("button");
-            button.innerHTML = "&nbsp;";
-            setVacantStyle(button);
-
-            button.addEventListener("click", () => {
-                unregisterColor(i);
+                try {
+                    await navigator.clipboard.writeText(url);
+                    alert("Viewer URL copied to clipboard. Paste it in your browser or whatever :)");
+                } catch (error) {
+                    console.error("Failed to copy URL:", error);
+                    alert("Could not copy the URL.");
+                }
             });
-
-            const buttons = document.getElementById("myColorsDiv");
-            buttons.append(button);
-            buttons.append("\n");
-
-            myColorButtons.push(button);
-            myColors.push("");
-            lastMyColors.push("");
         }
+
+        function initializeColorPicker() {
+            // Yellow-Red grid adding blue slowly
+            const TL1 = [0x00, 0x00, 0x00];
+            const TR1 = [0xFF, 0xFF, 0x00];
+            const BL1 = [0xFF, 0x00, 0x00];
+            const BR1 = [0xFF, 0xA0, 0x00];
+
+            const TL2 = [0x00, 0x00, 0x80];
+            const TR2 = [0x08, 0xFF, 0xFF];
+            const BL2 = [0xC0, 0x00, 0xFF];
+            const BR2 = [0xFF, 0xFF, 0xFF];
+
+            // Blue-Yellow grid adding red slowly
+            const TL3 = [0x00, 0x00, 0x00];
+            const TR3 = [0x00, 0x00, 0xFF];
+            const BL3 = [0xFF, 0xFF, 0x00];
+            const BR3 = [0x08, 0xFF, 0xFF];
+
+            const TL4 = [0x80, 0x00, 0x00];
+            const TR4 = [0xC0, 0x00, 0xFF];
+            const BL4 = [0xFF, 0xA0, 0x00];
+            const BR4 = [0xFF, 0xFF, 0xFF];
+
+            // Red-Blue grid adding yellow slowly
+            const TL5 = [0x00, 0x00, 0x00];
+            const TR5 = [0xFF, 0x00, 0x00];
+            const BL5 = [0x00, 0x00, 0xFF];
+            const BR5 = [0xC0, 0x00, 0xFF];
+
+            const TL6 = [0x80, 0x80, 0x00];
+            const TR6 = [0xFF, 0xA0, 0x00];
+            const BL6 = [0x08, 0xFF, 0xFF];
+            const BR6 = [0xFF, 0xFF, 0xFF];
+
+            renderColorGrids("colorGrids1", "colorGridButtons1", TL1, TR1, BL1, BR1, TL2, TR2, BL2, BR2);
+            renderColorGrids("colorGrids2", "colorGridButtons2", TL3, TR3, BL3, BR3, TL4, TR4, BL4, BR4);
+            renderColorGrids("colorGrids3", "colorGridButtons3", TL5, TR5, BL5, BR5, TL6, TR6, BL6, BR6);
+
+            for (let i = 0; i < maxMyColors; i++) {
+                const button = document.createElement("button");
+                button.innerHTML = "&nbsp;";
+                setVacantStyle(button);
+
+                button.addEventListener("click", () => {
+                    unregisterColor(i);
+                });
+
+                const buttons = document.getElementById("myColorsDiv");
+                buttons.append(button);
+                buttons.append("\n");
+
+                myColorButtons.push(button);
+                myColors.push("");
+                lastMyColors.push("");
+            }
+
+            setupShareButton();
+        }
+
+        function initializeViewer(colorString) {
+            // The last line (map) is just to be safe...
+            const colors = colorString
+                .split(",")
+                .slice(0, maxMyColors)
+                .map(color => /^[0-9A-Fa-f]{6}$/.test(color) ? color.toUpperCase() : "");
+
+            while (colors.length < maxMyColors) {
+                colors.push("");
+            }
+
+            const myColorsDiv = document.getElementById("myColorsDiv");
+
+            for (const color of colors) {
+                const button = document.createElement("button");
+                button.innerHTML = "&nbsp;";
+                button.className = "mycolor";
+                button.disabled = true;
+
+                if (color === "") {
+                    setVacantStyle(button);
+                } else {
+                    button.style.backgroundColor = `#${color}`;
+                }
+
+                myColorsDiv.append(button);
+                myColorsDiv.append("\n");
+            }
+        }
+
+        const params = new URLSearchParams(location.search);
+        const colorString = params.get("colors");
+        const viewerMode = colorString !== null;
+
+        if (viewerMode) {
+            initializeViewer(colorString);
+        } else {
+            initializeColorPicker();
+        }
+
+        document.getElementById("viewer").style.display = viewerMode ? "block" : "none";
+        document.getElementById("picker").style.display = viewerMode ? "none" : "block";
     </script>
 
     <div id="myColorsDiv"></div>
     <hr>
-    <div id="colorGridButtons1"></div>
-    <div id="colorGridButtons2"></div>
-    <div id="colorGridButtons3"></div>
-    <hr>
-    <div id="colorGrids1"></div>
-    <div id="colorGrids2"></div>
-    <div id="colorGrids3"></div>
+
+    <div id="picker">
+        <div id="colorGridButtons1"></div>
+        <div id="colorGridButtons2"></div>
+        <div id="colorGridButtons3"></div>
+        <hr>
+        <div id="colorGrids1"></div>
+        <div id="colorGrids2"></div>
+        <div id="colorGrids3"></div>
+        <hr>
+        <button id="shareButton" type="button" class="link">Share my palette!</button>
+    </div>
+
+    <div id="viewer">
+        <a href="./color.html">Create more beautiful palettes :)</a>
+    </div>
 </body>
 
 </html>
