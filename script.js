@@ -1,6 +1,25 @@
 import { getTokenizer } from "https://esm.sh/kuromojin";
 import * as utils from './utils.js';
 
+class Storage {
+    keys;
+    constructor() {
+        this.prefix = "sakilingo";
+    }
+
+    currentPosKey() {
+        return `${this.prefix}-currentpos`;
+    }
+
+    getCurrentPos(defalutValue = 1) {
+        return JSON.parse(localStorage.getItem(this.currentPosKey())) || defalutValue;
+    }
+
+    setCurrentPos(value) {
+        localStorage.setItem(this.currentPosKey(), JSON.stringify(value));
+    }
+}
+
 const state = {
     counter: 0,
     sentences: [],
@@ -9,6 +28,8 @@ const state = {
     japaneseTokenizer: null,
     selectedLanguage: "english",
     languages: {},
+    randomMode: false,
+    storage: new Storage(),
 };
 
 const elements = {
@@ -30,6 +51,12 @@ const elements = {
 
 if (location.hostname === 'localhost') {
     window.__state = state;
+}
+
+{
+    const params = new URLSearchParams(location.search);
+    const modeString = params.get("mode");
+    state.randomMode = modeString === "random";
 }
 
 elements.langSelect.addEventListener("change", (event) => {
@@ -58,14 +85,14 @@ elements.turnOffMicBtn.addEventListener("click", () => {
 
 elements.prevBtn.addEventListener("click", () => {
     if (state.counter > 1) {
-        state.counter--;
+        updateCounter(false);
         updateSentence();
     }
 });
 
 elements.nextBtn.addEventListener("click", () => {
     if (state.counter < state.sentences.length) {
-        state.counter++;
+        updateCounter(true);
         updateSentence();
     }
 });
@@ -195,10 +222,18 @@ function loadSentences(filename = 'sentences.tsv') {
             console.log(data);
 
             // Optional: attach to window for inspection
+            if (state.randomMode) {
+                state.sentences = utils.shuffle(data);
+                state.counter = 1;
+            }
+            else {
+                state.sentences = data;
+                state.counter = state.storage.getCurrentPos();
+            }
 
-            state.sentences = utils.shuffle(data);
+            if (state.counter < 1 || state.counter >= state.sentences.length)
+                state.counter = 1;
 
-            state.counter = 1;
             updateSentence();
 
         })
@@ -237,6 +272,14 @@ fetch('sentences.tsv')
 });
 */
 
+
+function updateCounter(increment) {
+    if (increment)
+        state.counter++;
+    else
+        state.counter--;
+    state.storage.setCurrentPos(state.counter);
+}
 
 function updateSentence() {
     console.log(state.sentences[state.counter])
