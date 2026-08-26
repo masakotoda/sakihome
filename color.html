@@ -35,7 +35,7 @@
                     var(--color1) 50%);
         }
 
-        button.tiny {
+        button.colorchip {
             padding: 3px 8px;
             margin-left: 0px;
             font-size: 16px;
@@ -47,10 +47,6 @@
             color: #06c;
             text-decoration: underline;
             cursor: pointer;
-        }
-
-        button:focus {
-            border-color: #000;
         }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -121,7 +117,7 @@
             if (index === -1) {
                 const firstVacancy = myColors.findIndex(color => color === "");
                 if (firstVacancy === -1) {
-                    alert("パレットがいっぱいです。いらない色をクリックして空きを作ってください。")
+                    alert("The palette is full. Click an unwanted color to make room.")
                     return;
                 }
                 index = firstVacancy;
@@ -173,7 +169,7 @@
                     for (let k = 0; k < line.length; k++) {
                         const hex = rgbToHex(line[k]);
                         const button = document.createElement("button");
-                        button.className = "tiny";
+                        button.className = "colorchip";
                         button.value = `${hex}`;
                         button.style.backgroundColor = `#${hex}`;
                         button.innerHTML = "&nbsp;&nbsp;";
