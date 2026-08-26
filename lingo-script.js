@@ -18,6 +18,18 @@ class Storage {
     setCurrentPos(value) {
         localStorage.setItem(this.currentPosKey(), JSON.stringify(value));
     }
+
+    selectedLangKey() {
+        return `${this.prefix}-selectedlang`;
+    }
+
+    getSelectedLang(defaultValue = "english") {
+        return JSON.parse(localStorage.getItem(this.selectedLangKey())) || defaultValue;
+    }
+
+    setSelectedLang(value) {
+        localStorage.setItem(this.selectedLangKey(), JSON.stringify(value));
+    }
 }
 
 const state = {
@@ -26,7 +38,7 @@ const state = {
     currentSentence: null,
     recognition: null,
     japaneseTokenizer: null,
-    selectedLanguage: "english",
+    selectedLanguage: "",
     languages: {},
     randomMode: false,
     storage: new Storage(),
@@ -60,9 +72,7 @@ if (location.hostname === 'localhost') {
 }
 
 elements.langSelect.addEventListener("change", (event) => {
-    const selectedLanguage = event.target.value;
-    console.log("Selected language:", selectedLanguage);
-    languageSelected(selectedLanguage);
+    languageSelected(event.target.value);
 });
 
 elements.micBtn.addEventListener("click", () => {
@@ -148,11 +158,13 @@ Object.entries(state.languages).forEach(([key, value]) => {
     option.selected = key === state.selectedLanguage;
 });
 
-languageSelected(state.selectedLanguage);
+elements.langSelect.value = state.storage.getSelectedLang();
+languageSelected(elements.langSelect.value);
 
 function languageSelected(selectedLanguage) {
 
     state.selectedLanguage = selectedLanguage;
+    state.storage.setSelectedLang(state.selectedLanguage);
 
     loadSentences(selectedLanguage + ".tsv");
 
