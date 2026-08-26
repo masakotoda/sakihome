@@ -1,8 +1,7 @@
 level	tr	yomi	sen
 	contingency=incident=不慮の事故		We have to be prepared to deal with contingencies.
 	contingent on=dependent on=次第である		Success is contingent on one's own efforts.
-	delegate=representative=envoy=代表者		Delegates from 187 countries met to begin framing a new global warming treaty.
-	agreement=条約		treaty
+	delegate=representative=envoy=代表者、treaty=agreement=条約		Delegates from 187 countries met to begin framing a new global warming treaty.
 	periodical=定期刊行物		The library subscribes to approximately 200 periodicals.
 	wheelbarrow=手押し車		The man is pushing a wheelbarrow.
 	wholesale=卸売り		The wholesale is much cheaper than retail.
@@ -119,9 +118,8 @@ level	tr	yomi	sen
 	consortium=共同事業体		A consortium of four construction companies built the bridge.
 	plaque=記念額		Several plaques are installed on the wall.
 	alteration=変更・手直し		The house needs a lot of alteration.
-	scrutiny=綿密な調査		The NASA budget will come under scrutiny on Capitol Hill.
+	scrutiny=綿密な調査、Capitol Hill=米国議会		The NASA budget will come under scrutiny on Capitol Hill.
 	scrutinize=綿密に調べる		Police scrutinized the crime scene.
-	米国議会		Capitol Hill
 	subordinate=部下		Subordinates must obey supervisors.
 1	refer the dispute to arbitration=紛争を仲裁してもらう		The two companies have agreed to refer the dispute to arbitration.
 	predicament=窮地		Many companies are in financial predicament.
@@ -237,7 +235,7 @@ level	tr	yomi	sen
 	output=生産高		Most car companies plan to decrease their car output next year.
 	remark=発言		The foreign minister apologize for his remarks about race.
 	correspondent=特派員		The newspaper has five correspondents.
-	通信文		correspondance
+	correspondence=通信文		She maintained a long correspondence with her former professor.
 	commission=手数料		He gets a 25 percent commission on his sales.
 	deficit=赤字		The company went bankrupt with a deficit of approximately $2 million.
 1	undergo=経験する		The world economy is undergoing a serious recession.
@@ -278,8 +276,8 @@ level	tr	yomi	sen
 	turn to=求める		You can always turn to me for help.
 	live up to=応える		The movie lived up to my expectations.
 	attend to=処理する		We should attend to the problem immediately.
-	far from=決して～ではない		by no means
-	probably=おそらく、疑いなく		no doubt
+	by no means=far from=決して～ではない		This is by no means an easy decision to make.
+	no doubt=probably=おそらく、疑いなく		She is no doubt the most talented artist in the group.
 	put A through to B=Aの電話をBにつなぐ		Could you put me through to the sales department?
 1	commit A to B=AをBに委託する		The property was committed to his care.
 	appropriate A for B=AをBのために充てる		Approximately $500 billion is appropriated for defense programs annually.
@@ -314,13 +312,13 @@ level	tr	yomi	sen
 1	in light of=考慮して		We need to revise the policy in light of feedback from users.
 1	in keeping with=in accordance with=に従って		In keeping with tradition, players are required to wear all white tennis clothes.
 	for want of=不足のために		The building of the mall has been stopped for want of funds.
-1	contingent=代表団		The contingent consists of managers of the country's major companies.
-	おそらく・間違いなく		arguably
-	注目を集める		garner attention
+	contingent=代表団		The contingent consists of managers of the country's major companies.
+	arguably=間違いなく		He is arguably the greatest guitarist of his generation.
+	garner attention=注目を集める		The artist's bold new painting quickly garnered attention from critics.
 	sleuth=detective=探偵		An internet sleuth traced the location using clues from social media.
-	トピアリー		topiary
-	触覚の、触知できる		tactile
-	Good point=Agreed		touche
+	topiary=トピアリー		The garden featured elaborate topiary shaped like animals and birds.
+	tactile=触覚の、触知できる		The fabric has a soft, tactile surface that feels pleasant.
+	Touche=Good point=Agreed		That’s a fair point. Touché!
 	antidote=解毒剤		There is no antidote to this poison.
 	tyranny=専制政治、暴政		My mother divorced my father after enduring twenty years of tyranny.
 	espionage=スパイ活動		She was arrested for espionage during a covert operation.
@@ -382,3 +380,5 @@ level	tr	yomi	sen
 	願い事には気を付けて		Be careful what you wish for; you might actually get it.
 	vigilant=用心深く		Drivers should remain vigilant when approaching busy intersections.
 	vigilante=自警団		The vigilante patrolled the neighborhood at night, seeking criminals.
+	antimony=錫（スズ）		Antimony is a brittle metalloid used in various industrial applications.
+	
