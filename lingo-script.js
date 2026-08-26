@@ -7,16 +7,16 @@ class Storage {
         this.prefix = "sakilingo";
     }
 
-    currentPosKey() {
-        return `${this.prefix}-currentpos`;
+    currentPosKey(lang) {
+        return `${this.prefix}-currentpos-${lang}`;
     }
 
-    getCurrentPos(defalutValue = 1) {
-        return JSON.parse(localStorage.getItem(this.currentPosKey())) || defalutValue;
+    getCurrentPos(lang, defalutValue = 1) {
+        return JSON.parse(localStorage.getItem(this.currentPosKey(lang))) || defalutValue;
     }
 
-    setCurrentPos(value) {
-        localStorage.setItem(this.currentPosKey(), JSON.stringify(value));
+    setCurrentPos(lang, value) {
+        localStorage.setItem(this.currentPosKey(lang), JSON.stringify(value));
     }
 
     selectedLangKey() {
@@ -166,7 +166,7 @@ function languageSelected(selectedLanguage) {
     state.selectedLanguage = selectedLanguage;
     state.storage.setSelectedLang(state.selectedLanguage);
 
-    loadSentences(selectedLanguage + ".tsv");
+    loadSentences(selectedLanguage);
 
     state.recognition = utils.initSpeechRecognition(state.languages, selectedLanguage);
     if (!state.recognition) {
@@ -205,8 +205,8 @@ function languageSelected(selectedLanguage) {
 
 //
 //  sentences.push({ sen: "The quick brown fox jumps over the lazy dog." });
-function loadSentences(filename = 'sentences.tsv') {
-    fetch("sentences/" + filename)
+function loadSentences(lang = 'sentences') {
+    fetch(`sentences/${lang}.tsv`)
         .then(res => {
             if (!res.ok) throw new Error('Failed to load TSV');
 
@@ -240,7 +240,7 @@ function loadSentences(filename = 'sentences.tsv') {
             }
             else {
                 state.sentences = data;
-                state.counter = state.storage.getCurrentPos();
+                state.counter = state.storage.getCurrentPos(lang);
             }
 
             if (state.counter < 1 || state.counter >= state.sentences.length)
@@ -292,7 +292,7 @@ function updateCounter(increment) {
         state.counter--;
 
     if (!state.randomMode)
-        state.storage.setCurrentPos(state.counter);
+        state.storage.setCurrentPos(state.selectedLanguage, state.counter);
 }
 
 function updateSentence() {
