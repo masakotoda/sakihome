@@ -278,7 +278,9 @@ function updateCounter(increment) {
         state.counter++;
     else
         state.counter--;
-    state.storage.setCurrentPos(state.counter);
+
+    if (!state.randomMode)
+        state.storage.setCurrentPos(state.counter);
 }
 
 function updateSentence() {
