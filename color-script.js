@@ -141,7 +141,7 @@ function renderColorGrids(colorGridsId, buttonGroupId, TL1, TR1, BL1, BR1, TL2, 
 
         const button = document.createElement("button");
         button.className = "colorgrid";
-        button.innerHTML = "&nbsp;";
+        button.innerHTML = "&nbsp;&nbsp;";
         button.id = `btn${topRightStr}${bottomLeftStr}`;
         const par = document.getElementById(buttonGroupId);
 
@@ -217,7 +217,7 @@ function initializeColorPicker() {
 
     for (let i = 0; i < maxMyColors; i++) {
         const button = document.createElement("button");
-        button.innerHTML = "&nbsp;";
+        button.innerHTML = "&nbsp;&nbsp;";
         setVacantStyle(button);
 
         button.addEventListener("click", () => {
