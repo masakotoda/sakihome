@@ -5,8 +5,12 @@ class Storage {
         this.prefix = "sakicolor";
     }
 
-    lastPaletteKey(lang) {
+    lastPaletteKey() {
         return `${this.prefix}-lastpalette`;
+    }
+
+    lastCompositionKey() {
+        return `${this.prefix}-lastcomposition`;
     }
 
     getLastPalette() {
@@ -16,6 +20,14 @@ class Storage {
     setLastPalette(value) {
         localStorage.setItem(this.lastPaletteKey(), JSON.stringify(value));
     }
+
+    getLastComposition() {
+        return JSON.parse(localStorage.getItem(this.lastCompositionKey())) || [];
+    }
+
+    setLastComposition(value) {
+        localStorage.setItem(this.lastCompositionKey(), JSON.stringify(value));
+    }
 }
 
 const allGridIds = [];
@@ -24,7 +36,7 @@ const lastMyColors = [];
 const maxMyColors = 6;
 const myColorButtons = [];
 const maxGridSize = 8;
-let currentColor = "gray";
+let currentColor = "white";
 const cells = [];
 const storage = new Storage();
 
@@ -217,6 +229,36 @@ function setupComposeButton() {
     });
 }
 
+function setupSaveCompositionButton() {
+    document.getElementById("saveCompositionButton").addEventListener("click", async () => {
+        saveComposition();
+
+        const bubble = document.getElementById("savedBubble");
+        bubble.classList.remove("show");
+        void bubble.offsetWidth;
+        bubble.classList.add("show");
+    });
+}
+
+function setupEditMyPaletteButton() {
+    document.getElementById("editMyPaletteButton").addEventListener("click", async () => {
+        saveComposition();
+        window.location.href = "./color.html";
+    });
+}
+
+function saveComposition() {
+    const cellcolors = [];
+
+    for (const rows of cells) {
+        for (const cell of rows) {
+            cellcolors.push(cell.style.backgroundColor);
+        }
+    }
+
+    storage.setLastComposition(cellcolors);
+}
+
 function changeCell(event) {
     const rect = grid.getBoundingClientRect();
 
@@ -333,6 +375,8 @@ function initializeViewer(colorString) {
     }
 
     // Grid to paint with my palette
+    const lastComposition = storage.getLastComposition();
+    let lastCompIdx = 0;
     const grid = document.getElementById("grid");
     for (let row = 0; row < maxGridSize; row++) {
         cells[row] = [];
@@ -343,6 +387,11 @@ function initializeViewer(colorString) {
 
             grid.append(cell);
             cells[row][col] = cell;
+
+            if (lastCompIdx < lastComposition.length) {
+                cell.style.backgroundColor = lastComposition[lastCompIdx];
+                lastCompIdx++;
+            }
         }
     }
 
@@ -359,6 +408,9 @@ function initializeViewer(colorString) {
             changeCell(event);
         }
     });
+
+    setupSaveCompositionButton();
+    setupEditMyPaletteButton();
 }
 
 function run() {
