@@ -42,11 +42,28 @@
             border: 2px solid gray;
         }
 
-        button#shareButton {
+        button.link {
             all: unset;
             color: #06c;
             text-decoration: underline;
             cursor: pointer;
+        }
+
+        button.selected {
+            border-color: #000;
+        }
+
+        #grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            grid-template-rows: repeat(8, 1fr);
+            width: 30vh;
+            height: 40vh;
+            touch-action: none;
+        }
+
+        .cell {
+            border: 1px solid gray;
         }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -68,10 +85,12 @@
         <div id="colorGrids2"></div>
         <div id="colorGrids3"></div>
         <hr>
-        <button id="shareButton" type="button" class="link">Share my palette!</button>
+        <button id="composeButton" type="button" class="link">Compose with my palette!</button><br>
+        <button id="shareButton" type="button" class="link">Share my palette!</button><br>
     </div>
 
     <div id="viewer">
+        <div id="grid"></div>
         <a href="./color.html">Create more beautiful palettes :)</a>
     </div>
 </body>

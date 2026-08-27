@@ -3,6 +3,9 @@ const myColors = [];
 const lastMyColors = [];
 const maxMyColors = 6;
 const myColorButtons = [];
+const maxGridSize = 8;
+let currentColor = "gray";
+const cells = [];
 
 function generateColorGrid(TL, TR, BL, BR) {
     const grid = [];
@@ -177,6 +180,29 @@ function setupShareButton() {
     });
 }
 
+function setupComposeButton() {
+    document.getElementById("composeButton").addEventListener("click", async () => {
+        const colors = encodeURIComponent(myColors.join(","));
+        const url = `${location.origin}${location.pathname}?colors=${colors}`;
+        window.location.href = url;
+    });
+}
+
+function changeCell(event) {
+    const rect = grid.getBoundingClientRect();
+
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+
+    const col = Math.floor(x / (rect.width / maxGridSize));
+    const row = Math.floor(y / (rect.height / maxGridSize));
+
+    console.log(row, col);
+
+    const cell = cells[row][col];
+    cell.style.backgroundColor = currentColor;
+}
+
 function initializeColorPicker() {
     // Yellow-Red grid adding blue slowly
     const TL1 = [0x00, 0x00, 0x00];
@@ -234,6 +260,7 @@ function initializeColorPicker() {
     }
 
     setupShareButton();
+    setupComposeButton();
 }
 
 function initializeViewer(colorString) {
@@ -253,7 +280,14 @@ function initializeViewer(colorString) {
         const button = document.createElement("button");
         button.innerHTML = "&nbsp;";
         button.className = "mycolor";
-        button.disabled = true;
+        //button.disabled = true;
+        button.addEventListener("click", () => {
+            document.querySelectorAll("button.selected")
+                .forEach(b => b.classList.remove("selected"));
+            button.classList.add("selected");
+            currentColor = `#${color}`;
+        });
+
 
         if (color === "") {
             setVacantStyle(button);
@@ -264,6 +298,34 @@ function initializeViewer(colorString) {
         myColorsDiv.append(button);
         myColorsDiv.append("\n");
     }
+
+    // Grid to paint with my palette
+    const grid = document.getElementById("grid");
+    for (let row = 0; row < maxGridSize; row++) {
+        cells[row] = [];
+
+        for (let col = 0; col < maxGridSize; col++) {
+            const cell = document.createElement("div");
+            cell.className = "cell";
+
+            grid.append(cell);
+            cells[row][col] = cell;
+        }
+    }
+
+    grid.addEventListener("pointerdown", event => {
+        if (event.pointerType === "touch") {
+            grid.setPointerCapture(event.pointerId);
+        }
+
+        changeCell(event);
+    });
+
+    grid.addEventListener("pointermove", event => {
+        if (event.pointerType === "touch") {
+            changeCell(event);
+        }
+    });
 }
 
 function run() {
