@@ -1,3 +1,23 @@
+
+class Storage {
+
+    constructor() {
+        this.prefix = "sakicolor";
+    }
+
+    lastPaletteKey(lang) {
+        return `${this.prefix}-lastpalette`;
+    }
+
+    getLastPalette() {
+        return JSON.parse(localStorage.getItem(this.lastPaletteKey())) || [];
+    }
+
+    setLastPalette(value) {
+        localStorage.setItem(this.lastPaletteKey(), JSON.stringify(value));
+    }
+}
+
 const allGridIds = [];
 const myColors = [];
 const lastMyColors = [];
@@ -6,6 +26,7 @@ const myColorButtons = [];
 const maxGridSize = 8;
 let currentColor = "gray";
 const cells = [];
+const storage = new Storage();
 
 function generateColorGrid(TL, TR, BL, BR) {
     const grid = [];
@@ -67,9 +88,9 @@ function registerColor(colorValue, index = -1) {
         }
         index = firstVacancy;
     }
-    myColorButtons[index].style.backgroundColor = `#${colorValue}`;
-    myColorButtons[index].className = "mycolor";
     myColors[index] = colorValue;
+    storage.setLastPalette(myColors);
+    setOccupiedStyle(myColorButtons[index], colorValue);
 }
 
 function unregisterColor(index) {
@@ -81,12 +102,20 @@ function unregisterColor(index) {
     } else {
         lastMyColors[index] = myColors[index];
         myColors[index] = "";
+        storage.setLastPalette(myColors);
         setVacantStyle(myColorButtons[index]);
     }
 }
 
+function setOccupiedStyle(button, color) {
+    button.style.backgroundColor = `#${color}`;
+    button.innerHTML = "&nbsp;&nbsp;";
+    button.className = "mycolor";
+}
+
 function setVacantStyle(button) {
     button.className = "mycolor mycolorvacant";
+    button.innerHTML = "&nbsp;&nbsp;";
     button.style.setProperty("--color1", "lightgray");
     button.style.setProperty("--color2", "silver");
 }
@@ -241,10 +270,21 @@ function initializeColorPicker() {
     renderColorGrids("colorGrids2", "colorGridButtons2", TL3, TR3, BL3, BR3, TL4, TR4, BL4, BR4);
     renderColorGrids("colorGrids3", "colorGridButtons3", TL5, TR5, BL5, BR5, TL6, TR6, BL6, BR6);
 
+    const lastPalette = storage.getLastPalette();
+
     for (let i = 0; i < maxMyColors; i++) {
         const button = document.createElement("button");
-        button.innerHTML = "&nbsp;&nbsp;";
-        setVacantStyle(button);
+
+        myColorButtons.push(button);
+        myColors.push("");
+        lastMyColors.push("");
+
+        if (i >= lastPalette.length || lastPalette[i] === "") {
+            setVacantStyle(button);
+        } else {
+            setOccupiedStyle(button, lastPalette[i]);
+            myColors[i] = lastPalette[i];
+        }
 
         button.addEventListener("click", () => {
             unregisterColor(i);
@@ -253,10 +293,6 @@ function initializeColorPicker() {
         const buttons = document.getElementById("myColorsDiv");
         buttons.append(button);
         buttons.append("\n");
-
-        myColorButtons.push(button);
-        myColors.push("");
-        lastMyColors.push("");
     }
 
     setupShareButton();
@@ -278,9 +314,7 @@ function initializeViewer(colorString) {
 
     for (const color of colors) {
         const button = document.createElement("button");
-        button.innerHTML = "&nbsp;";
-        button.className = "mycolor";
-        //button.disabled = true;
+
         button.addEventListener("click", () => {
             document.querySelectorAll("button.selected")
                 .forEach(b => b.classList.remove("selected"));
@@ -288,11 +322,10 @@ function initializeViewer(colorString) {
             currentColor = `#${color}`;
         });
 
-
         if (color === "") {
             setVacantStyle(button);
         } else {
-            button.style.backgroundColor = `#${color}`;
+            setOccupiedStyle(button, color);
         }
 
         myColorsDiv.append(button);

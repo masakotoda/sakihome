@@ -2,7 +2,7 @@ import { getTokenizer } from "https://esm.sh/kuromojin";
 import * as utils from './utils.js';
 
 class Storage {
-    keys;
+
     constructor() {
         this.prefix = "sakilingo";
     }
