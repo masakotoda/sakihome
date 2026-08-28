@@ -5,6 +5,15 @@ class Storage {
         this.prefix = "sakicolor";
     }
 
+    safeParse(key, defaultValue) {
+        try {
+            return JSON.parse(localStorage.getItem(key)) || defaultValue;
+        } catch (e) {
+            localStorage.removeItem(key);
+            return defaultValue;
+        }
+    }
+
     lastPaletteKey() {
         return `${this.prefix}-lastpalette`;
     }
@@ -14,7 +23,7 @@ class Storage {
     }
 
     getLastPalette() {
-        return JSON.parse(localStorage.getItem(this.lastPaletteKey())) || [];
+        return this.safeParse(this.lastPaletteKey(), []);
     }
 
     setLastPalette(value) {
@@ -22,7 +31,7 @@ class Storage {
     }
 
     getLastComposition() {
-        return JSON.parse(localStorage.getItem(this.lastCompositionKey())) || [];
+        return this.safeParse(this.lastCompositionKey(), []);
     }
 
     setLastComposition(value) {
@@ -268,7 +277,12 @@ function changeCell(event) {
     const col = Math.floor(x / (rect.width / maxGridSize));
     const row = Math.floor(y / (rect.height / maxGridSize));
 
-    console.log(row, col);
+    if (row < 0 || row >= maxGridSize || col < 0 || col >= maxGridSize) {
+        // pointermove can theoretically occur at/just beyond an edge, particularly with touch/pointer capture.
+        // So, it's possible to fall into here. (rarely)
+        console.log(row, col);
+        return;
+    }
 
     const cell = cells[row][col];
     cell.style.backgroundColor = currentColor;
