@@ -22,6 +22,10 @@ class Storage {
         return `${this.prefix}-lastcomposition`;
     }
 
+    lastOrientationKey() {
+        return `${this.prefix}-orientation`;
+    }
+
     getLastPalette() {
         return this.safeParse(this.lastPaletteKey(), []);
     }
@@ -36,6 +40,14 @@ class Storage {
 
     setLastComposition(value) {
         localStorage.setItem(this.lastCompositionKey(), JSON.stringify(value));
+    }
+
+    getLastOrientation() {
+        return this.safeParse(this.lastOrientationKey(), "");
+    }
+
+    setLastOrientation(value) {
+        localStorage.setItem(this.lastOrientationKey(), JSON.stringify(value));
     }
 }
 
@@ -288,6 +300,17 @@ function changeCell(event) {
     cell.style.backgroundColor = currentColor;
 }
 
+function setGridOrientation(orientation) {
+    const grid = document.getElementById("grid");
+    if (orientation === "landscape") {
+        grid.style.width = "36vh";
+        grid.style.height = "27vh";
+    } else {
+        grid.style.width = "30vh";
+        grid.style.height = "40vh";
+    }
+}
+
 function initializeColorPicker() {
     // Yellow-Red grid adding blue slowly
     const TL1 = [0x00, 0x00, 0x00];
@@ -366,10 +389,15 @@ function initializeViewer(colorString) {
         colors.push("");
     }
 
+    let currentColorButton = null;
     const myColorsDiv = document.getElementById("myColorsDiv");
-
-    for (const color of colors) {
+    for (const [index, color] of colors.entries()) {
         const button = document.createElement("button");
+
+        if (index == 0) {
+            currentColorButton = button;
+            currentColor = `#${color}`;
+        }
 
         button.addEventListener("click", () => {
             document.querySelectorAll("button.selected")
@@ -386,6 +414,11 @@ function initializeViewer(colorString) {
 
         myColorsDiv.append(button);
         myColorsDiv.append("\n");
+    }
+
+    if (currentColorButton) {
+        currentColorButton.classList.add("selected");
+        currentColorButton.focus();
     }
 
     // Grid to paint with my palette
@@ -421,6 +454,19 @@ function initializeViewer(colorString) {
         if (event.pointerType === "touch") {
             changeCell(event);
         }
+    });
+
+    const orientation = storage.getLastOrientation();
+    setGridOrientation(orientation);
+
+    document.querySelectorAll('input[name="gridOrientation"]').forEach(radio => {
+        if (orientation === radio.value) {
+            radio.checked = true;
+        }
+        radio.addEventListener("change", () => {
+            setGridOrientation(radio.value);
+            storage.setLastOrientation(radio.value);
+        });
     });
 
     setupSaveCompositionButton();

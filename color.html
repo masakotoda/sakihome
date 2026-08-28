@@ -57,13 +57,12 @@
             display: grid;
             grid-template-columns: repeat(8, 1fr);
             grid-template-rows: repeat(8, 1fr);
-            width: 30vh;
-            height: 40vh;
             touch-action: none;
+            border: 1px solid gray;
         }
 
         .cell {
-            border: 1px solid gray;
+            border: 0px solid gray;
         }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -90,6 +89,16 @@
     </div>
 
     <div id="viewer">
+        <div class="grid-orientation">
+            <label>
+                <input type="radio" name="gridOrientation" value="portrait" checked>
+                Portrait
+            </label>
+            <label class="separated2">
+                <input type="radio" name="gridOrientation" value="landscape">
+                Landscape
+            </label>
+        </div>
         <div id="grid"></div>
         <hr>
         <button id="saveCompositionButton" type="button" class="link">Save composition</button><br>
