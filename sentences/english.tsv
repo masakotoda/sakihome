@@ -9,7 +9,7 @@ level	tr	yomi	sen
 	surplus=黒字		When revenue is higher than spending, the government budget is in surplus.
 	excerpt=extract=抜粋		This is an excerpt from Shakespeare's novel.
 	abridged version=簡約版		I read an abridged version of Pride and Prejudice yesterday.
-	amphibian=両生類		1/3 of the world's amphibian species are in danger of extinction.
+	amphibian=両生類		1/3 of amphibian species are in danger of extinction.
 	liaison=mediator=連絡係		He serves as a liaison between labor and management.
 1	remuneration=compensation=報酬		Each participant received $100 as remuneration for participating in the study.
 	subsidies=補助金		The government is planning to increase solar panel subsidies.
@@ -332,16 +332,17 @@ level	tr	yomi	sen
 	cleanse your palate=口の中をすっきりさせる		Try this sorbet to cleanse your palate between courses.
 	clear one's name=汚名を晴らす		He provided evidence to clear his name after the accusation.
 	proclamation=宣言		The company issued a proclamation about their commitment to sustainability.
-1	concise=briefly and clearly expressed		succinct
-1	essential=absolutely necessary		indispensable
-1	unbiased=not supporting any of the sides involved in an argument		impartial
-1	sparingly=frugally=ひかえめ=saving money / avoiding wasting it		thriftly
-	窓ガラス		windowpane
-	窓下枠		windowsill
-	背もたれのない椅子、う〇ち		stool
-	小型のロバ		burro
+1	succinct=concise=briefly and clearly expressed		Her explanation was clear, concise, and succinct.
+1	indispensable=essential=absolutely necessary		Clean water is indispensable for human survival.
+1	impartial=unbiased=not supporting any of the sides involved in an argument		A judge must remain impartial when considering the evidence.
+1	thriftly=sparingly=frugally=ひかえめ=saving money / avoiding wasting it		She lives thriftly and avoids unnecessary expenses.
+	windowpane=窓ガラス		A bird accidentally flew into the windowpane.
+	windowsill=窓下枠		She placed the flowerpot on the windowsill.
+	stool=背もたれのない椅子、う〇ち		He sat on a wooden stool while waiting.
+	stool=背もたれのない椅子、う〇ち		The doctor examined a stool sample for signs of infection.
+	burro=小型のロバ		The farmer loaded supplies onto his burro.
 	corral=家畜用の囲い、herd=追い込む		They herded the cattle into the corral.
-1	花瓶（英・豪の発音注意）		vase
+1	vase=花瓶（英・豪の発音注意）		She placed fresh flowers in a glass vase.
 	podium=演壇		She proudly stood on the podium after winning the race.
 	instrument=楽器		She learned to play the violin, her favorite musical instrument.
 	doorway=戸口		She stood quietly in the doorway.
@@ -381,4 +382,15 @@ level	tr	yomi	sen
 	vigilant=用心深く		Drivers should remain vigilant when approaching busy intersections.
 	vigilante=自警団		The vigilante patrolled the neighborhood at night, seeking criminals.
 	antimony=錫（スズ）		Antimony is a brittle metalloid used in various industrial applications.
-	
+	diptych=ディプティク		The exhibition featured a diptych depicting two contrasting scenes.
+	autocratic=独裁的な		The country was ruled by an autocratic leader.
+	succumb=倒れる		The old tree eventually succumbed to the severe drought.
+	derogatory=侮辱的な		His derogatory comments offended several people.
+1	contribute=貢献する、寄付する、寄稿する		Ten scientists contributed to the special edition of the journal.
+1	contribute to=～の一因となる		Smoking contributed to his early death.
+1	reservation=予約、懸念		I have no reservations about hiring him.
+1	shrew=敏腕な		He is a shrewed and resourceful manager.
+1	forge=結ぶ		The two companies forged a strategic alliance last year.
+1	lessen=緩和する		Strengthening trade ties will lessen international tensions.
+1	new listing=新規上場		There was a sizable increase in new listings.
+1	plaintiff=原告		The plaintiff claimed damages for the financial losses suffered through breach of copyright.
