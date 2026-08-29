@@ -86,6 +86,11 @@
             outline: 2px solid currentColor;
             outline-offset: 2px;
         }
+
+        label.radio {
+            display: inline-block;
+            font-size: 2.2vh;
+        }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -94,9 +99,11 @@
 <body>
     <script type="module" src="color-script.js"></script>
 
+    <!-- Common widget for both "picker" mode and "viewer" mode -->
     <div id="myColorsDiv"></div>
     <hr>
 
+    <!-- Widgets for "picker" mode -->
     <div id="picker">
         <div id="colorGridButtons1"></div>
         <div id="colorGridButtons2"></div>
@@ -106,6 +113,7 @@
         <div id="colorGrids2"></div>
         <div id="colorGrids3"></div>
         <hr>
+
         <button id="composeButton" type="button" class="link">Compose with my palette</button><br>
         <button id="shareButton" type="button" class="link">Share my palette!</button><br>
 
@@ -117,29 +125,30 @@
         </dialog>
     </div>
 
+    <!-- Widgets for "viewer" mode -->
     <div id="viewer">
         <div>
-            <label style="font-size: 2.2vh">
-                <input type="radio" name="gridOrientation" value="portrait" checked>
-                Portrait
-            </label>
-            <label class="separated2" style="font-size: 2.2vh">
-                <input type="radio" name="gridOrientation" value="landscape">
-                Landscape
-            </label>
+            <input type="radio" id="portraitRadio" name="gridOrientation" value="portrait" checked>
+            <label for="portraitRadio" class="radio" style="margin-right:30px;">Portrait</label>
+
+            <input type="radio" id="landscapeRadio" name="gridOrientation" value="landscape">
+            <label for="landscapeRadio" class="radio">Landscape</label>
         </div>
+
         <div id="grid"></div>
         <hr>
+
         <div class="tool-selector" role="radiogroup" aria-label="Drawing tool">
             <input type="radio" id="paintTool" name="tool" value="paint" checked>
-            <label for="paintTool" style="font-size: 2.2vh">Paint</label>
+            <label for="paintTool" class="radio">Paint</label>
 
             <input type="radio" id="pickerTool" name="tool" value="picker">
-            <label for="pickerTool" style="font-size: 2.2vh">Pick Color</label>
+            <label for="pickerTool" class="radio">Pick Color</label>
 
-            <button id="tempColorButton" class="mycolor mycolorvacant">&nbsp;&nbsp;</button>
+            <button id="tempColorButton"></button>
         </div>
         <hr>
+
         <button id="editMyPaletteButton" type="button" class="link">Edit my palette</button>
         <button id="saveCompositionButton" type="button" class="tiny">Save composition</button><br>
         <div id="savedBubble" class="bubble">Saved!</div>
