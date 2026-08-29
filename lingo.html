@@ -18,7 +18,19 @@
 
   <div>
     <label id="countLabel">#0</label>
-    <select id="langSelect" style="background-color: var(--color4);" class="separated1">
+
+    <button id="numberButton" class="tiny"><img src="images/arrow-up-right.svg" class="btn3" alt="Jump to"></button>
+    <dialog id="numberDialog">
+      <form method="dialog">
+        <label for="numberInput">Jump to:</label>
+        <input type="number" id="numberInput" min="1" max="1" value="1" required>
+        <label id="maxNumberLabel">/???</label>
+        <button class="tiny" value="cancel">Cancel</button>
+        <button class="tiny" value="ok">OK</button>
+      </form>
+    </dialog>
+
+    <select id="langSelect" style="background-color: var(--color4);" class="separated2">
     </select>
 
     <textarea readonly id="nextSentenceLabel" rows="3" style="background-color: var(--color4);">

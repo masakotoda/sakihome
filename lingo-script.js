@@ -158,6 +158,7 @@ Object.entries(state.languages).forEach(([key, value]) => {
     option.selected = key === state.selectedLanguage;
 });
 
+setupNumberDialog();
 elements.langSelect.value = state.storage.getSelectedLang();
 languageSelected(elements.langSelect.value);
 
@@ -248,6 +249,7 @@ function loadSentences(lang = 'sentences') {
 
             updateSentence();
 
+            updateNumberDialog(state.sentences.length);
         })
         .catch(err => {
             console.error(err);
@@ -285,8 +287,15 @@ fetch('sentences.tsv')
 */
 
 
-function updateCounter(increment) {
-    if (increment)
+function updateCounter(increment, directValue = 0) {
+    if (directValue > 0) {
+        if (directValue > state.sentences.length) {
+            console.error("Bad index for sentences. (A malicious input might have been set programatically.)");
+            return;
+        }
+        state.counter = directValue;
+    }
+    else if (increment)
         state.counter++;
     else
         state.counter--;
@@ -358,4 +367,31 @@ function showCorrectBubble() {
     void bubble.offsetWidth;
 
     bubble.classList.add("show");
+}
+
+function setupNumberDialog() {
+    const numberButton = document.getElementById("numberButton");
+    const numberDialog = document.getElementById("numberDialog");
+    const numberInput = document.getElementById("numberInput");
+
+    numberButton.addEventListener("click", () => {
+        numberDialog.showModal();
+        numberInput.value = state.counter;
+        numberInput.focus();
+    });
+
+    numberDialog.addEventListener("close", () => {
+        if (numberDialog.returnValue === "ok") {
+            const number = numberInput.value;
+            updateCounter(false, number);
+            updateSentence();
+        }
+    });
+}
+
+function updateNumberDialog(maxValue) {
+    const numberInput = document.getElementById("numberInput");
+    const maxNumberLabel = document.getElementById("maxNumberLabel");
+    numberInput.max = maxValue;
+    maxNumberLabel.innerHTML = `/${maxValue}`;
 }
