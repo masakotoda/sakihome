@@ -108,15 +108,22 @@
         <hr>
         <button id="composeButton" type="button" class="link">Compose with my palette</button><br>
         <button id="shareButton" type="button" class="link">Share my palette!</button><br>
+
+        <dialog id="alertDialog">
+            <form method="dialog">
+                <label style="font-size: small">The palette is full. Click an unwanted color to make room.</label>
+                <button class="tiny" value="ok">OK</button>
+            </form>
+        </dialog>
     </div>
 
     <div id="viewer">
         <div>
-            <label>
+            <label style="font-size: 2.2vh">
                 <input type="radio" name="gridOrientation" value="portrait" checked>
                 Portrait
             </label>
-            <label class="separated2">
+            <label class="separated2" style="font-size: 2.2vh">
                 <input type="radio" name="gridOrientation" value="landscape">
                 Landscape
             </label>
@@ -125,16 +132,16 @@
         <hr>
         <div class="tool-selector" role="radiogroup" aria-label="Drawing tool">
             <input type="radio" id="paintTool" name="tool" value="paint" checked>
-            <label for="paintTool">Paint</label>
+            <label for="paintTool" style="font-size: 2.2vh">Paint</label>
 
             <input type="radio" id="pickerTool" name="tool" value="picker">
-            <label for="pickerTool">Pick Color</label>
+            <label for="pickerTool" style="font-size: 2.2vh">Pick Color</label>
 
             <button id="tempColorButton" class="mycolor mycolorvacant">&nbsp;&nbsp;</button>
         </div>
         <hr>
-        <button id="saveCompositionButton" type="button" class="link">Save composition</button><br>
-        <button id="editMyPaletteButton" type="button" class="link">Edit my palette</button><br>
+        <button id="editMyPaletteButton" type="button" class="link">Edit my palette</button>
+        <button id="saveCompositionButton" type="button" class="tiny">Save composition</button><br>
         <div id="savedBubble" class="bubble">Saved!</div>
     </div>
 

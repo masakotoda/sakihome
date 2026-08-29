@@ -116,7 +116,7 @@ function registerColor(colorValue, index = -1) {
     if (index === -1) {
         const firstVacancy = myColors.findIndex(color => color === "");
         if (firstVacancy === -1) {
-            alert("The palette is full. Click an unwanted color to make room.")
+            document.getElementById("alertDialog").showModal();
             return;
         }
         index = firstVacancy;
