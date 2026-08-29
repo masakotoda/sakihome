@@ -64,6 +64,28 @@
         .cell {
             border: 0px solid gray;
         }
+
+        .tool-selector input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .tool-selector label {
+            display: inline-block;
+            padding: 6px 12px;
+            border: 1px solid #aaa;
+            cursor: pointer;
+        }
+
+        .tool-selector input[type="radio"]:checked+label {
+            background-color: #ddd;
+            border-color: #555;
+        }
+
+        .tool-selector input[type="radio"]:focus-visible+label {
+            outline: 2px solid currentColor;
+            outline-offset: 2px;
+        }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -89,7 +111,7 @@
     </div>
 
     <div id="viewer">
-        <div class="grid-orientation">
+        <div>
             <label>
                 <input type="radio" name="gridOrientation" value="portrait" checked>
                 Portrait
@@ -100,6 +122,16 @@
             </label>
         </div>
         <div id="grid"></div>
+        <hr>
+        <div class="tool-selector" role="radiogroup" aria-label="Drawing tool">
+            <input type="radio" id="paintTool" name="tool" value="paint" checked>
+            <label for="paintTool">Paint</label>
+
+            <input type="radio" id="pickerTool" name="tool" value="picker">
+            <label for="pickerTool">Pick Color</label>
+
+            <button id="tempColorButton" class="mycolor mycolorvacant">&nbsp;&nbsp;</button>
+        </div>
         <hr>
         <button id="saveCompositionButton" type="button" class="link">Save composition</button><br>
         <button id="editMyPaletteButton" type="button" class="link">Edit my palette</button><br>

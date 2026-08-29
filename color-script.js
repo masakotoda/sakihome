@@ -141,7 +141,7 @@ function unregisterColor(index) {
 }
 
 function setOccupiedStyle(button, color) {
-    button.style.backgroundColor = `#${color}`;
+    button.style.backgroundColor = normalizeColor(color);
     button.innerHTML = "&nbsp;&nbsp;";
     button.className = "mycolor";
 }
@@ -280,6 +280,17 @@ function saveComposition() {
     storage.setLastComposition(cellcolors);
 }
 
+function normalizeColor(color) {
+    if (!color)
+        return "white";
+    else if (/^#[0-9A-Fa-f]{6}$/.test(color))
+        return color;
+    else if (/^[0-9A-Fa-f]{6}$/.test(color))
+        return `#${color}`;
+    else
+        return color;
+}
+
 function changeCell(event) {
     const rect = grid.getBoundingClientRect();
 
@@ -297,7 +308,22 @@ function changeCell(event) {
     }
 
     const cell = cells[row][col];
-    cell.style.backgroundColor = currentColor;
+
+    const tool = document.querySelector('input[name="tool"]:checked').value;
+    if (tool === "paint") {
+        cell.style.backgroundColor = currentColor;
+    } else {
+        currentColor = normalizeColor(cell.style.backgroundColor);
+        const button = document.getElementById("tempColorButton");
+        setOccupiedStyle(button, currentColor);
+
+        document.querySelectorAll("button.selected")
+            .forEach(b => b.classList.remove("selected"));
+        button.classList.add("selected");
+        button.focus();
+        // Immediately switch to paint mode for convenience
+        document.getElementById("paintTool").checked = true;
+    }
 }
 
 function setGridOrientation(orientation) {
@@ -471,6 +497,16 @@ function initializeViewer(colorString) {
 
     setupSaveCompositionButton();
     setupEditMyPaletteButton();
+
+    const tempColorButton = document.getElementById("tempColorButton");
+    setVacantStyle(tempColorButton);
+    tempColorButton.addEventListener
+    tempColorButton.addEventListener("click", () => {
+        document.querySelectorAll("button.selected")
+            .forEach(b => b.classList.remove("selected"));
+        tempColorButton.classList.add("selected");
+        currentColor = tempColorButton.style.backgroundColor;
+    });
 }
 
 function run() {
