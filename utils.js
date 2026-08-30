@@ -92,11 +92,14 @@ function getTranslation(item) {
 function normalize(text) {
     let cleaned = text.replace(':00', '');
     cleaned = cleaned.replace(/[.,'’"!?;:()-]/g, '');
+    cleaned = cleaned.toLowerCase();
     cleaned = cleaned.replace('percent', '%');
+    cleaned = cleaned.replace('cancelled', 'canceled');
+    cleaned = cleaned.replace('favourable', 'favorable');
     cleaned = cleaned.replace('&', 'and');
     cleaned = wordsToNumbers(cleaned);
     cleaned = cleaned.replace(/\s+/g, '');
-    return cleaned.trim().toLowerCase();
+    return cleaned.trim();
 }
 
 function normalizeJapanese(text, tokenizer) {
