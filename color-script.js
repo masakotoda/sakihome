@@ -107,7 +107,7 @@ class Picker extends Base {
         const BL1 = [0xFF, 0x00, 0x00];
         const BR1 = [0xFF, 0xA0, 0x00];
 
-        const TL2 = [0x00, 0x00, 0x80];
+        const TL2 = [0xC0, 0xC0, 0xC0];
         const TR2 = [0x08, 0xFF, 0xFF];
         const BL2 = [0xC0, 0x00, 0xFF];
         const BR2 = [0xFF, 0xFF, 0xFF];
@@ -118,7 +118,7 @@ class Picker extends Base {
         const BL3 = [0xFF, 0xFF, 0x00];
         const BR3 = [0x08, 0xFF, 0xFF];
 
-        const TL4 = [0x80, 0x00, 0x00];
+        const TL4 = [0xC0, 0xC0, 0xC0];
         const TR4 = [0xC0, 0x00, 0xFF];
         const BL4 = [0xFF, 0xA0, 0x00];
         const BR4 = [0xFF, 0xFF, 0xFF];
@@ -129,7 +129,7 @@ class Picker extends Base {
         const BL5 = [0x00, 0x00, 0xFF];
         const BR5 = [0xC0, 0x00, 0xFF];
 
-        const TL6 = [0x80, 0x80, 0x00];
+        const TL6 = [0xC0, 0xC0, 0xC0];
         const TR6 = [0xFF, 0xA0, 0x00];
         const BL6 = [0x08, 0xFF, 0xFF];
         const BR6 = [0xFF, 0xFF, 0xFF];
@@ -282,6 +282,8 @@ class Picker extends Base {
             const g = grids[i];
             let topRight = [];
             let bottomLeft = [];
+            let topLeft = [];
+            let bottomRight = [];
             let buttons = [];
             for (let j = 0; j < g.length; j++) {
                 const line = g[j];
@@ -300,6 +302,10 @@ class Picker extends Base {
                         topRight = line[k];
                     if (j === g.length - 1 && k === 0)
                         bottomLeft = line[k];
+                    if (j === 0 && k === 0)
+                        topLeft = line[k];
+                    if (j === g.length - 1 && k === line.length - 1)
+                        bottomRight = line[k];
                 }
                 buttons.push(document.createElement("br"));
             }
@@ -323,7 +329,9 @@ class Picker extends Base {
             const par = document.getElementById(buttonGroupId);
 
             button.style.setProperty("--color1", `#${topRightStr}`);
-            button.style.setProperty("--color2", `#${bottomLeftStr}`);
+            button.style.setProperty("--color3", `#${bottomLeftStr}`);
+            button.style.setProperty("--color4", `#${this.rgbToHex(topLeft)}`);
+            button.style.setProperty("--color2", `#${this.rgbToHex(bottomRight)}`);
             button.addEventListener("click", () => {
                 for (const gridId of this.allGridIds) {
                     const grid = document.getElementById(gridId);
