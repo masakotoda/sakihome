@@ -1,5 +1,5 @@
-//import wordsToNumbers from 'https://cdn.jsdelivr.net/npm/@insomnia-dev/words-to-numbers/+esm';
-import wordsToNumbers from './words-to-numbers@2.2.0/index.js'
+import wordsToNumbers from 'https://cdn.jsdelivr.net/npm/@insomnia-dev/words-to-numbers/+esm';
+//import wordsToNumbers from './words-to-numbers@2.2.0/index.js'
 import { toHiragana } from "https://esm.sh/wanakana";
 
 function shuffle(array) {
