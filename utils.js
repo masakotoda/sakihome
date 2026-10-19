@@ -96,6 +96,8 @@ function getTranslation(item) {
 
 function normalize(text) {
     let cleaned = text.replace(':00', '');
+    cleaned = cleaned.replace('ny\'s ', 'nies ');
+    cleaned = cleaned.replace('ty\'s ', 'ties ');
     cleaned = cleaned.replace(/[.,'’"!?;:()-]/g, '');
     cleaned = cleaned.toLowerCase();
     cleaned = cleaned.replace('percent', '%');
