@@ -104,26 +104,29 @@
         <img id="photo" width="100%" style="max-width: 600px; border:3px solid gray">
         <div>
             <h3>Color Modes</h3>
-            <p><select id="effectSelect"></select></p>
+            <p>
+                <select id="effectSelect"></select>&nbsp;
+                <input type="checkbox" id="highQuality" checked> High Quality (maybe slow)</label>
+            </p>
             <p id="rgbPanel">
-                R <input type="number" id="factorR" min="0" step="10" required> %,
-                G <input type="number" id="factorG" min="0" step="10" required> %,
-                B <input type="number" id="factorB" min="0" step="10" required> %
+                R <input type="number" inputmode="numeric" pattern="[0-9]*" id="factorR" min="0" step="10" required> %,
+                G <input type="number" inputmode="numeric" pattern="[0-9]*" id="factorG" min="0" step="10" required> %,
+                B <input type="number" inputmode="numeric" pattern="[0-9]*" id="factorB" min="0" step="10" required> %
             </p>
             <p id="cmykPanel">
-                C <input type="number" id="factorC" min="0" step="10" required> %,
-                M <input type="number" id="factorM" min="0" step="10" required> %,
-                Y <input type="number" id="factorY" min="0" step="10" required> %,
-                K <input type="number" id="factorK" min="0" step="10" required> %
+                C <input type="number" inputmode="numeric" pattern="[0-9]*" id="factorC" min="0" step="10" required> %,
+                M <input type="number" inputmode="numeric" pattern="[0-9]*" id="factorM" min="0" step="10" required> %,
+                Y <input type="number" inputmode="numeric" pattern="[0-9]*" id="factorY" min="0" step="10" required> %,
+                K <input type="number" inputmode="numeric" pattern="[0-9]*" id="factorK" min="0" step="10" required> %
             </p>
             <p id="hsvlPanel">
-                H <input type="number" id="offsetH" min="0" step="10" required> degrees,
-                S <input type="number" id="factorS" min="0" step="10" required> %,
-                V <input type="number" id="factorV" min="0" step="10" required> %,
-                L <input type="number" id="factorL" min="0" step="10" required> %
+                H <input type="number" inputmode="numeric" pattern="[0-9]*" id="offsetH" min="0" step="10" required> degrees,
+                S <input type="number" inputmode="numeric" pattern="[0-9]*" id="factorS" min="0" step="10" required> %,
+                V <input type="number" inputmode="numeric" pattern="[0-9]*" id="factorV" min="0" step="10" required> %,
+                L <input type="number" inputmode="numeric" pattern="[0-9]*" id="factorL" min="0" step="10" required> %
             </p>
             <p id="grayPanel">
-                Brightness <input type="number" id="factorGray" min="0" step="10" required> %
+                Brightness <input type="number" inputmode="numeric" pattern="[0-9]*" id="factorGray" min="0" step="10" required> %
             </p>
             <p id="stepColorPanel">
                 Variations <select id="colorStepSelect">

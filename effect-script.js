@@ -284,7 +284,8 @@ const state = {
     factorGray: 100,
     colorStep: 16, // 4913 colors
     maxFactor: 200,
-    maxOffsetH: 360
+    maxOffsetH: 360,
+    highQuality: true
 };
 
 const elements = {
@@ -307,6 +308,7 @@ const elements = {
     hsvlPanel: document.getElementById("hsvlPanel"),
     grayPanel: document.getElementById("grayPanel"),
     stepColorPanel: document.getElementById("stepColorPanel"),
+    highQuality: document.getElementById("highQuality")
 };
 
 elements.factorB.value = state.factorB;
@@ -336,6 +338,8 @@ elements.factorV.max = state.maxFactor;
 
 elements.factorGray.value = state.factorGray;
 elements.factorGray.max = state.maxFactor;
+
+elements.highQuality.checked = state.highQuality;
 
 
 function applyRGB(data, i) {
@@ -437,13 +441,27 @@ function applyEffect() {
     const canvas = document.getElementById("output");
     const ctx = canvas.getContext("2d");
 
+    const scaleRoot = parseFloat(
+        getComputedStyle(document.documentElement)
+            .getPropertyValue('--scale')
+    );
+
     // Render the original image onto the canvas
-    const width = img.clientWidth; // Use the displayed width of the image
-    const scale = width / img.naturalWidth; // Scale factor
-    canvas.width = width;
-    canvas.height = img.naturalHeight * scale;
+    const finalWidth = img.clientWidth * scaleRoot;
+    const finalScale = finalWidth / img.naturalWidth;
+
+    if (state.highQuality) {
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+    }
+    else {
+        canvas.width = img.clientWidth * scaleRoot;
+        canvas.height = img.clientHeight * scaleRoot;
+    }
     //canvas.save();
     //canvas.scale(0.5, 0.5);
+    //ctx.imageSmoothingEnabled = true;
+    //ctx.imageSmoothingQuality = "high";
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
     //canvas.restore();
 
@@ -479,6 +497,13 @@ function applyEffect() {
 
     // Render the altered image
     ctx.putImageData(imageData, 0, 0);
+    if (state.highQuality) {
+        canvas.style.transformOrigin = "top left";
+        canvas.style.transform = `scale(${finalScale}, ${finalScale})`;
+    }
+    else {
+        canvas.style.transform = "scale(1, 1)";
+    }
 }
 
 function updateColorMode(mode) {
@@ -599,6 +624,11 @@ elements.factorL.addEventListener("input", (event) => {
 elements.factorGray.addEventListener("input", (event) => {
     state.factorGray = parseFloat(event.target.value);
     state.factorGray = Math.min(state.maxFactor, Math.max(0, state.factorGray));
+    applyEffect();
+});
+
+elements.highQuality.addEventListener("change", (event) => {
+    state.highQuality = event.target.checked;
     applyEffect();
 });
 
