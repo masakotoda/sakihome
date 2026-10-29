@@ -12,6 +12,10 @@
         }
     }
 
+    html, body {
+        touch-action: manipulation;
+    }
+
     body {
         font-size: calc(16px * var(--scale));
         padding: 10px;

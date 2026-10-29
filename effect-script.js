@@ -267,7 +267,7 @@ const state = {
             "name": "Grayscale"
         },
         "step-color": {
-            "name": "Lower color variations"
+            "name": "Limit color palette"
         }
     },
     factorR: 100,
@@ -284,8 +284,8 @@ const state = {
     factorGray: 100,
     colorStep: 16, // 4913 colors
     maxFactor: 200,
-    maxOffsetH: 360,
-    highQuality: true
+    maxOffsetH: 180,
+    highQuality: false
 };
 
 const elements = {
@@ -308,39 +308,44 @@ const elements = {
     hsvlPanel: document.getElementById("hsvlPanel"),
     grayPanel: document.getElementById("grayPanel"),
     stepColorPanel: document.getElementById("stepColorPanel"),
-    highQuality: document.getElementById("highQuality")
+    highQuality: document.getElementById("highQuality"),
+    resetAll: document.getElementById("resetAll"),
 };
 
-elements.factorB.value = state.factorB;
-elements.factorG.value = state.factorG;
-elements.factorR.value = state.factorR;
-elements.factorB.max = state.maxFactor;
-elements.factorG.max = state.maxFactor;
-elements.factorR.max = state.maxFactor;
+function updateUI() {
+    elements.factorB.value = state.factorB;
+    elements.factorG.value = state.factorG;
+    elements.factorR.value = state.factorR;
+    elements.factorB.max = state.maxFactor;
+    elements.factorG.max = state.maxFactor;
+    elements.factorR.max = state.maxFactor;
 
-elements.factorC.value = state.factorC;
-elements.factorM.value = state.factorM;
-elements.factorY.value = state.factorY;
-elements.factorK.value = state.factorK;
-elements.factorC.max = state.maxFactor;
-elements.factorM.max = state.maxFactor;
-elements.factorY.max = state.maxFactor;
-elements.factorK.max = state.maxFactor;
+    elements.factorC.value = state.factorC;
+    elements.factorM.value = state.factorM;
+    elements.factorY.value = state.factorY;
+    elements.factorK.value = state.factorK;
+    elements.factorC.max = state.maxFactor;
+    elements.factorM.max = state.maxFactor;
+    elements.factorY.max = state.maxFactor;
+    elements.factorK.max = state.maxFactor;
 
-elements.offsetH.value = state.offsetH;
-elements.factorS.value = state.factorS;
-elements.factorL.value = state.factorL;
-elements.factorV.value = state.factorV;
-elements.offsetH.max = state.maxOffsetH;
-elements.factorS.max = state.maxFactor;
-elements.factorL.max = state.maxFactor;
-elements.factorV.max = state.maxFactor;
+    elements.offsetH.value = state.offsetH;
+    elements.factorS.value = state.factorS;
+    elements.factorL.value = state.factorL;
+    elements.factorV.value = state.factorV;
+    elements.offsetH.max = state.maxOffsetH;
+    elements.offsetH.min = -state.maxOffsetH;
+    elements.factorS.max = state.maxFactor;
+    elements.factorL.max = state.maxFactor;
+    elements.factorV.max = state.maxFactor;
 
-elements.factorGray.value = state.factorGray;
-elements.factorGray.max = state.maxFactor;
+    elements.factorGray.value = state.factorGray;
+    elements.factorGray.max = state.maxFactor;
 
-elements.highQuality.checked = state.highQuality;
+    elements.highQuality.checked = state.highQuality;
+}
 
+updateUI();
 
 function applyRGB(data, i) {
     const R = data[i] * state.factorR / 100;
@@ -388,7 +393,8 @@ function applyHSV(data, i) {
         data[i + 1],
         data[i + 2]
     );
-    var H = hsv.h + state.offsetH / 360;
+    const offsetH = state.offsetH < 0 ? state.offsetH + 360 : state.offsetH;
+    var H = hsv.h + offsetH / 360;
     if (H > 1) {
         H -= 1;
     }
@@ -406,7 +412,8 @@ function applyHSL(data, i) {
         data[i + 1],
         data[i + 2]
     );
-    var H = hsl.h + state.offsetH / 360;
+    const offsetH = state.offsetH < 0 ? state.offsetH + 360 : state.offsetH;
+    var H = hsl.h + offsetH / 360;
     if (H > 1) {
         H -= 1;
     }
@@ -431,9 +438,10 @@ function applyGray(data, i) {
 }
 
 function applyStepColor(data, i) {
-    data[i] = Math.min(255, Math.max(0, state.colorStep * Math.floor(data[i] / state.colorStep)));
-    data[i + 1] = Math.min(255, Math.max(0, state.colorStep * Math.floor(data[i + 1] / state.colorStep)));
-    data[i + 2] = Math.min(255, Math.max(0, state.colorStep * Math.floor(data[i + 2] / state.colorStep)));
+    const step = state.colorStep;
+    data[i] = Math.min(255, Math.max(0, step * Math.floor((data[i] + step / 2) / step)));
+    data[i + 1] = Math.min(255, Math.max(0, step * Math.floor((data[i + 1] + step / 2) / step)));
+    data[i + 2] = Math.min(255, Math.max(0, step * Math.floor((data[i + 2] + step / 2) / step)));
 }
 
 function applyEffect() {
@@ -599,7 +607,7 @@ elements.factorK.addEventListener("input", (event) => {
 
 elements.offsetH.addEventListener("input", (event) => {
     state.offsetH = parseFloat(event.target.value);
-    state.offsetH = Math.min(state.maxOffsetH, Math.max(0, state.offsetH));
+    state.offsetH = Math.min(state.maxOffsetH, Math.max(-state.maxOffsetH, state.offsetH));
     applyEffect();
 });
 
@@ -629,6 +637,23 @@ elements.factorGray.addEventListener("input", (event) => {
 
 elements.highQuality.addEventListener("change", (event) => {
     state.highQuality = event.target.checked;
+    applyEffect();
+});
+
+elements.resetAll.addEventListener("click", (event) => {
+    state.factorR = 100;
+    state.factorG = 100;
+    state.factorB = 100;
+    state.factorC = 100;
+    state.factorM = 100;
+    state.factorY = 100;
+    state.factorK = 100;
+    state.offsetH = 0;
+    state.factorS = 100;
+    state.factorL = 100;
+    state.factorV = 100;
+    state.factorGray = 100;
+    updateUI();
     applyEffect();
 });
 

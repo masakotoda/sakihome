@@ -119,12 +119,9 @@
         <input type="file" id="fileInput" accept="image/*">
         <img id="photo" width="100%" style="max-width: 600px; border:3px solid gray">
         <div>
-            <h3>Color Modes</h3>
+            <h4>Color Modes <button class="tiny" id="resetAll">Reset</button></h4>
             <p>
                 <select id="effectSelect"></select>
-            </p>
-            <p>
-                <input type="checkbox" id="highQuality" checked> High Quality (maybe slow)</label>
             </p>
             <div id="rgbPanel">
                 <table>
@@ -224,7 +221,7 @@
                         <td>Hue</td>
                         <td>
                             <div class="number-input">
-                                <input type="range" id="offsetH" min="0" step="10" required>360°
+                                <input type="range" id="offsetH" min="0" step="10" required>180°
                             </div>
                         </td>
                     </tr>
@@ -233,8 +230,8 @@
                         <td>
                             <div class="number-input">
                                 <button class="spinner decrement">-</button>
-                                <input type="number" inputmode="numeric" pattern="[0-9]*" id="factorS" min="0"
-                                    step="10" required>
+                                <input type="number" inputmode="numeric" pattern="[0-9]*" id="factorS" min="0" step="10"
+                                    required>
                                 <button class="spinner increment">+</button>
                                 %
                             </div>
@@ -245,8 +242,8 @@
                         <td>
                             <div class="number-input">
                                 <button class="spinner decrement">-</button>
-                                <input type="number" inputmode="numeric" pattern="[0-9]*" id="factorV" min="0"
-                                    step="10" required>
+                                <input type="number" inputmode="numeric" pattern="[0-9]*" id="factorV" min="0" step="10"
+                                    required>
                                 <button class="spinner increment">+</button>
                                 %
                             </div>
@@ -257,8 +254,8 @@
                         <td>
                             <div class="number-input">
                                 <button class="spinner decrement">-</button>
-                                <input type="number" inputmode="numeric" pattern="[0-9]*" id="factorL" min="0"
-                                    step="10" required>
+                                <input type="number" inputmode="numeric" pattern="[0-9]*" id="factorL" min="0" step="10"
+                                    required>
                                 <button class="spinner increment">+</button>
                                 %
                             </div>
@@ -282,22 +279,23 @@
                     </tr>
                 </table>
             </div>
-            <p id="stepColorPanel">
-                Variations <select id="colorStepSelect">
-                    <option value="2">~2000K colors</option>
+            <div id="stepColorPanel">
+                Palette <select id="colorStepSelect">
                     <option value="4">~270K colors</option>
                     <option value="8">~36K colors</option>
                     <option value="16" selected>4913 colors</option>
                     <option value="32">729 colors</option>
                     <option value="64">125 colors</option>
                     <option value="128">27 colors</option>
+                    <option value="256">8 colors</option>
                 </select>
-            </p>
+            </div>
         </div>
     </div>
     <hr>
     <div>
-        <div>After effect</div>
+        <div>After effect&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="highQuality"> High Quality (slow)
+        </div>
         <canvas id="output" style="border:3px solid black"></canvas>
     </div>
 </body>
