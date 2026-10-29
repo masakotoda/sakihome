@@ -637,3 +637,19 @@ Object.entries(state.effects).forEach(([key, value]) => {
     const option = elements.effectSelect.appendChild(new Option(value.name, key));
     option.selected = key === state.selectedEffect;
 });
+
+for (const ele of document.querySelectorAll('.spinner.increment')) {
+    ele.addEventListener('click', (event) => {
+        const input = event.target.parentElement.querySelector('input[type=number]');
+        input.stepUp();
+        input.dispatchEvent(new Event('input'));
+    });
+}
+
+for (const ele of document.querySelectorAll('.spinner.decrement')) {
+    ele.addEventListener('click', (event) => {
+        const input = event.target.parentElement.querySelector('input[type=number]');
+        input.stepDown();
+        input.dispatchEvent(new Event('input'));
+    });
+}

@@ -92,6 +92,22 @@
             display: inline-block;
             font-size: 2.2vh;
         }
+
+        .number-input {
+            display: flex;
+        }
+
+        input[type="number"] {
+            width: 60px;
+            text-align: center;
+        }
+
+        button.spinner {
+            padding: 3px 10px;
+            font-size: 16px;
+            border: 2px solid gray;
+            margin: 0 1px;
+        }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -105,29 +121,167 @@
         <div>
             <h3>Color Modes</h3>
             <p>
-                <select id="effectSelect"></select>&nbsp;
+                <select id="effectSelect"></select>
+            </p>
+            <p>
                 <input type="checkbox" id="highQuality" checked> High Quality (maybe slow)</label>
             </p>
-            <p id="rgbPanel">
-                R <input type="number" inputmode="numeric" pattern="[0-9]*" id="factorR" min="0" step="10" required> %,
-                G <input type="number" inputmode="numeric" pattern="[0-9]*" id="factorG" min="0" step="10" required> %,
-                B <input type="number" inputmode="numeric" pattern="[0-9]*" id="factorB" min="0" step="10" required> %
-            </p>
-            <p id="cmykPanel">
-                C <input type="number" inputmode="numeric" pattern="[0-9]*" id="factorC" min="0" step="10" required> %,
-                M <input type="number" inputmode="numeric" pattern="[0-9]*" id="factorM" min="0" step="10" required> %,
-                Y <input type="number" inputmode="numeric" pattern="[0-9]*" id="factorY" min="0" step="10" required> %,
-                K <input type="number" inputmode="numeric" pattern="[0-9]*" id="factorK" min="0" step="10" required> %
-            </p>
-            <p id="hsvlPanel">
-                H <input type="number" inputmode="numeric" pattern="[0-9]*" id="offsetH" min="0" step="10" required> degrees,
-                S <input type="number" inputmode="numeric" pattern="[0-9]*" id="factorS" min="0" step="10" required> %,
-                V <input type="number" inputmode="numeric" pattern="[0-9]*" id="factorV" min="0" step="10" required> %,
-                L <input type="number" inputmode="numeric" pattern="[0-9]*" id="factorL" min="0" step="10" required> %
-            </p>
-            <p id="grayPanel">
-                Brightness <input type="number" inputmode="numeric" pattern="[0-9]*" id="factorGray" min="0" step="10" required> %
-            </p>
+            <div id="rgbPanel">
+                <table>
+                    <tr>
+                        <td>R</td>
+                        <td>
+                            <div class="number-input">
+                                <button class="spinner decrement">-</button>
+                                <input type="number" inputmode="numeric" pattern="[0-9]*" id="factorR" min="0" step="10"
+                                    required>
+                                <button class="spinner increment">+</button>
+                                %
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>G</td>
+                        <td>
+                            <div class="number-input">
+                                <button class="spinner decrement">-</button>
+                                <input type="number" inputmode="numeric" pattern="[0-9]*" id="factorG" min="0" step="10"
+                                    required>
+                                <button class="spinner increment">+</button>
+                                %
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>B</td>
+                        <td>
+                            <div class="number-input">
+                                <button class="spinner decrement">-</button>
+                                <input type="number" inputmode="numeric" pattern="[0-9]*" id="factorB" min="0" step="10"
+                                    required>
+                                <button class="spinner increment">+</button>
+                                %
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="cmykPanel">
+                <table>
+                    <tr>
+                        <td>C</td>
+                        <td>
+                            <div class="number-input">
+                                <button class="spinner decrement">-</button>
+                                <input type="number" inputmode="numeric" pattern="[0-9]*" id="factorC" min="0" step="10"
+                                    required>
+                                <button class="spinner increment">+</button>
+                                %
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>M</td>
+                        <td>
+                            <div class="number-input">
+                                <button class="spinner decrement">-</button>
+                                <input type="number" inputmode="numeric" pattern="[0-9]*" id="factorM" min="0" step="10"
+                                    required>
+                                <button class="spinner increment">+</button>
+                                %
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Y</td>
+                        <td>
+                            <div class="number-input">
+                                <button class="spinner decrement">-</button>
+                                <input type="number" inputmode="numeric" pattern="[0-9]*" id="factorY" min="0" step="10"
+                                    required>
+                                <button class="spinner increment">+</button>
+                                %
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>K</td>
+                        <td>
+                            <div class="number-input">
+                                <button class="spinner decrement">-</button>
+                                <input type="number" inputmode="numeric" pattern="[0-9]*" id="factorK" min="0" step="10"
+                                    required>
+                                <button class="spinner increment">+</button>
+                                %
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="hsvlPanel">
+                <table>
+                    <tr>
+                        <td>H</td>
+                        <td>
+                            <div class="number-input">
+                                <input type="range" id="offsetH" min="0" step="10" required>360°
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>S</td>
+                        <td>
+                            <div class="number-input">
+                                <button class="spinner decrement">-</button>
+                                <input type="number" inputmode="numeric" pattern="[0-9]*" id="factorS" min="0"
+                                    step="10" required>
+                                <button class="spinner increment">+</button>
+                                %
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>V</td>
+                        <td>
+                            <div class="number-input">
+                                <button class="spinner decrement">-</button>
+                                <input type="number" inputmode="numeric" pattern="[0-9]*" id="factorV" min="0"
+                                    step="10" required>
+                                <button class="spinner increment">+</button>
+                                %
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>L</td>
+                        <td>
+                            <div class="number-input">
+                                <button class="spinner decrement">-</button>
+                                <input type="number" inputmode="numeric" pattern="[0-9]*" id="factorL" min="0"
+                                    step="10" required>
+                                <button class="spinner increment">+</button>
+                                %
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="grayPanel">
+                <table>
+                    <tr>
+                        <td>Factor</td>
+                        <td>
+                            <div class="number-input">
+                                <button class="spinner decrement">-</button>
+                                <input type="number" inputmode="numeric" pattern="[0-9]*" id="factorGray" min="0"
+                                    step="10" required>
+                                <button class="spinner increment">+</button>
+                                %
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
             <p id="stepColorPanel">
                 Variations <select id="colorStepSelect">
                     <option value="2">~2000K colors</option>
