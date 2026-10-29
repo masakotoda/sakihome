@@ -519,21 +519,21 @@ function updateColorMode(mode) {
     }
     else if (state.selectedEffect === "cmyk") {
         elements.cmykPanel.style.display = "block";
-        elements.factorK.disabled = false;
+        elements.factorK.parentElement.style.display = "flex";
     }
     else if (state.selectedEffect === "cmy") {
         elements.cmykPanel.style.display = "block";
-        elements.factorK.disabled = true;
+        elements.factorK.parentElement.style.display = "none";
     }
     else if (state.selectedEffect === "hsv") {
         elements.hsvlPanel.style.display = "block";
-        elements.factorL.disabled = true;
-        elements.factorV.disabled = false;
+        elements.factorL.parentElement.style.display = "none";
+        elements.factorV.parentElement.style.display = "flex";
     }
     else if (state.selectedEffect === "hsl") {
         elements.hsvlPanel.style.display = "block";
-        elements.factorL.disabled = false;
-        elements.factorV.disabled = true;
+        elements.factorL.parentElement.style.display = "flex";
+        elements.factorV.parentElement.style.display = "none";
     }
     else if (state.selectedEffect === "gray") {
         elements.grayPanel.style.display = "block";
