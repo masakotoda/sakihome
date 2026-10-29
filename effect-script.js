@@ -438,8 +438,9 @@ function applyEffect() {
     const ctx = canvas.getContext("2d");
 
     // Render the original image onto the canvas
-    const scale = 600 / img.naturalWidth; // Scale factor
-    canvas.width = 600;
+    const width = img.clientWidth; // Use the displayed width of the image
+    const scale = width / img.naturalWidth; // Scale factor
+    canvas.width = width;
     canvas.height = img.naturalHeight * scale;
     //canvas.save();
     //canvas.scale(0.5, 0.5);
