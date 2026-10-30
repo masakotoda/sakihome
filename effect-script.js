@@ -268,6 +268,9 @@ const state = {
         },
         "step-color": {
             "name": "Limit color palette"
+        },
+        "harmonic-armature": {
+            "name": "Harmonic Armature"
         }
     },
     factorR: 100,
@@ -504,7 +507,12 @@ function applyEffect() {
     }
 
     // Render the altered image
-    ctx.putImageData(imageData, 0, 0);
+    if (state.selectedEffect === "harmonic-armature") {
+        drawHarmonicArmature(ctx, canvas.width, canvas.height);
+    }
+    else {
+        ctx.putImageData(imageData, 0, 0);
+    }
     if (state.highQuality) {
         canvas.style.transformOrigin = "top left";
         canvas.style.transform = `scale(${finalScale}, ${finalScale})`;
@@ -512,6 +520,76 @@ function applyEffect() {
     else {
         canvas.style.transform = "scale(1, 1)";
     }
+}
+
+function drawHarmonicArmature(ctx, width, height) {
+    ctx.beginPath();
+    ctx.strokeStyle = "red";
+    ctx.lineWidth = 2;
+
+    ctx.moveTo(0, 0);
+    ctx.lineTo(width, height);
+    ctx.stroke();
+
+    ctx.moveTo(width, 0);
+    ctx.lineTo(0, height,)
+    ctx.stroke();
+
+    ctx.moveTo(width / 2, 0);
+    ctx.lineTo(width / 2, height);
+    ctx.stroke();
+
+    ctx.moveTo(0, height / 2);
+    ctx.lineTo(width, height / 2);
+    ctx.stroke();
+
+    ctx.moveTo(width / 2, 0);
+    ctx.lineTo(0, height,)
+    ctx.stroke();
+
+    ctx.moveTo(width / 2, 0);
+    ctx.lineTo(width, height);
+    ctx.stroke();
+
+    ctx.moveTo(0, 0);
+    ctx.lineTo(width / 2, height);
+    ctx.stroke();
+
+    ctx.moveTo(width, 0);
+    ctx.lineTo(width / 2, height);
+    ctx.stroke();
+
+    ctx.moveTo(0, height / 2);
+    ctx.lineTo(width / 2, 0);
+    ctx.stroke();
+
+    ctx.moveTo(0, height / 2);
+    ctx.lineTo(width / 2, height);
+    ctx.stroke();
+
+    ctx.moveTo(width, height / 2);
+    ctx.lineTo(width / 2, 0);
+    ctx.stroke();
+
+    ctx.moveTo(width, height / 2);
+    ctx.lineTo(width / 2, height);
+    ctx.stroke();
+
+    ctx.moveTo(0, 0);
+    ctx.lineTo(width, height / 2);
+    ctx.stroke();
+
+    ctx.moveTo(width, 0);
+    ctx.lineTo(0, height / 2);
+    ctx.stroke();
+
+    ctx.moveTo(0, height / 2);
+    ctx.lineTo(width, height);
+    ctx.stroke();
+
+    ctx.moveTo(width, height / 2);
+    ctx.lineTo(0, height);
+    ctx.stroke();
 }
 
 function updateColorMode(mode) {
