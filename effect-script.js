@@ -267,7 +267,10 @@ const state = {
             "name": "Grayscale"
         },
         "step-color": {
-            "name": "Limit color palette"
+            "name": "Limit color palette (RGB)"
+        },
+        "step-color-hsv": {
+            "name": "Limit color palette (HSV)"
         },
         "harmonic-armature": {
             "name": "Harmonic Armature"
@@ -286,6 +289,11 @@ const state = {
     factorV: 100,
     factorGray: 100,
     colorStep: 16, // 4913 colors
+    colorStepHSV: {
+        stepH: 20,
+        startSV: 10,
+        stepSV: 20
+    }, // 450 colors - H-step = 20 deg, SV = start at 10%, step by 20%
     maxFactor: 200,
     maxOffsetH: 180,
     highQuality: false
@@ -306,11 +314,13 @@ const elements = {
     factorV: document.getElementById("factorV"),
     factorGray: document.getElementById("factorGray"),
     colorStepSelect: document.getElementById("colorStepSelect"),
+    colorStepHSVSelect: document.getElementById("colorStepHSVSelect"),
     rgbPanel: document.getElementById("rgbPanel"),
     cmykPanel: document.getElementById("cmykPanel"),
     hsvlPanel: document.getElementById("hsvlPanel"),
     grayPanel: document.getElementById("grayPanel"),
     stepColorPanel: document.getElementById("stepColorPanel"),
+    stepColorHSVPanel: document.getElementById("stepColorHSVPanel"),
     highQuality: document.getElementById("highQuality"),
     resetAll: document.getElementById("resetAll"),
 };
@@ -447,6 +457,30 @@ function applyStepColor(data, i) {
     data[i + 2] = Math.min(255, Math.max(0, step * Math.floor((data[i + 2] + step / 2) / step)));
 }
 
+function applyStepColorHSV(data, i) {
+    const step = state.colorStepHSV;
+    const hsv = Converter.RGB2HSV(
+        data[i],
+        data[i + 1],
+        data[i + 2]
+    );
+    hsv.h *= 360;
+    hsv.s *= 100;
+    hsv.v *= 100;
+
+    var h = step.stepH * Math.floor((hsv.h + step.stepH / 2) / step.stepH);
+    var s = step.startSV + step.stepSV * Math.floor((hsv.s - step.startSV) / step.stepSV);
+    var v = step.startSV + step.stepSV * Math.floor((hsv.v - step.startSV) / step.stepSV);
+    h = Math.min(360, Math.max(0, h)) / 360;
+    s = Math.min(100, Math.max(0, s)) / 100;
+    v = Math.min(100, Math.max(0, v)) / 100;
+
+    const rgb = Converter.HSV2RGB(h, s, v);
+    data[i] = rgb.r;
+    data[i + 1] = rgb.g;
+    data[i + 2] = rgb.b;
+}
+
 function applyEffect() {
     const img = document.getElementById("photo");
     const canvas = document.getElementById("output");
@@ -503,6 +537,9 @@ function applyEffect() {
         }
         else if (state.selectedEffect === "step-color") {
             applyStepColor(data, i);
+        }
+        else if (state.selectedEffect === "step-color-hsv") {
+            applyStepColorHSV(data, i);
         }
     }
 
@@ -598,6 +635,7 @@ function updateColorMode(mode) {
     elements.hsvlPanel.style.display = "none";
     elements.grayPanel.style.display = "none";
     elements.stepColorPanel.style.display = "none";
+    elements.stepColorHSVPanel.style.display = "none";
 
     state.selectedEffect = mode;
     if (state.selectedEffect === "rgb") {
@@ -627,6 +665,9 @@ function updateColorMode(mode) {
     else if (state.selectedEffect === "step-color") {
         elements.stepColorPanel.style.display = "block";
     }
+    else if (state.selectedEffect === "step-color-hsv") {
+        elements.stepColorHSVPanel.style.display = "block";
+    }
 }
 
 updateColorMode(state.selectedEffect);
@@ -638,6 +679,19 @@ elements.effectSelect.addEventListener("change", (event) => {
 
 elements.colorStepSelect.addEventListener("change", (event) => {
     state.colorStep = event.target.value;
+    applyEffect();
+});
+
+elements.colorStepHSVSelect.addEventListener("change", (event) => {
+    const parts = event.target.value.split(",");
+    const stepH = parseFloat(parts[0]);
+    const startSV = parseFloat(parts[1]);
+    const stepSV = parseFloat(parts[2]);
+
+    state.colorStepHSV.stepH = stepH;
+    state.colorStepHSV.startSV = startSV;
+    state.colorStepHSV.stepSV = stepSV;
+
     applyEffect();
 });
 
