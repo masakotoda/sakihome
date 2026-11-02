@@ -1,4 +1,4 @@
-import { getTokenizer } from "https://esm.sh/kuromojin";
+import { getTokenizer } from "https://esm.sh/kuromojin@3.0.0";
 import * as utils from './utils.js';
 
 class Storage {
