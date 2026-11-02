@@ -272,6 +272,9 @@ const state = {
         "step-color-hsv": {
             "name": "Limit color palette (HSV)"
         },
+        "pixelate": {
+            "name": "Pixelate"
+        },
         "harmonic-armature": {
             "name": "Harmonic Armature"
         }
@@ -294,6 +297,7 @@ const state = {
         startSV: 10,
         stepSV: 20
     }, // 450 colors - H-step = 20 deg, SV = start at 10%, step by 20%
+    pixelSize: 32,
     maxFactor: 200,
     maxOffsetH: 180,
     highQuality: false
@@ -315,12 +319,14 @@ const elements = {
     factorGray: document.getElementById("factorGray"),
     colorStepSelect: document.getElementById("colorStepSelect"),
     colorStepHSVSelect: document.getElementById("colorStepHSVSelect"),
+    pixelSizeSelect: document.getElementById("pixelSizeSelect"),
     rgbPanel: document.getElementById("rgbPanel"),
     cmykPanel: document.getElementById("cmykPanel"),
     hsvlPanel: document.getElementById("hsvlPanel"),
     grayPanel: document.getElementById("grayPanel"),
     stepColorPanel: document.getElementById("stepColorPanel"),
     stepColorHSVPanel: document.getElementById("stepColorHSVPanel"),
+    pixelatePanel: document.getElementById("pixelatePanel"),
     highQuality: document.getElementById("highQuality"),
     resetAll: document.getElementById("resetAll"),
 };
@@ -547,9 +553,13 @@ function applyEffect() {
     if (state.selectedEffect === "harmonic-armature") {
         drawHarmonicArmature(ctx, canvas.width, canvas.height);
     }
+    else if (state.selectedEffect === "pixelate") {
+        pixelateImage(ctx, canvas.width, canvas.height);
+    }
     else {
         ctx.putImageData(imageData, 0, 0);
     }
+
     if (state.highQuality) {
         canvas.style.transformOrigin = "top left";
         canvas.style.transform = `scale(${finalScale}, ${finalScale})`;
@@ -629,6 +639,37 @@ function drawHarmonicArmature(ctx, width, height) {
     ctx.stroke();
 }
 
+function pixelateImage(ctx, width, height) {
+    const stepW = Math.floor(width / state.pixelSize);
+    const stepH = Math.floor(height / state.pixelSize);
+
+    for (let x = 0; x < width; x += stepW) {
+        for (let y = 0; y < height; y += stepH) {
+            const imageData = ctx.getImageData(x, y, stepW, stepH);
+
+            // Get RGB average color of the block
+            let r = 0, g = 0, b = 0;
+            for (let k = 0; k < imageData.data.length; k += 4) {
+                r += imageData.data[k];
+                g += imageData.data[k + 1];
+                b += imageData.data[k + 2];
+            }
+            r /= (imageData.data.length / 4);
+            g /= (imageData.data.length / 4);
+            b /= (imageData.data.length / 4);
+
+            // Set the block to the average color
+            for (let k = 0; k < imageData.data.length; k += 4) {
+                imageData.data[k] = r;
+                imageData.data[k + 1] = g;
+                imageData.data[k + 2] = b;
+            }
+
+            ctx.putImageData(imageData, x, y);
+        }
+    }
+}
+
 function updateColorMode(mode) {
     elements.rgbPanel.style.display = "none";
     elements.cmykPanel.style.display = "none";
@@ -636,6 +677,7 @@ function updateColorMode(mode) {
     elements.grayPanel.style.display = "none";
     elements.stepColorPanel.style.display = "none";
     elements.stepColorHSVPanel.style.display = "none";
+    elements.pixelatePanel.style.display = "none";
 
     state.selectedEffect = mode;
     if (state.selectedEffect === "rgb") {
@@ -668,6 +710,9 @@ function updateColorMode(mode) {
     else if (state.selectedEffect === "step-color-hsv") {
         elements.stepColorHSVPanel.style.display = "block";
     }
+    else if (state.selectedEffect === "pixelate") {
+        elements.pixelatePanel.style.display = "block";
+    }
 }
 
 updateColorMode(state.selectedEffect);
@@ -692,6 +737,11 @@ elements.colorStepHSVSelect.addEventListener("change", (event) => {
     state.colorStepHSV.startSV = startSV;
     state.colorStepHSV.stepSV = stepSV;
 
+    applyEffect();
+});
+
+elements.pixelSizeSelect.addEventListener("change", (event) => {
+    state.pixelSize = parseInt(event.target.value);
     applyEffect();
 });
 
