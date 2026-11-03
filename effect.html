@@ -223,6 +223,7 @@
                             <div class="number-input">
                                 <input type="range" id="offsetH" min="0" step="10" required style="height:36px;">180°
                             </div>
+                            180° is the complementary (補色).
                         </td>
                     </tr>
                     <tr>
@@ -299,20 +300,20 @@
                     <option value="60,20,60">24 colors</option>
                 </select>
             </div>
-            <div id="pixelatePanel">
-                Pixel size <select id="pixelSizeSelect">
-                    <option value="8">8 x 8</option>
-                    <option value="16">16 x 16</option>
-                    <option value="32" selected>32 x 32</option>
-                    <option value="64">64 x 64</option>
-                </select>
-            </div>
         </div>
     </div>
     <hr>
     <div>
-        <div>After effect&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="highQuality"> High Quality (slow)
-        </div>
+        <table>
+            <tr>
+                <td style="padding-right: 16px;">Overlay</td>
+                <td style="padding-right: 16px;">Resolution</td>
+            </tr>
+            <tr>
+                <td style="padding-right: 16px;"><select id="overlaySelect"></select></td>
+                <td style="padding-right: 16px;"><select id="resolutionSelect"></select></td>
+            </tr>
+        </table>
         <canvas id="output" style="border:3px solid black"></canvas>
     </div>
 </body>

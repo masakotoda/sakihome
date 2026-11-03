@@ -246,37 +246,70 @@ document.getElementById('fileInput').addEventListener('change', function (event)
 });
 
 const state = {
+    selectedOverlay: "none",
+    overlays: {
+        "none": {
+            name: "None"
+        },
+        "harmonicarmature": {
+            name: "Harmonic Armature"
+        },
+        "grid2": {
+            name: "2x2 grid"
+        },
+        "grid4": {
+            name: "4x4 grid"
+        },
+        "grid8": {
+            name: "8x8 grid"
+        }
+    },
+    selectedResolution: "normal",
+    resolutions: {
+        "normal": {
+            name: "Normal"
+        },
+        "pixel8": {
+            name: "8x8"
+        },
+        "pixel16": {
+            name: "16x16"
+        },
+        "pixel32": {
+            name: "32x32"
+        },
+        "pixel64": {
+            name: "64x64"
+        },
+        "high": {
+            name: "High (slow)"
+        }
+    },
     selectedEffect: "rgb",
     effects: {
         "rgb": {
-            "name": "RGB"
+            name: "RGB"
         },
         "cmy": {
-            "name": "CMY"
+            name: "CMY"
         },
         "cmyk": {
-            "name": "CMYK"
+            name: "CMYK"
         },
         "hsv": {
-            "name": "HSV"
+            name: "HSV"
         },
         "hsl": {
-            "name": "HSL"
+            name: "HSL"
         },
         "gray": {
-            "name": "Grayscale"
+            name: "Grayscale"
         },
         "step-color": {
-            "name": "Limit color palette (RGB)"
+            name: "Limit color palette (RGB)"
         },
         "step-color-hsv": {
-            "name": "Limit color palette (HSV)"
-        },
-        "pixelate": {
-            "name": "Pixelate"
-        },
-        "harmonic-armature": {
-            "name": "Harmonic Armature"
+            name: "Limit color palette (HSV)"
         }
     },
     factorR: 100,
@@ -297,13 +330,14 @@ const state = {
         startSV: 10,
         stepSV: 20
     }, // 450 colors - H-step = 20 deg, SV = start at 10%, step by 20%
-    pixelSize: 32,
     maxFactor: 200,
     maxOffsetH: 180,
     highQuality: false
 };
 
 const elements = {
+    overlaySelect: document.getElementById("overlaySelect"),
+    resolutionSelect: document.getElementById("resolutionSelect"),
     effectSelect: document.getElementById("effectSelect"),
     factorR: document.getElementById("factorR"),
     factorG: document.getElementById("factorG"),
@@ -319,15 +353,12 @@ const elements = {
     factorGray: document.getElementById("factorGray"),
     colorStepSelect: document.getElementById("colorStepSelect"),
     colorStepHSVSelect: document.getElementById("colorStepHSVSelect"),
-    pixelSizeSelect: document.getElementById("pixelSizeSelect"),
     rgbPanel: document.getElementById("rgbPanel"),
     cmykPanel: document.getElementById("cmykPanel"),
     hsvlPanel: document.getElementById("hsvlPanel"),
     grayPanel: document.getElementById("grayPanel"),
     stepColorPanel: document.getElementById("stepColorPanel"),
     stepColorHSVPanel: document.getElementById("stepColorHSVPanel"),
-    pixelatePanel: document.getElementById("pixelatePanel"),
-    highQuality: document.getElementById("highQuality"),
     resetAll: document.getElementById("resetAll"),
 };
 
@@ -360,8 +391,6 @@ function updateUI() {
 
     elements.factorGray.value = state.factorGray;
     elements.factorGray.max = state.maxFactor;
-
-    elements.highQuality.checked = state.highQuality;
 }
 
 updateUI();
@@ -490,12 +519,16 @@ function applyStepColorHSV(data, i) {
 function applyEffect() {
     const img = document.getElementById("photo");
     const canvas = document.getElementById("output");
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext("2d", { willReadFrequently: true });
 
     const scaleRoot = parseFloat(
         getComputedStyle(document.documentElement)
             .getPropertyValue('--scale')
     );
+
+    if (img.naturalWidth === 0 || img.naturalHeight === 0) {
+        return; // Image not loaded yet
+    }
 
     // Render the original image onto the canvas
     const finalWidth = img.clientWidth * scaleRoot;
@@ -550,14 +583,22 @@ function applyEffect() {
     }
 
     // Render the altered image
-    if (state.selectedEffect === "harmonic-armature") {
-        drawHarmonicArmature(ctx, canvas.width, canvas.height);
+    ctx.putImageData(imageData, 0, 0);
+
+    if (state.selectedResolution !== "normal") {
+        if (state.selectedResolution.indexOf("pixel") === 0) {
+            const pixelSize = parseInt(state.selectedResolution.substring(5));
+            pixelateImage(ctx, canvas.width, canvas.height, pixelSize);
+        }
     }
-    else if (state.selectedEffect === "pixelate") {
-        pixelateImage(ctx, canvas.width, canvas.height);
-    }
-    else {
-        ctx.putImageData(imageData, 0, 0);
+    if (state.selectedOverlay !== "none") {
+        if (state.selectedOverlay === "harmonicarmature") {
+            drawHarmonicArmature(ctx, canvas.width, canvas.height);
+        }
+        else if (state.selectedOverlay.indexOf("grid") === 0) {
+            const counts = parseInt(state.selectedOverlay.substring(4));
+            drawGrid(ctx, canvas.width, canvas.height, counts);
+        }
     }
 
     if (state.highQuality) {
@@ -639,9 +680,35 @@ function drawHarmonicArmature(ctx, width, height) {
     ctx.stroke();
 }
 
-function pixelateImage(ctx, width, height) {
-    const stepW = Math.floor(width / state.pixelSize);
-    const stepH = Math.floor(height / state.pixelSize);
+function drawGrid(ctx, width, height, counts) {
+    if (counts === NaN || counts <= 0)
+        return;
+
+    ctx.beginPath();
+    ctx.strokeStyle = "red";
+    ctx.lineWidth = 2;
+
+    const stepW = width / counts;
+    const stepH = height / counts;
+
+    for (let w = stepW; w < width; w += stepW) {
+        ctx.moveTo(w, 0);
+        ctx.lineTo(w, height);
+        ctx.stroke();
+    }
+    for (let h = stepH; h < height; h += stepH) {
+        ctx.moveTo(0, h);
+        ctx.lineTo(width, h);
+        ctx.stroke();
+    }
+}
+
+function pixelateImage(ctx, width, height, pixelSize) {
+    if (pixelSize === NaN || pixelSize <= 0)
+        return;
+
+    const stepW = Math.floor(width / pixelSize);
+    const stepH = Math.floor(height / pixelSize);
 
     for (let x = 0; x < width; x += stepW) {
         for (let y = 0; y < height; y += stepH) {
@@ -677,7 +744,6 @@ function updateColorMode(mode) {
     elements.grayPanel.style.display = "none";
     elements.stepColorPanel.style.display = "none";
     elements.stepColorHSVPanel.style.display = "none";
-    elements.pixelatePanel.style.display = "none";
 
     state.selectedEffect = mode;
     if (state.selectedEffect === "rgb") {
@@ -710,15 +776,24 @@ function updateColorMode(mode) {
     else if (state.selectedEffect === "step-color-hsv") {
         elements.stepColorHSVPanel.style.display = "block";
     }
-    else if (state.selectedEffect === "pixelate") {
-        elements.pixelatePanel.style.display = "block";
-    }
 }
 
 updateColorMode(state.selectedEffect);
 
 elements.effectSelect.addEventListener("change", (event) => {
     updateColorMode(event.target.value);
+    applyEffect();
+});
+
+elements.overlaySelect.addEventListener("change", (event) => {
+    state.selectedOverlay = event.target.value;
+    applyEffect();
+});
+
+elements.resolutionSelect.addEventListener("change", (event) => {
+    state.selectedResolution = event.target.value;
+    state.highQuality = state.selectedResolution === "high";
+
     applyEffect();
 });
 
@@ -737,11 +812,6 @@ elements.colorStepHSVSelect.addEventListener("change", (event) => {
     state.colorStepHSV.startSV = startSV;
     state.colorStepHSV.stepSV = stepSV;
 
-    applyEffect();
-});
-
-elements.pixelSizeSelect.addEventListener("change", (event) => {
-    state.pixelSize = parseInt(event.target.value);
     applyEffect();
 });
 
@@ -817,11 +887,6 @@ elements.factorGray.addEventListener("input", (event) => {
     applyEffect();
 });
 
-elements.highQuality.addEventListener("change", (event) => {
-    state.highQuality = event.target.checked;
-    applyEffect();
-});
-
 elements.resetAll.addEventListener("click", (event) => {
     state.factorR = 100;
     state.factorG = 100;
@@ -837,6 +902,18 @@ elements.resetAll.addEventListener("click", (event) => {
     state.factorGray = 100;
     updateUI();
     applyEffect();
+});
+
+elements.overlaySelect.replaceChildren();
+Object.entries(state.overlays).forEach(([key, value]) => {
+    const option = elements.overlaySelect.appendChild(new Option(value.name, key));
+    option.selected = key === state.selectedOverlay;
+});
+
+elements.resolutionSelect.replaceChildren();
+Object.entries(state.resolutions).forEach(([key, value]) => {
+    const option = elements.resolutionSelect.appendChild(new Option(value.name, key));
+    option.selected = key === state.selectedResolution;
 });
 
 elements.effectSelect.replaceChildren();
