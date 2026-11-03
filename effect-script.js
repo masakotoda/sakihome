@@ -596,8 +596,8 @@ function applyEffect() {
             drawHarmonicArmature(ctx, canvas.width, canvas.height);
         }
         else if (state.selectedOverlay.indexOf("grid") === 0) {
-            const counts = parseInt(state.selectedOverlay.substring(4));
-            drawGrid(ctx, canvas.width, canvas.height, counts);
+            const gridCount = parseInt(state.selectedOverlay.substring(4));
+            drawGrid(ctx, canvas.width, canvas.height, gridCount);
         }
     }
 
@@ -680,23 +680,22 @@ function drawHarmonicArmature(ctx, width, height) {
     ctx.stroke();
 }
 
-function drawGrid(ctx, width, height, counts) {
-    if (counts === NaN || counts <= 0)
+function drawGrid(ctx, width, height, gridCount) {
+    if (gridCount === NaN || gridCount <= 0)
         return;
 
     ctx.beginPath();
     ctx.strokeStyle = "red";
     ctx.lineWidth = 2;
 
-    const stepW = width / counts;
-    const stepH = height / counts;
-
-    for (let w = stepW; w < width; w += stepW) {
+    for (let i = 0; i < gridCount; i++) {
+        const w = (width * i) / gridCount;
         ctx.moveTo(w, 0);
         ctx.lineTo(w, height);
         ctx.stroke();
     }
-    for (let h = stepH; h < height; h += stepH) {
+    for (let i = 0; i < gridCount; i++) {
+        const h = (height * i) / gridCount;
         ctx.moveTo(0, h);
         ctx.lineTo(width, h);
         ctx.stroke();
@@ -707,11 +706,13 @@ function pixelateImage(ctx, width, height, pixelSize) {
     if (pixelSize === NaN || pixelSize <= 0)
         return;
 
-    const stepW = Math.floor(width / pixelSize);
-    const stepH = Math.floor(height / pixelSize);
+    const stepW = Math.ceil(width / pixelSize);
+    const stepH = Math.ceil(height / pixelSize);
 
-    for (let x = 0; x < width; x += stepW) {
-        for (let y = 0; y < height; y += stepH) {
+    for (let i = 0; i < pixelSize; i++) {
+        for (let j = 0; j < pixelSize; j++) {
+            const x = (width * i) / pixelSize;
+            const y = (height * j) / pixelSize;
             const imageData = ctx.getImageData(x, y, stepW, stepH);
 
             // Get RGB average color of the block
