@@ -104,6 +104,7 @@ function normalize(text) {
     cleaned = cleaned.replace('percent', '%');
     cleaned = cleaned.replace('cancelled', 'canceled');
     cleaned = cleaned.replace('favourable', 'favorable');
+    cleaned = cleaned.replace('rumour', 'rumor');
     cleaned = cleaned.replace('&', 'and');
     cleaned = wordsToNumbers(cleaned);
     cleaned = cleaned.replace(/\s+/g, '');
